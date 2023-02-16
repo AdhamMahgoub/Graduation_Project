@@ -1,1 +1,23 @@
+Low Level Microcontroller:
+  
+  MCAL Layer: 
+    1. D&T GPIO driver
+    2. D&T ADC driver 
+    3. D&T Timers driver
+    4. D&T Interrupts driver
+    5. D&T SPI driver 
+  HAL Layer: 
+    6. D&T control drivers for motors
+    7. D&T Load Cell driver
+    8. D&T Proximity Sensor driver
+  Other:   
+    9. Integration and System Testing
+    10. RTOS (optional)
+    
+    
  
+High Level Microcontroller (Raspberry PI):
+
+  1. Cameras control using OpenCV
+  2. Touch Screen control
+

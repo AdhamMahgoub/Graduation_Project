@@ -20,4 +20,3 @@ High Level Microcontroller (Raspberry PI):
 
   1. Cameras control using OpenCV
   2. Touch Screen control
-

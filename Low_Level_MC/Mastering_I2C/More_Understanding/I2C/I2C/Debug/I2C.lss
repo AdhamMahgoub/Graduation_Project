@@ -324,11 +324,12 @@ int main(void)
  166:	0e 94 c0 00 	call	0x180	; 0x180 <I2C_Init_Master>
 	 I2C_Start();
  16a:	0e 94 91 00 	call	0x122	; 0x122 <I2C_Start>
-	 I2C_Send_slave_address_with_write_req(0b01000000);
- 16e:	80 e4       	ldi	r24, 0x40	; 64
+	 I2C_Send_slave_address_with_write_req(0x32);			// Argument = Address in hexadecimal / 2
+ 16e:	82 e3       	ldi	r24, 0x32	; 50
  170:	0e 94 7e 00 	call	0xfc	; 0xfc <I2C_Send_slave_address_with_write_req>
-	 I2C_Write_data(0x33);
- 174:	83 e3       	ldi	r24, 0x33	; 51
+															// if the address is 0x80, the hexadecimal argument will be 0x40
+	 I2C_Write_data(0x59);									// The Proteus I2C Debugger shows hexadecimal values
+ 174:	89 e5       	ldi	r24, 0x59	; 89
  176:	0e 94 a2 00 	call	0x144	; 0x144 <I2C_Write_data>
 	 I2C_Stop();
  17a:	0e 94 d7 00 	call	0x1ae	; 0x1ae <I2C_Stop>

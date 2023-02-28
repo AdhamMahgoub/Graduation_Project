@@ -11,7 +11,7 @@
 #define CPU_CONFIGURATION_H_
 
 #undef F_CPU /*Remove previous definition*/
-#define F_CPU 16000000UL/*16 MegaHz(16 Million)*/
+#define F_CPU 8000000UL/*8 MegaHz(8 Million)*/
 #include <util/delay.h>
 #include <avr/interrupt.h>
 //#include <avr/io.h> /*All registers are Pre-Defined here*/

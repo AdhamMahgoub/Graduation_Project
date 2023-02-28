@@ -1,0 +1,367 @@
+
+I2C.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000ae  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00000264  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  00000264  2**0
+                  CONTENTS, READONLY
+  3 .stack.descriptors.hdr 0000000e  00000000  00000000  00000293  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 000000d0  00000000  00000000  000002a1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000f5a  00000000  00000000  00000371  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000067c  00000000  00000000  000012cb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000004df  00000000  00000000  00001947  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000194  00000000  00000000  00001e28  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000001fc  00000000  00000000  00001fbc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000013a  00000000  00000000  000021b8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 000000a0  00000000  00000000  000022f2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .text         00000004  000001c2  000001c2  00000256  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00002394  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .text.__vector_1 0000004e  000000ae  000000ae  00000142  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .bss.EXTI0_CallBack 00000002  00800060  00800060  00000264  2**0
+                  ALLOC
+ 16 .text.I2C_Init_Master 00000018  00000180  00000180  00000214  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.I2C_Start 00000022  00000122  00000122  000001b6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text.I2C_Write_data 0000001e  00000144  00000144  000001d8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text.I2C_Stop 00000014  000001ae  000001ae  00000242  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text.I2C_Send_slave_address_with_write_req 00000026  000000fc  000000fc  00000190  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .text.main    0000001e  00000162  00000162  000001f6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .text.__dummy_fini 00000002  000001ca  000001ca  0000025e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 23 .text.__dummy_funcs_on_exit 00000002  000001cc  000001cc  00000260  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 24 .text.__dummy_simulator_exit 00000002  000001ce  000001ce  00000262  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 25 .text.exit    00000016  00000198  00000198  0000022c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 26 .text._Exit   00000004  000001c6  000001c6  0000025a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2d 00 	jmp	0x5a	; 0x5a <__ctors_end>
+   4:	0c 94 57 00 	jmp	0xae	; 0xae <_etext>
+   8:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+   c:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+  10:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+  14:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+  18:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+  1c:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+  20:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+  24:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+  28:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+  2c:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+  30:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+  34:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+  38:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+  3c:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+  40:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+  44:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+  48:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+  4c:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+  50:	0c 94 e1 00 	jmp	0x1c2	; 0x1c2 <__bad_interrupt>
+
+00000054 <.dinit>:
+  54:	00 60       	ori	r16, 0x00	; 0
+  56:	00 62       	ori	r16, 0x20	; 32
+  58:	80 00       	.word	0x0080	; ????
+
+0000005a <__ctors_end>:
+  5a:	11 24       	eor	r1, r1
+  5c:	1f be       	out	0x3f, r1	; 63
+  5e:	cf e5       	ldi	r28, 0x5F	; 95
+  60:	d8 e0       	ldi	r29, 0x08	; 8
+  62:	de bf       	out	0x3e, r29	; 62
+  64:	cd bf       	out	0x3d, r28	; 61
+
+00000066 <__do_copy_data>:
+  66:	e4 e5       	ldi	r30, 0x54	; 84
+  68:	f0 e0       	ldi	r31, 0x00	; 0
+  6a:	40 e0       	ldi	r20, 0x00	; 0
+  6c:	17 c0       	rjmp	.+46     	; 0x9c <__do_clear_bss+0x8>
+  6e:	b5 91       	lpm	r27, Z+
+  70:	a5 91       	lpm	r26, Z+
+  72:	35 91       	lpm	r19, Z+
+  74:	25 91       	lpm	r18, Z+
+  76:	05 91       	lpm	r16, Z+
+  78:	07 fd       	sbrc	r16, 7
+  7a:	0c c0       	rjmp	.+24     	; 0x94 <__do_clear_bss>
+  7c:	95 91       	lpm	r25, Z+
+  7e:	85 91       	lpm	r24, Z+
+  80:	ef 01       	movw	r28, r30
+  82:	f9 2f       	mov	r31, r25
+  84:	e8 2f       	mov	r30, r24
+  86:	05 90       	lpm	r0, Z+
+  88:	0d 92       	st	X+, r0
+  8a:	a2 17       	cp	r26, r18
+  8c:	b3 07       	cpc	r27, r19
+  8e:	d9 f7       	brne	.-10     	; 0x86 <__do_copy_data+0x20>
+  90:	fe 01       	movw	r30, r28
+  92:	04 c0       	rjmp	.+8      	; 0x9c <__do_clear_bss+0x8>
+
+00000094 <__do_clear_bss>:
+  94:	1d 92       	st	X+, r1
+  96:	a2 17       	cp	r26, r18
+  98:	b3 07       	cpc	r27, r19
+  9a:	e1 f7       	brne	.-8      	; 0x94 <__do_clear_bss>
+  9c:	e9 35       	cpi	r30, 0x59	; 89
+  9e:	f4 07       	cpc	r31, r20
+  a0:	31 f7       	brne	.-52     	; 0x6e <__do_copy_data+0x8>
+  a2:	0e 94 b1 00 	call	0x162	; 0x162 <main>
+  a6:	0c 94 cc 00 	jmp	0x198	; 0x198 <exit>
+
+000000aa <_exit>:
+  aa:	f8 94       	cli
+
+000000ac <__stop_program>:
+  ac:	ff cf       	rjmp	.-2      	; 0xac <__stop_program>
+
+Disassembly of section .text:
+
+000001c2 <__bad_interrupt>:
+ 1c2:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.__vector_1:
+
+000000ae <__vector_1>:
+void EXTI0_voidDisableInterrupt(void)
+{
+	CLR_BIT(GICR,6); //hwa katebha set 
+}
+void __vector_1	(void)
+{
+  ae:	1f 92       	push	r1
+  b0:	0f 92       	push	r0
+  b2:	0f b6       	in	r0, 0x3f	; 63
+  b4:	0f 92       	push	r0
+  b6:	11 24       	eor	r1, r1
+  b8:	2f 93       	push	r18
+  ba:	3f 93       	push	r19
+  bc:	4f 93       	push	r20
+  be:	5f 93       	push	r21
+  c0:	6f 93       	push	r22
+  c2:	7f 93       	push	r23
+  c4:	8f 93       	push	r24
+  c6:	9f 93       	push	r25
+  c8:	af 93       	push	r26
+  ca:	bf 93       	push	r27
+  cc:	ef 93       	push	r30
+  ce:	ff 93       	push	r31
+	
+	/*	Solutions that weren't possible -- only for illustration					*/
+	/*	pf();		 	-- address of the function 									*/
+	/*	EXTI0_fun(); 	-- can't call the function here -- it's in the main.c 		*/
+	
+	EXTI0_CallBack();
+  d0:	e0 91 60 00 	lds	r30, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  d4:	f0 91 61 00 	lds	r31, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  d8:	09 95       	icall
+}
+  da:	ff 91       	pop	r31
+  dc:	ef 91       	pop	r30
+  de:	bf 91       	pop	r27
+  e0:	af 91       	pop	r26
+  e2:	9f 91       	pop	r25
+  e4:	8f 91       	pop	r24
+  e6:	7f 91       	pop	r23
+  e8:	6f 91       	pop	r22
+  ea:	5f 91       	pop	r21
+  ec:	4f 91       	pop	r20
+  ee:	3f 91       	pop	r19
+  f0:	2f 91       	pop	r18
+  f2:	0f 90       	pop	r0
+  f4:	0f be       	out	0x3f, r0	; 63
+  f6:	0f 90       	pop	r0
+  f8:	1f 90       	pop	r1
+  fa:	18 95       	reti
+
+Disassembly of section .text.I2C_Init_Master:
+
+00000180 <I2C_Init_Master>:
+	// Check for the acknowledgment
+	while((TWSR& 0XF8)!=Data_recieve_Ack);
+	
+	// return data
+	return TWDR;
+}
+ 180:	83 e0       	ldi	r24, 0x03	; 3
+ 182:	80 b9       	out	0x00, r24	; 0
+ 184:	81 b1       	in	r24, 0x01	; 1
+ 186:	8d 7f       	andi	r24, 0xFD	; 253
+ 188:	81 b9       	out	0x01, r24	; 1
+ 18a:	81 b1       	in	r24, 0x01	; 1
+ 18c:	8e 7f       	andi	r24, 0xFE	; 254
+ 18e:	81 b9       	out	0x01, r24	; 1
+ 190:	86 b7       	in	r24, 0x36	; 54
+ 192:	84 60       	ori	r24, 0x04	; 4
+ 194:	86 bf       	out	0x36, r24	; 54
+ 196:	08 95       	ret
+
+Disassembly of section .text.I2C_Start:
+
+00000122 <I2C_Start>:
+ 122:	86 b7       	in	r24, 0x36	; 54
+ 124:	8f 77       	andi	r24, 0x7F	; 127
+ 126:	86 bf       	out	0x36, r24	; 54
+ 128:	86 b7       	in	r24, 0x36	; 54
+ 12a:	80 62       	ori	r24, 0x20	; 32
+ 12c:	86 bf       	out	0x36, r24	; 54
+ 12e:	86 b7       	in	r24, 0x36	; 54
+ 130:	84 60       	ori	r24, 0x04	; 4
+ 132:	86 bf       	out	0x36, r24	; 54
+ 134:	06 b6       	in	r0, 0x36	; 54
+ 136:	07 fe       	sbrs	r0, 7
+ 138:	fd cf       	rjmp	.-6      	; 0x134 <I2C_Start+0x12>
+ 13a:	81 b1       	in	r24, 0x01	; 1
+ 13c:	88 7f       	andi	r24, 0xF8	; 248
+ 13e:	88 30       	cpi	r24, 0x08	; 8
+ 140:	e1 f7       	brne	.-8      	; 0x13a <I2C_Start+0x18>
+ 142:	08 95       	ret
+
+Disassembly of section .text.I2C_Write_data:
+
+00000144 <I2C_Write_data>:
+ 144:	83 b9       	out	0x03, r24	; 3
+ 146:	86 b7       	in	r24, 0x36	; 54
+ 148:	8f 77       	andi	r24, 0x7F	; 127
+ 14a:	86 bf       	out	0x36, r24	; 54
+ 14c:	86 b7       	in	r24, 0x36	; 54
+ 14e:	84 60       	ori	r24, 0x04	; 4
+ 150:	86 bf       	out	0x36, r24	; 54
+ 152:	06 b6       	in	r0, 0x36	; 54
+ 154:	07 fe       	sbrs	r0, 7
+ 156:	fd cf       	rjmp	.-6      	; 0x152 <I2C_Write_data+0xe>
+ 158:	81 b1       	in	r24, 0x01	; 1
+ 15a:	88 7f       	andi	r24, 0xF8	; 248
+ 15c:	88 32       	cpi	r24, 0x28	; 40
+ 15e:	e1 f7       	brne	.-8      	; 0x158 <I2C_Write_data+0x14>
+ 160:	08 95       	ret
+
+Disassembly of section .text.I2C_Stop:
+
+000001ae <I2C_Stop>:
+
+void I2C_Stop(void)
+{
+	//	Clear TWI interrupt flag,Put stop condition, Enable TWI
+	CLR_BIT(TWCR,TWINT);
+ 1ae:	86 b7       	in	r24, 0x36	; 54
+ 1b0:	8f 77       	andi	r24, 0x7F	; 127
+ 1b2:	86 bf       	out	0x36, r24	; 54
+	SET_BIT(TWCR,TWSTO);
+ 1b4:	86 b7       	in	r24, 0x36	; 54
+ 1b6:	80 61       	ori	r24, 0x10	; 16
+ 1b8:	86 bf       	out	0x36, r24	; 54
+	SET_BIT(TWCR,TWEN);
+ 1ba:	86 b7       	in	r24, 0x36	; 54
+ 1bc:	84 60       	ori	r24, 0x04	; 4
+ 1be:	86 bf       	out	0x36, r24	; 54
+ 1c0:	08 95       	ret
+
+Disassembly of section .text.I2C_Send_slave_address_with_write_req:
+
+000000fc <I2C_Send_slave_address_with_write_req>:
+	// Check for the acknowledgment
+	while((TWSR& 0XF8)!=Data_recieve_Ack);
+	
+	// return data
+	return TWDR;
+}
+  fc:	88 0f       	add	r24, r24
+  fe:	83 b9       	out	0x03, r24	; 3
+ 100:	83 b1       	in	r24, 0x03	; 3
+ 102:	8e 7f       	andi	r24, 0xFE	; 254
+ 104:	83 b9       	out	0x03, r24	; 3
+ 106:	86 b7       	in	r24, 0x36	; 54
+ 108:	8f 77       	andi	r24, 0x7F	; 127
+ 10a:	86 bf       	out	0x36, r24	; 54
+ 10c:	86 b7       	in	r24, 0x36	; 54
+ 10e:	84 60       	ori	r24, 0x04	; 4
+ 110:	86 bf       	out	0x36, r24	; 54
+ 112:	06 b6       	in	r0, 0x36	; 54
+ 114:	07 fe       	sbrs	r0, 7
+ 116:	fd cf       	rjmp	.-6      	; 0x112 <I2C_Send_slave_address_with_write_req+0x16>
+ 118:	81 b1       	in	r24, 0x01	; 1
+ 11a:	88 7f       	andi	r24, 0xF8	; 248
+ 11c:	88 31       	cpi	r24, 0x18	; 24
+ 11e:	e1 f7       	brne	.-8      	; 0x118 <I2C_Send_slave_address_with_write_req+0x1c>
+ 120:	08 95       	ret
+
+Disassembly of section .text.main:
+
+00000162 <main>:
+
+#define F_CPU 8000000UL
+
+int main(void)
+{
+	 DDRD = 0xFF;
+ 162:	8f ef       	ldi	r24, 0xFF	; 255
+ 164:	81 bb       	out	0x11, r24	; 17
+	 I2C_Init_Master();
+ 166:	0e 94 c0 00 	call	0x180	; 0x180 <I2C_Init_Master>
+	 I2C_Start();
+ 16a:	0e 94 91 00 	call	0x122	; 0x122 <I2C_Start>
+	 I2C_Send_slave_address_with_write_req(0x32);			// Argument = Address in hexadecimal / 2
+ 16e:	82 e3       	ldi	r24, 0x32	; 50
+ 170:	0e 94 7e 00 	call	0xfc	; 0xfc <I2C_Send_slave_address_with_write_req>
+															// if the address is 0x80, the hexadecimal argument will be 0x40
+	 I2C_Write_data(0x59);									// The Proteus I2C Debugger shows hexadecimal values
+ 174:	89 e5       	ldi	r24, 0x59	; 89
+ 176:	0e 94 a2 00 	call	0x144	; 0x144 <I2C_Write_data>
+	 I2C_Stop();
+ 17a:	0e 94 d7 00 	call	0x1ae	; 0x1ae <I2C_Stop>
+ 17e:	ff cf       	rjmp	.-2      	; 0x17e <main+0x1c>
+
+Disassembly of section .text.__dummy_fini:
+
+000001ca <_fini>:
+ 1ca:	08 95       	ret
+
+Disassembly of section .text.__dummy_funcs_on_exit:
+
+000001cc <__funcs_on_exit>:
+ 1cc:	08 95       	ret
+
+Disassembly of section .text.__dummy_simulator_exit:
+
+000001ce <__simulator_exit>:
+ 1ce:	08 95       	ret
+
+Disassembly of section .text.exit:
+
+00000198 <exit>:
+ 198:	ec 01       	movw	r28, r24
+ 19a:	0e 94 e6 00 	call	0x1cc	; 0x1cc <__funcs_on_exit>
+ 19e:	0e 94 e5 00 	call	0x1ca	; 0x1ca <_fini>
+ 1a2:	ce 01       	movw	r24, r28
+ 1a4:	0e 94 e7 00 	call	0x1ce	; 0x1ce <__simulator_exit>
+ 1a8:	ce 01       	movw	r24, r28
+ 1aa:	0e 94 e3 00 	call	0x1c6	; 0x1c6 <_Exit>
+
+Disassembly of section .text._Exit:
+
+000001c6 <_Exit>:
+ 1c6:	0e 94 55 00 	call	0xaa	; 0xaa <_exit>

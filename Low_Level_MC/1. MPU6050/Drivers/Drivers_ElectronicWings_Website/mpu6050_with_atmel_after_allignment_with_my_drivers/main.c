@@ -13,7 +13,7 @@
 #include <stdio.h>										/* Include standard library file */
 #include "MPU6050_res_define.h"							/* Include MPU6050 register define file */
 #include "I2C_Master_H_file.h"							/* Include I2C Master header file */
-#include "USART_RS232_H_file.h"							/* Include USART header file */
+//#include "USART_RS232_H_file.h"							/* Include USART header file */					/*	Adham: DON'T NEED THIS -- WON'T COMMUNICATE OVER USART	*/
 
 float Acc_x,Acc_y,Acc_z,Temperature,Gyro_x,Gyro_y,Gyro_z;
 
@@ -90,7 +90,12 @@ int main()
 		t = (Temperature/340.00)+36.53;					/* Convert temperature in °/c using formula */
 
 
-		dtostrf( Xa, 3, 2, float_ );					/* Take values in buffer to send all parameters over USART */
+
+		/*	Adham: DON'T NEED THIS -- WON'T COMMUNICATE OVER USART	*/
+		/*	Adham: CAN BE USED TO SEND DATA AS A BUFFER 	*/
+		/*	Adham
+
+		dtostrf( Xa, 3, 2, float_ );					// Take values in buffer to send all parameters over USART
 		sprintf(buffer," Ax = %s g\t",float_);
 		USART_SendString(buffer);
 
@@ -103,7 +108,7 @@ int main()
 		USART_SendString(buffer);
 
 		dtostrf( t, 3, 2, float_ );
-		sprintf(buffer," T = %s%cC\t",float_,0xF8);           /* 0xF8 Ascii value of degree '°' on serial */
+		sprintf(buffer," T = %s%cC\t",float_,0xF8);           // 0xF8 Ascii value of degree '°' on serial 
 		USART_SendString(buffer);
 
 		dtostrf( Xg, 3, 2, float_ );
@@ -117,5 +122,8 @@ int main()
 		dtostrf( Zg, 3, 2, float_ );
 		sprintf(buffer," Gz = %s%c/s\r\n",float_,0xF8);
 		USART_SendString(buffer);
+		
+		*/
+		
 	}
 }

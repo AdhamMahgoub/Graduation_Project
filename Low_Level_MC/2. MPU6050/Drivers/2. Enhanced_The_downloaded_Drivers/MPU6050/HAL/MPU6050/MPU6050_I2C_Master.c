@@ -1,11 +1,5 @@
-/*
- * I2C_Master_C_file.c
- * http://www.electronicwings.com
- *
- */ 
+#include "MPU6050_I2C_Master.h"						/* Include I2C header file */
 
-
-#include "I2C_Master_H_file.h"								/* Include I2C header file */
 
 void I2C_Init()												/* I2C initialize function */
 {

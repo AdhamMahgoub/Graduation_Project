@@ -1,19 +1,11 @@
-/*
- * ATmega16 Interface with MPU-6050
- * http://www.electronicwings.com
- *
- */ 
-
-
 #define F_CPU 8000000UL									/* Define CPU clock Frequency e.g. here its 8MHz */
 #include <avr/io.h>										/* Include AVR std. library file */
-#include <util/delay.h>									/* Include delay header file */
 #include <inttypes.h>									/* Include integer type header file */
 #include <stdlib.h>										/* Include standard library file */
 #include <stdio.h>										/* Include standard library file */
-#include "MPU6050_res_define.h"							/* Include MPU6050 register define file */
-#include "I2C_Master_H_file.h"							/* Include I2C Master header file */
-//#include "USART_RS232_H_file.h"							/* Include USART header file */					/*	Adham: DON'T NEED THIS -- WON'T COMMUNICATE OVER USART	*/
+#include "HAL/MPU6050/MPU6050_private.h"				/* Include MPU6050 register define file */
+#include "HAL/MPU6050/MPU6050_I2C_Master.h"				/* Include I2C Master header file */
+#include "HAL/MPU6050/MPU6050.h"
 
 float Acc_x,Acc_y,Acc_z,Temperature,Gyro_x,Gyro_y,Gyro_z;
 
@@ -49,7 +41,7 @@ void MPU6050_Init()										/* Gyro initialization function */
 void MPU_Start_Loc()
 {
 	I2C_Start_Wait(0xD0);								/* I2C start with device write address */
-	I2C_Write(ACCEL_XOUT_H);							/* Write start location address from where to read */ 
+	I2C_Write(ACCEL_XOUT_H);							/* Write start location address from where to read */
 	I2C_Repeated_Start(0xD1);							/* I2C start with device read address */
 }
 
@@ -66,14 +58,19 @@ void Read_RawValue()
 	I2C_Stop();
 }
 
+
+
+
+
+
+
+
 int main()
 {
-	char buffer[20], float_[10];
 	float Xa,Ya,Za,t;
 	float Xg=0,Yg=0,Zg=0;
 	I2C_Init();											/* Initialize I2C */
 	MPU6050_Init();										/* Initialize MPU6050 */
-	USART_Init(9600);									/* Initialize USART with 9600 baud rate */
 	
 	while(1)
 	{
@@ -88,42 +85,5 @@ int main()
 		Zg = Gyro_z/16.4;
 
 		t = (Temperature/340.00)+36.53;					/* Convert temperature in °/c using formula */
-
-
-
-		/*	Adham: DON'T NEED THIS -- WON'T COMMUNICATE OVER USART	*/
-		/*	Adham: CAN BE USED TO SEND DATA AS A BUFFER 	*/
-		/*	Adham
-
-		dtostrf( Xa, 3, 2, float_ );					// Take values in buffer to send all parameters over USART
-		sprintf(buffer," Ax = %s g\t",float_);
-		USART_SendString(buffer);
-
-		dtostrf( Ya, 3, 2, float_ );
-		sprintf(buffer," Ay = %s g\t",float_);
-		USART_SendString(buffer);
-		
-		dtostrf( Za, 3, 2, float_ );
-		sprintf(buffer," Az = %s g\t",float_);
-		USART_SendString(buffer);
-
-		dtostrf( t, 3, 2, float_ );
-		sprintf(buffer," T = %s%cC\t",float_,0xF8);           // 0xF8 Ascii value of degree '°' on serial 
-		USART_SendString(buffer);
-
-		dtostrf( Xg, 3, 2, float_ );
-		sprintf(buffer," Gx = %s%c/s\t",float_,0xF8);
-		USART_SendString(buffer);
-
-		dtostrf( Yg, 3, 2, float_ );
-		sprintf(buffer," Gy = %s%c/s\t",float_,0xF8);
-		USART_SendString(buffer);
-		
-		dtostrf( Zg, 3, 2, float_ );
-		sprintf(buffer," Gz = %s%c/s\r\n",float_,0xF8);
-		USART_SendString(buffer);
-		
-		*/
-		
 	}
 }

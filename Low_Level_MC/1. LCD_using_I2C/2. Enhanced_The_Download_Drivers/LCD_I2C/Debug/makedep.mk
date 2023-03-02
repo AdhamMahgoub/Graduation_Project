@@ -2,9 +2,9 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-liquid_crystal_i2c_master.c
+HAL\LCD\liquid_crystal_i2c.c
 
-liquid_crystal_i2c.c
+HAL\LCD\liquid_crystal_i2c_master.c
 
 main.c
 

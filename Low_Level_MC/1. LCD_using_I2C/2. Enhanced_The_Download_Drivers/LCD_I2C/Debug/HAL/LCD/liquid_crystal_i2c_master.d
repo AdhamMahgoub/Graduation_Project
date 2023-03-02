@@ -1,5 +1,5 @@
-liquid_crystal_i2c_master.d liquid_crystal_i2c_master.o: \
- .././liquid_crystal_i2c_master.c \
+HAL/LCD/liquid_crystal_i2c_master.d HAL/LCD/liquid_crystal_i2c_master.o: \
+ ../HAL/LCD/liquid_crystal_i2c_master.c \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\sfr_defs.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\inttypes.h \
@@ -14,7 +14,7 @@ liquid_crystal_i2c_master.d liquid_crystal_i2c_master.o: \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\twi.h \
- .././liquid_crystal_i2c_master.h
+ ../HAL/LCD/liquid_crystal_i2c_master.h
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h:
 
@@ -44,4 +44,4 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\twi.h:
 
-.././liquid_crystal_i2c_master.h:
+../HAL/LCD/liquid_crystal_i2c_master.h:

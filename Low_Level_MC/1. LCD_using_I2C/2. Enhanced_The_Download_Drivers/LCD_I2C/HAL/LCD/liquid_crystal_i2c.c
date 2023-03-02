@@ -90,6 +90,7 @@ void lq_print(struct LiquidCrystalDevice_t* device, const char * value)
 	}
 };
 
+
 void lq_turnOnBacklight(struct LiquidCrystalDevice_t* device)
 {
 	device->Backlight = LCD_BACKLIGHT;
@@ -239,3 +240,4 @@ void lq_transmitI2C(LiquidCrystalDevice_t* device, uint8_t value)
 {
 	i2c_master_sendByte(device->Address, value | device->Backlight);
 };
+

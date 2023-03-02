@@ -1,0 +1,760 @@
+
+LCD_I2C.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000006c  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  000004a8  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  000004a8  2**0
+                  CONTENTS, READONLY
+  3 .stack.descriptors.hdr 0000000e  00000000  00000000  000004d7  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000168  00000000  00000000  000004e5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00001fad  00000000  00000000  0000064d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000008d0  00000000  00000000  000025fa  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000009fe  00000000  00000000  00002eca  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  0000037c  00000000  00000000  000038c8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000241  00000000  00000000  00003c44  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000100f  00000000  00000000  00003e85  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000138  00000000  00000000  00004e94  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .text         00000004  00000426  00000426  0000049a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00004fcc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .text.i2c_master_start 00000048  00000204  00000204  00000278  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.i2c_master_write 0000001c  000003a4  000003a4  00000418  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.i2c_master_stop 00000006  00000420  00000420  00000494  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.i2c_master_sendByte 00000022  00000364  00000364  000003d8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text.lq_transmitI2C 0000000e  000003fc  000003fc  00000470  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text.lq_turnOnBacklight 0000000e  0000040a  0000040a  0000047e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text.lq_writeDevicePulse 00000036  00000306  00000306  0000037a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .text.lq_writeDevice4Bits 0000001e  00000386  00000386  000003fa  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .text.lq_writeDeviceByte 0000003a  000002cc  000002cc  00000340  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 23 .text.lq_print 00000042  0000024c  0000024c  000002c0  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 24 .text.lq_sendCommand 00000008  00000418  00000418  0000048c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 25 .text.lq_setCursor 0000003e  0000028e  0000028e  00000302  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 26 .text.lq_clear 00000028  0000033c  0000033c  000003b0  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 27 .text.lq_returnHome 00000014  000003d6  000003d6  0000044a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 28 .text.lq_turnOnDisplay 00000012  000003ea  000003ea  0000045e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 29 .text.lq_init 0000011c  00000088  00000088  000000fc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 30 .progmemx.data 0000001c  0000006c  0000006c  000000e0  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, PROGMEMX
+ 31 .text.main    00000060  000001a4  000001a4  00000218  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 32 .text.__dummy_fini 00000002  0000042e  0000042e  000004a2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 33 .text.__dummy_funcs_on_exit 00000002  00000430  00000430  000004a4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 34 .text.__dummy_simulator_exit 00000002  00000432  00000432  000004a6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 35 .text.exit    00000016  000003c0  000003c0  00000434  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 36 .text._Exit   00000004  0000042a  0000042a  0000049e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+   8:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+   c:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+  10:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+  14:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+  18:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+  1c:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+  20:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+  24:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+  28:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+  2c:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+  30:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+  34:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+  38:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+  3c:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+  40:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+  44:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+  48:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+  4c:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+  50:	0c 94 13 02 	jmp	0x426	; 0x426 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 d2 00 	call	0x1a4	; 0x1a4 <main>
+  64:	0c 94 e0 01 	jmp	0x3c0	; 0x3c0 <exit>
+
+00000068 <_exit>:
+  68:	f8 94       	cli
+
+0000006a <__stop_program>:
+  6a:	ff cf       	rjmp	.-2      	; 0x6a <__stop_program>
+
+Disassembly of section .text:
+
+00000426 <__bad_interrupt>:
+ 426:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.i2c_master_start:
+
+00000204 <i2c_master_start>:
+	// wait for end of transmission
+	while( !(TWCR & (1<<TWINT)) );
+
+	// return received data from TWDR
+	return TWDR;
+}
+ 204:	16 be       	out	0x36, r1	; 54
+ 206:	94 ea       	ldi	r25, 0xA4	; 164
+ 208:	96 bf       	out	0x36, r25	; 54
+ 20a:	06 b6       	in	r0, 0x36	; 54
+ 20c:	07 fe       	sbrs	r0, 7
+ 20e:	fd cf       	rjmp	.-6      	; 0x20a <i2c_master_start+0x6>
+ 210:	91 b1       	in	r25, 0x01	; 1
+ 212:	98 7f       	andi	r25, 0xF8	; 248
+ 214:	98 30       	cpi	r25, 0x08	; 8
+ 216:	11 f0       	breq	.+4      	; 0x21c <i2c_master_start+0x18>
+ 218:	90 31       	cpi	r25, 0x10	; 16
+ 21a:	91 f4       	brne	.+36     	; 0x240 <i2c_master_start+0x3c>
+ 21c:	90 e0       	ldi	r25, 0x00	; 0
+ 21e:	88 0f       	add	r24, r24
+ 220:	99 1f       	adc	r25, r25
+ 222:	86 2b       	or	r24, r22
+ 224:	83 b9       	out	0x03, r24	; 3
+ 226:	84 e8       	ldi	r24, 0x84	; 132
+ 228:	86 bf       	out	0x36, r24	; 54
+ 22a:	06 b6       	in	r0, 0x36	; 54
+ 22c:	07 fe       	sbrs	r0, 7
+ 22e:	fd cf       	rjmp	.-6      	; 0x22a <i2c_master_start+0x26>
+ 230:	81 b1       	in	r24, 0x01	; 1
+ 232:	88 7f       	andi	r24, 0xF8	; 248
+ 234:	88 31       	cpi	r24, 0x18	; 24
+ 236:	31 f0       	breq	.+12     	; 0x244 <i2c_master_start+0x40>
+ 238:	80 34       	cpi	r24, 0x40	; 64
+ 23a:	31 f4       	brne	.+12     	; 0x248 <i2c_master_start+0x44>
+ 23c:	80 e0       	ldi	r24, 0x00	; 0
+ 23e:	08 95       	ret
+ 240:	8a e0       	ldi	r24, 0x0A	; 10
+ 242:	08 95       	ret
+ 244:	80 e0       	ldi	r24, 0x00	; 0
+ 246:	08 95       	ret
+ 248:	84 e1       	ldi	r24, 0x14	; 20
+ 24a:	08 95       	ret
+
+Disassembly of section .text.i2c_master_write:
+
+000003a4 <i2c_master_write>:
+ 3a4:	83 b9       	out	0x03, r24	; 3
+ 3a6:	84 e8       	ldi	r24, 0x84	; 132
+ 3a8:	86 bf       	out	0x36, r24	; 54
+ 3aa:	06 b6       	in	r0, 0x36	; 54
+ 3ac:	07 fe       	sbrs	r0, 7
+ 3ae:	fd cf       	rjmp	.-6      	; 0x3aa <i2c_master_write+0x6>
+ 3b0:	81 b1       	in	r24, 0x01	; 1
+ 3b2:	88 7f       	andi	r24, 0xF8	; 248
+ 3b4:	88 32       	cpi	r24, 0x28	; 40
+ 3b6:	11 f0       	breq	.+4      	; 0x3bc <i2c_master_write+0x18>
+ 3b8:	85 e1       	ldi	r24, 0x15	; 21
+ 3ba:	08 95       	ret
+ 3bc:	80 e0       	ldi	r24, 0x00	; 0
+ 3be:	08 95       	ret
+
+Disassembly of section .text.i2c_master_stop:
+
+00000420 <i2c_master_stop>:
+	return I2C_STATUS_SUCCESS;
+}
+
+void i2c_master_stop(void)
+{
+	TWCR = (1<<TWINT) | (1<<TWEN) | (1<<TWSTO);
+ 420:	84 e9       	ldi	r24, 0x94	; 148
+ 422:	86 bf       	out	0x36, r24	; 54
+ 424:	08 95       	ret
+
+Disassembly of section .text.i2c_master_sendByte:
+
+00000364 <i2c_master_sendByte>:
+	// wait for end of transmission
+	while( !(TWCR & (1<<TWINT)) );
+
+	// return received data from TWDR
+	return TWDR;
+}
+ 364:	cf 93       	push	r28
+ 366:	c6 2f       	mov	r28, r22
+ 368:	60 e0       	ldi	r22, 0x00	; 0
+ 36a:	0e 94 02 01 	call	0x204	; 0x204 <i2c_master_start>
+ 36e:	81 11       	cpse	r24, r1
+ 370:	08 c0       	rjmp	.+16     	; 0x382 <i2c_master_sendByte+0x1e>
+ 372:	8c 2f       	mov	r24, r28
+ 374:	0e 94 d2 01 	call	0x3a4	; 0x3a4 <i2c_master_write>
+ 378:	81 11       	cpse	r24, r1
+ 37a:	03 c0       	rjmp	.+6      	; 0x382 <i2c_master_sendByte+0x1e>
+ 37c:	0e 94 10 02 	call	0x420	; 0x420 <i2c_master_stop>
+ 380:	80 e0       	ldi	r24, 0x00	; 0
+ 382:	cf 91       	pop	r28
+ 384:	08 95       	ret
+
+Disassembly of section .text.lq_transmitI2C:
+
+000003fc <lq_transmitI2C>:
+	_delay_us(50);
+};
+
+void lq_transmitI2C(LiquidCrystalDevice_t* device, uint8_t value)
+{
+	i2c_master_sendByte(device->Address, value | device->Backlight);
+ 3fc:	fc 01       	movw	r30, r24
+ 3fe:	23 81       	ldd	r18, Z+3	; 0x03
+ 400:	62 2b       	or	r22, r18
+ 402:	80 81       	ld	r24, Z
+ 404:	0e 94 b2 01 	call	0x364	; 0x364 <i2c_master_sendByte>
+ 408:	08 95       	ret
+
+Disassembly of section .text.lq_turnOnBacklight:
+
+0000040a <lq_turnOnBacklight>:
+	}
+};
+
+void lq_turnOnBacklight(struct LiquidCrystalDevice_t* device)
+{
+	device->Backlight = LCD_BACKLIGHT;
+ 40a:	28 e0       	ldi	r18, 0x08	; 8
+ 40c:	fc 01       	movw	r30, r24
+ 40e:	23 83       	std	Z+3, r18	; 0x03
+	lq_transmitI2C(device, 0);
+ 410:	60 e0       	ldi	r22, 0x00	; 0
+ 412:	0e 94 fe 01 	call	0x3fc	; 0x3fc <lq_transmitI2C>
+ 416:	08 95       	ret
+
+Disassembly of section .text.lq_writeDevicePulse:
+
+00000306 <lq_writeDevicePulse>:
+	lq_transmitI2C(device, value);
+	lq_writeDevicePulse(device, value);
+};
+
+void lq_writeDevicePulse(LiquidCrystalDevice_t* device, uint8_t value)
+{
+ 306:	0f 93       	push	r16
+ 308:	1f 93       	push	r17
+ 30a:	cf 93       	push	r28
+ 30c:	8c 01       	movw	r16, r24
+ 30e:	c6 2f       	mov	r28, r22
+	lq_transmitI2C(device, value | LCD_ENABLE_BIT);
+ 310:	64 60       	ori	r22, 0x04	; 4
+ 312:	0e 94 fe 01 	call	0x3fc	; 0x3fc <lq_transmitI2C>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 316:	8a e0       	ldi	r24, 0x0A	; 10
+ 318:	8a 95       	dec	r24
+ 31a:	f1 f7       	brne	.-4      	; 0x318 <lq_writeDevicePulse+0x12>
+ 31c:	00 c0       	rjmp	.+0      	; 0x31e <lq_writeDevicePulse+0x18>
+	_delay_us(2);
+
+	lq_transmitI2C(device, value & ~LCD_ENABLE_BIT);
+ 31e:	6c 2f       	mov	r22, r28
+ 320:	6b 7f       	andi	r22, 0xFB	; 251
+ 322:	c8 01       	movw	r24, r16
+ 324:	0e 94 fe 01 	call	0x3fc	; 0x3fc <lq_transmitI2C>
+ 328:	87 ec       	ldi	r24, 0xC7	; 199
+ 32a:	90 e0       	ldi	r25, 0x00	; 0
+ 32c:	01 97       	sbiw	r24, 0x01	; 1
+ 32e:	f1 f7       	brne	.-4      	; 0x32c <lq_writeDevicePulse+0x26>
+ 330:	00 c0       	rjmp	.+0      	; 0x332 <lq_writeDevicePulse+0x2c>
+ 332:	00 00       	nop
+	_delay_us(50);
+};
+ 334:	cf 91       	pop	r28
+ 336:	1f 91       	pop	r17
+ 338:	0f 91       	pop	r16
+ 33a:	08 95       	ret
+
+Disassembly of section .text.lq_writeDevice4Bits:
+
+00000386 <lq_writeDevice4Bits>:
+	lq_writeDevice4Bits(device, highnib | mode);
+	lq_writeDevice4Bits(device, lownib | mode);
+};
+
+void lq_writeDevice4Bits(LiquidCrystalDevice_t* device, uint8_t value)
+{
+ 386:	1f 93       	push	r17
+ 388:	cf 93       	push	r28
+ 38a:	df 93       	push	r29
+ 38c:	ec 01       	movw	r28, r24
+ 38e:	16 2f       	mov	r17, r22
+	lq_transmitI2C(device, value);
+ 390:	0e 94 fe 01 	call	0x3fc	; 0x3fc <lq_transmitI2C>
+	lq_writeDevicePulse(device, value);
+ 394:	61 2f       	mov	r22, r17
+ 396:	ce 01       	movw	r24, r28
+ 398:	0e 94 83 01 	call	0x306	; 0x306 <lq_writeDevicePulse>
+};
+ 39c:	df 91       	pop	r29
+ 39e:	cf 91       	pop	r28
+ 3a0:	1f 91       	pop	r17
+ 3a2:	08 95       	ret
+
+Disassembly of section .text.lq_writeDeviceByte:
+
+000002cc <lq_writeDeviceByte>:
+}
+
+void lq_turnOffBacklight(struct LiquidCrystalDevice_t* device)
+{
+	device->Backlight = LCD_NOBACKLIGHT;
+	lq_transmitI2C(device, 0);
+ 2cc:	ff 92       	push	r15
+ 2ce:	0f 93       	push	r16
+ 2d0:	1f 93       	push	r17
+ 2d2:	cf 93       	push	r28
+ 2d4:	df 93       	push	r29
+ 2d6:	8c 01       	movw	r16, r24
+ 2d8:	f4 2e       	mov	r15, r20
+ 2da:	86 2f       	mov	r24, r22
+ 2dc:	80 7f       	andi	r24, 0xF0	; 240
+ 2de:	90 e1       	ldi	r25, 0x10	; 16
+ 2e0:	69 9f       	mul	r22, r25
+ 2e2:	e0 01       	movw	r28, r0
+ 2e4:	11 24       	eor	r1, r1
+ 2e6:	68 2f       	mov	r22, r24
+ 2e8:	64 2b       	or	r22, r20
+ 2ea:	c8 01       	movw	r24, r16
+ 2ec:	0e 94 c3 01 	call	0x386	; 0x386 <lq_writeDevice4Bits>
+ 2f0:	6c 2f       	mov	r22, r28
+ 2f2:	6f 29       	or	r22, r15
+ 2f4:	c8 01       	movw	r24, r16
+ 2f6:	0e 94 c3 01 	call	0x386	; 0x386 <lq_writeDevice4Bits>
+ 2fa:	df 91       	pop	r29
+ 2fc:	cf 91       	pop	r28
+ 2fe:	1f 91       	pop	r17
+ 300:	0f 91       	pop	r16
+ 302:	ff 90       	pop	r15
+ 304:	08 95       	ret
+
+Disassembly of section .text.lq_print:
+
+0000024c <lq_print>:
+ 24c:	cf 92       	push	r12
+ 24e:	df 92       	push	r13
+ 250:	ef 92       	push	r14
+ 252:	cf 93       	push	r28
+ 254:	df 93       	push	r29
+ 256:	ec 01       	movw	r28, r24
+ 258:	6a 01       	movw	r12, r20
+ 25a:	e6 2e       	mov	r14, r22
+ 25c:	fa 01       	movw	r30, r20
+ 25e:	64 91       	lpm	r22, Z
+ 260:	e7 fc       	sbrc	r14, 7
+ 262:	60 81       	ld	r22, Z
+ 264:	0c c0       	rjmp	.+24     	; 0x27e <lq_print+0x32>
+ 266:	41 e0       	ldi	r20, 0x01	; 1
+ 268:	ce 01       	movw	r24, r28
+ 26a:	0e 94 66 01 	call	0x2cc	; 0x2cc <lq_writeDeviceByte>
+ 26e:	8f ef       	ldi	r24, 0xFF	; 255
+ 270:	c8 1a       	sub	r12, r24
+ 272:	d8 0a       	sbc	r13, r24
+ 274:	e8 0a       	sbc	r14, r24
+ 276:	f6 01       	movw	r30, r12
+ 278:	64 91       	lpm	r22, Z
+ 27a:	e7 fc       	sbrc	r14, 7
+ 27c:	60 81       	ld	r22, Z
+ 27e:	61 11       	cpse	r22, r1
+ 280:	f2 cf       	rjmp	.-28     	; 0x266 <lq_print+0x1a>
+ 282:	df 91       	pop	r29
+ 284:	cf 91       	pop	r28
+ 286:	ef 90       	pop	r14
+ 288:	df 90       	pop	r13
+ 28a:	cf 90       	pop	r12
+ 28c:	08 95       	ret
+
+Disassembly of section .text.lq_sendCommand:
+
+00000418 <lq_sendCommand>:
+}
+
+
+void lq_sendCommand(LiquidCrystalDevice_t* device, uint8_t command)
+{
+	lq_writeDeviceByte(device, command, 0);
+ 418:	40 e0       	ldi	r20, 0x00	; 0
+ 41a:	0e 94 66 01 	call	0x2cc	; 0x2cc <lq_writeDeviceByte>
+ 41e:	08 95       	ret
+
+Disassembly of section .text.lq_setCursor:
+
+0000028e <lq_setCursor>:
+}
+
+void lq_turnOffBacklight(struct LiquidCrystalDevice_t* device)
+{
+	device->Backlight = LCD_NOBACKLIGHT;
+	lq_transmitI2C(device, 0);
+ 28e:	cf 93       	push	r28
+ 290:	df 93       	push	r29
+ 292:	00 d0       	rcall	.+0      	; 0x294 <lq_setCursor+0x6>
+ 294:	00 d0       	rcall	.+0      	; 0x296 <lq_setCursor+0x8>
+ 296:	cd b7       	in	r28, 0x3d	; 61
+ 298:	de b7       	in	r29, 0x3e	; 62
+ 29a:	19 82       	std	Y+1, r1	; 0x01
+ 29c:	20 e4       	ldi	r18, 0x40	; 64
+ 29e:	2a 83       	std	Y+2, r18	; 0x02
+ 2a0:	24 e1       	ldi	r18, 0x14	; 20
+ 2a2:	2b 83       	std	Y+3, r18	; 0x03
+ 2a4:	24 e5       	ldi	r18, 0x54	; 84
+ 2a6:	2c 83       	std	Y+4, r18	; 0x04
+ 2a8:	e1 e0       	ldi	r30, 0x01	; 1
+ 2aa:	f0 e0       	ldi	r31, 0x00	; 0
+ 2ac:	ec 0f       	add	r30, r28
+ 2ae:	fd 1f       	adc	r31, r29
+ 2b0:	e6 0f       	add	r30, r22
+ 2b2:	f1 1d       	adc	r31, r1
+ 2b4:	60 81       	ld	r22, Z
+ 2b6:	64 0f       	add	r22, r20
+ 2b8:	60 68       	ori	r22, 0x80	; 128
+ 2ba:	0e 94 0c 02 	call	0x418	; 0x418 <lq_sendCommand>
+ 2be:	0f 90       	pop	r0
+ 2c0:	0f 90       	pop	r0
+ 2c2:	0f 90       	pop	r0
+ 2c4:	0f 90       	pop	r0
+ 2c6:	df 91       	pop	r29
+ 2c8:	cf 91       	pop	r28
+ 2ca:	08 95       	ret
+
+Disassembly of section .text.lq_clear:
+
+0000033c <lq_clear>:
+}
+
+void lq_clear(LiquidCrystalDevice_t* device)
+{
+ 33c:	cf 93       	push	r28
+ 33e:	df 93       	push	r29
+ 340:	ec 01       	movw	r28, r24
+	lq_sendCommand(device, LCD_CLEARDISPLAY); // clear display, set cursor position to zero
+ 342:	61 e0       	ldi	r22, 0x01	; 1
+ 344:	0e 94 0c 02 	call	0x418	; 0x418 <lq_sendCommand>
+ 348:	8f e3       	ldi	r24, 0x3F	; 63
+ 34a:	9f e1       	ldi	r25, 0x1F	; 31
+ 34c:	01 97       	sbiw	r24, 0x01	; 1
+ 34e:	f1 f7       	brne	.-4      	; 0x34c <lq_clear+0x10>
+ 350:	00 c0       	rjmp	.+0      	; 0x352 <lq_clear+0x16>
+ 352:	00 00       	nop
+	_delay_us(2000);  // this command takes a long time!
+
+	lq_setCursor(device, 0, 0);
+ 354:	40 e0       	ldi	r20, 0x00	; 0
+ 356:	60 e0       	ldi	r22, 0x00	; 0
+ 358:	ce 01       	movw	r24, r28
+ 35a:	0e 94 47 01 	call	0x28e	; 0x28e <lq_setCursor>
+}
+ 35e:	df 91       	pop	r29
+ 360:	cf 91       	pop	r28
+ 362:	08 95       	ret
+
+Disassembly of section .text.lq_returnHome:
+
+000003d6 <lq_returnHome>:
+	lq_sendCommand(device, LCD_SETDDRAMADDR | (column + row_offsets[row]));
+}
+
+void lq_returnHome(LiquidCrystalDevice_t* device)
+{
+	lq_sendCommand(device, LCD_RETURNHOME);  // set cursor position to zero
+ 3d6:	62 e0       	ldi	r22, 0x02	; 2
+ 3d8:	0e 94 0c 02 	call	0x418	; 0x418 <lq_sendCommand>
+ 3dc:	8f e3       	ldi	r24, 0x3F	; 63
+ 3de:	9f e1       	ldi	r25, 0x1F	; 31
+ 3e0:	01 97       	sbiw	r24, 0x01	; 1
+ 3e2:	f1 f7       	brne	.-4      	; 0x3e0 <lq_returnHome+0xa>
+ 3e4:	00 c0       	rjmp	.+0      	; 0x3e6 <lq_returnHome+0x10>
+ 3e6:	00 00       	nop
+ 3e8:	08 95       	ret
+
+Disassembly of section .text.lq_turnOnDisplay:
+
+000003ea <lq_turnOnDisplay>:
+	_delay_us(2000);  // this command takes a long time!
+};
+
+void lq_turnOnDisplay(LiquidCrystalDevice_t* device)
+{
+	device->DisplayControl |= LCD_DISPLAYON;
+ 3ea:	fc 01       	movw	r30, r24
+ 3ec:	65 81       	ldd	r22, Z+5	; 0x05
+ 3ee:	26 2f       	mov	r18, r22
+ 3f0:	24 60       	ori	r18, 0x04	; 4
+ 3f2:	25 83       	std	Z+5, r18	; 0x05
+	lq_sendCommand(device, LCD_DISPLAYCONTROL | device->DisplayControl);
+ 3f4:	6c 60       	ori	r22, 0x0C	; 12
+ 3f6:	0e 94 0c 02 	call	0x418	; 0x418 <lq_sendCommand>
+ 3fa:	08 95       	ret
+
+Disassembly of section .text.lq_init:
+
+00000088 <lq_init>:
+}
+
+void lq_turnOffBacklight(struct LiquidCrystalDevice_t* device)
+{
+	device->Backlight = LCD_NOBACKLIGHT;
+	lq_transmitI2C(device, 0);
+  88:	cf 93       	push	r28
+  8a:	df 93       	push	r29
+  8c:	cd b7       	in	r28, 0x3d	; 61
+  8e:	de b7       	in	r29, 0x3e	; 62
+  90:	2e 97       	sbiw	r28, 0x0e	; 14
+  92:	0f b6       	in	r0, 0x3f	; 63
+  94:	f8 94       	cli
+  96:	de bf       	out	0x3e, r29	; 62
+  98:	0f be       	out	0x3f, r0	; 63
+  9a:	cd bf       	out	0x3d, r28	; 61
+  9c:	88 87       	std	Y+8, r24	; 0x08
+  9e:	69 87       	std	Y+9, r22	; 0x09
+  a0:	4a 87       	std	Y+10, r20	; 0x0a
+  a2:	1b 86       	std	Y+11, r1	; 0x0b
+  a4:	2c 87       	std	Y+12, r18	; 0x0c
+  a6:	84 e0       	ldi	r24, 0x04	; 4
+  a8:	8d 87       	std	Y+13, r24	; 0x0d
+  aa:	82 e0       	ldi	r24, 0x02	; 2
+  ac:	8e 87       	std	Y+14, r24	; 0x0e
+  ae:	42 30       	cpi	r20, 0x02	; 2
+  b0:	18 f0       	brcs	.+6      	; 0xb8 <lq_init+0x30>
+  b2:	82 2f       	mov	r24, r18
+  b4:	88 60       	ori	r24, 0x08	; 8
+  b6:	8c 87       	std	Y+12, r24	; 0x0c
+  b8:	22 23       	and	r18, r18
+  ba:	29 f0       	breq	.+10     	; 0xc6 <lq_init+0x3e>
+  bc:	41 30       	cpi	r20, 0x01	; 1
+  be:	19 f4       	brne	.+6      	; 0xc6 <lq_init+0x3e>
+  c0:	8c 85       	ldd	r24, Y+12	; 0x0c
+  c2:	84 60       	ori	r24, 0x04	; 4
+  c4:	8c 87       	std	Y+12, r24	; 0x0c
+  c6:	2f ef       	ldi	r18, 0xFF	; 255
+  c8:	81 ee       	ldi	r24, 0xE1	; 225
+  ca:	94 e0       	ldi	r25, 0x04	; 4
+  cc:	21 50       	subi	r18, 0x01	; 1
+  ce:	80 40       	sbci	r24, 0x00	; 0
+  d0:	90 40       	sbci	r25, 0x00	; 0
+  d2:	e1 f7       	brne	.-8      	; 0xcc <lq_init+0x44>
+  d4:	00 c0       	rjmp	.+0      	; 0xd6 <lq_init+0x4e>
+  d6:	00 00       	nop
+  d8:	60 e0       	ldi	r22, 0x00	; 0
+  da:	ce 01       	movw	r24, r28
+  dc:	08 96       	adiw	r24, 0x08	; 8
+  de:	0e 94 fe 01 	call	0x3fc	; 0x3fc <lq_transmitI2C>
+  e2:	2f ef       	ldi	r18, 0xFF	; 255
+  e4:	83 ed       	ldi	r24, 0xD3	; 211
+  e6:	90 e3       	ldi	r25, 0x30	; 48
+  e8:	21 50       	subi	r18, 0x01	; 1
+  ea:	80 40       	sbci	r24, 0x00	; 0
+  ec:	90 40       	sbci	r25, 0x00	; 0
+  ee:	e1 f7       	brne	.-8      	; 0xe8 <lq_init+0x60>
+  f0:	00 c0       	rjmp	.+0      	; 0xf2 <lq_init+0x6a>
+  f2:	00 00       	nop
+  f4:	60 e3       	ldi	r22, 0x30	; 48
+  f6:	ce 01       	movw	r24, r28
+  f8:	08 96       	adiw	r24, 0x08	; 8
+  fa:	0e 94 fe 01 	call	0x3fc	; 0x3fc <lq_transmitI2C>
+  fe:	8f e4       	ldi	r24, 0x4F	; 79
+ 100:	96 e4       	ldi	r25, 0x46	; 70
+ 102:	01 97       	sbiw	r24, 0x01	; 1
+ 104:	f1 f7       	brne	.-4      	; 0x102 <lq_init+0x7a>
+ 106:	00 c0       	rjmp	.+0      	; 0x108 <lq_init+0x80>
+ 108:	00 00       	nop
+ 10a:	60 e3       	ldi	r22, 0x30	; 48
+ 10c:	ce 01       	movw	r24, r28
+ 10e:	08 96       	adiw	r24, 0x08	; 8
+ 110:	0e 94 c3 01 	call	0x386	; 0x386 <lq_writeDevice4Bits>
+ 114:	8f e4       	ldi	r24, 0x4F	; 79
+ 116:	96 e4       	ldi	r25, 0x46	; 70
+ 118:	01 97       	sbiw	r24, 0x01	; 1
+ 11a:	f1 f7       	brne	.-4      	; 0x118 <lq_init+0x90>
+ 11c:	00 c0       	rjmp	.+0      	; 0x11e <lq_init+0x96>
+ 11e:	00 00       	nop
+ 120:	60 e3       	ldi	r22, 0x30	; 48
+ 122:	ce 01       	movw	r24, r28
+ 124:	08 96       	adiw	r24, 0x08	; 8
+ 126:	0e 94 c3 01 	call	0x386	; 0x386 <lq_writeDevice4Bits>
+ 12a:	87 e5       	ldi	r24, 0x57	; 87
+ 12c:	92 e0       	ldi	r25, 0x02	; 2
+ 12e:	01 97       	sbiw	r24, 0x01	; 1
+ 130:	f1 f7       	brne	.-4      	; 0x12e <lq_init+0xa6>
+ 132:	00 c0       	rjmp	.+0      	; 0x134 <lq_init+0xac>
+ 134:	00 00       	nop
+ 136:	60 e2       	ldi	r22, 0x20	; 32
+ 138:	ce 01       	movw	r24, r28
+ 13a:	08 96       	adiw	r24, 0x08	; 8
+ 13c:	0e 94 c3 01 	call	0x386	; 0x386 <lq_writeDevice4Bits>
+ 140:	6c 85       	ldd	r22, Y+12	; 0x0c
+ 142:	60 62       	ori	r22, 0x20	; 32
+ 144:	ce 01       	movw	r24, r28
+ 146:	08 96       	adiw	r24, 0x08	; 8
+ 148:	0e 94 0c 02 	call	0x418	; 0x418 <lq_sendCommand>
+ 14c:	ce 01       	movw	r24, r28
+ 14e:	08 96       	adiw	r24, 0x08	; 8
+ 150:	0e 94 f5 01 	call	0x3ea	; 0x3ea <lq_turnOnDisplay>
+ 154:	ce 01       	movw	r24, r28
+ 156:	08 96       	adiw	r24, 0x08	; 8
+ 158:	0e 94 9e 01 	call	0x33c	; 0x33c <lq_clear>
+ 15c:	6e 85       	ldd	r22, Y+14	; 0x0e
+ 15e:	64 60       	ori	r22, 0x04	; 4
+ 160:	ce 01       	movw	r24, r28
+ 162:	08 96       	adiw	r24, 0x08	; 8
+ 164:	0e 94 0c 02 	call	0x418	; 0x418 <lq_sendCommand>
+ 168:	ce 01       	movw	r24, r28
+ 16a:	08 96       	adiw	r24, 0x08	; 8
+ 16c:	0e 94 eb 01 	call	0x3d6	; 0x3d6 <lq_returnHome>
+ 170:	87 e0       	ldi	r24, 0x07	; 7
+ 172:	fe 01       	movw	r30, r28
+ 174:	38 96       	adiw	r30, 0x08	; 8
+ 176:	de 01       	movw	r26, r28
+ 178:	11 96       	adiw	r26, 0x01	; 1
+ 17a:	01 90       	ld	r0, Z+
+ 17c:	0d 92       	st	X+, r0
+ 17e:	8a 95       	dec	r24
+ 180:	e1 f7       	brne	.-8      	; 0x17a <lq_init+0xf2>
+ 182:	29 81       	ldd	r18, Y+1	; 0x01
+ 184:	3a 81       	ldd	r19, Y+2	; 0x02
+ 186:	4b 81       	ldd	r20, Y+3	; 0x03
+ 188:	5c 81       	ldd	r21, Y+4	; 0x04
+ 18a:	6d 81       	ldd	r22, Y+5	; 0x05
+ 18c:	7e 81       	ldd	r23, Y+6	; 0x06
+ 18e:	8f 81       	ldd	r24, Y+7	; 0x07
+ 190:	90 e0       	ldi	r25, 0x00	; 0
+ 192:	2e 96       	adiw	r28, 0x0e	; 14
+ 194:	0f b6       	in	r0, 0x3f	; 63
+ 196:	f8 94       	cli
+ 198:	de bf       	out	0x3e, r29	; 62
+ 19a:	0f be       	out	0x3f, r0	; 63
+ 19c:	cd bf       	out	0x3d, r28	; 61
+ 19e:	df 91       	pop	r29
+ 1a0:	cf 91       	pop	r28
+ 1a2:	08 95       	ret
+
+Disassembly of section .text.main:
+
+000001a4 <main>:
+#include "liquid_crystal_i2c.h"
+#include "i2c_master.h"
+
+
+int main(void)
+{
+ 1a4:	cf 93       	push	r28
+ 1a6:	df 93       	push	r29
+ 1a8:	cd b7       	in	r28, 0x3d	; 61
+ 1aa:	de b7       	in	r29, 0x3e	; 62
+ 1ac:	27 97       	sbiw	r28, 0x07	; 7
+ 1ae:	0f b6       	in	r0, 0x3f	; 63
+ 1b0:	f8 94       	cli
+ 1b2:	de bf       	out	0x3e, r29	; 62
+ 1b4:	0f be       	out	0x3f, r0	; 63
+ 1b6:	cd bf       	out	0x3d, r28	; 61
+	LiquidCrystalDevice_t device = lq_init(0x27, 20, 4, LCD_5x8DOTS); // intialize 4-lines display
+ 1b8:	20 e0       	ldi	r18, 0x00	; 0
+ 1ba:	44 e0       	ldi	r20, 0x04	; 4
+ 1bc:	64 e1       	ldi	r22, 0x14	; 20
+ 1be:	87 e2       	ldi	r24, 0x27	; 39
+ 1c0:	0e 94 44 00 	call	0x88	; 0x88 <lq_init>
+ 1c4:	29 83       	std	Y+1, r18	; 0x01
+ 1c6:	3a 83       	std	Y+2, r19	; 0x02
+ 1c8:	4b 83       	std	Y+3, r20	; 0x03
+ 1ca:	5c 83       	std	Y+4, r21	; 0x04
+ 1cc:	6d 83       	std	Y+5, r22	; 0x05
+ 1ce:	7e 83       	std	Y+6, r23	; 0x06
+ 1d0:	8f 83       	std	Y+7, r24	; 0x07
+
+	lq_turnOnBacklight(&device); // simply turning on the backlight
+ 1d2:	ce 01       	movw	r24, r28
+ 1d4:	01 96       	adiw	r24, 0x01	; 1
+ 1d6:	0e 94 05 02 	call	0x40a	; 0x40a <lq_turnOnBacklight>
+
+	lq_print(&device, "Adham Mahgoub!");
+ 1da:	4c e6       	ldi	r20, 0x6C	; 108
+ 1dc:	50 e0       	ldi	r21, 0x00	; 0
+ 1de:	60 e0       	ldi	r22, 0x00	; 0
+ 1e0:	ce 01       	movw	r24, r28
+ 1e2:	01 96       	adiw	r24, 0x01	; 1
+ 1e4:	0e 94 26 01 	call	0x24c	; 0x24c <lq_print>
+	lq_setCursor(&device, 1, 0); // moving cursor to the next line
+ 1e8:	40 e0       	ldi	r20, 0x00	; 0
+ 1ea:	61 e0       	ldi	r22, 0x01	; 1
+ 1ec:	ce 01       	movw	r24, r28
+ 1ee:	01 96       	adiw	r24, 0x01	; 1
+ 1f0:	0e 94 47 01 	call	0x28e	; 0x28e <lq_setCursor>
+	lq_print(&device, "How are you?");
+ 1f4:	4b e7       	ldi	r20, 0x7B	; 123
+ 1f6:	50 e0       	ldi	r21, 0x00	; 0
+ 1f8:	60 e0       	ldi	r22, 0x00	; 0
+ 1fa:	ce 01       	movw	r24, r28
+ 1fc:	01 96       	adiw	r24, 0x01	; 1
+ 1fe:	0e 94 26 01 	call	0x24c	; 0x24c <lq_print>
+ 202:	ff cf       	rjmp	.-2      	; 0x202 <main+0x5e>
+
+Disassembly of section .text.__dummy_fini:
+
+0000042e <_fini>:
+ 42e:	08 95       	ret
+
+Disassembly of section .text.__dummy_funcs_on_exit:
+
+00000430 <__funcs_on_exit>:
+ 430:	08 95       	ret
+
+Disassembly of section .text.__dummy_simulator_exit:
+
+00000432 <__simulator_exit>:
+ 432:	08 95       	ret
+
+Disassembly of section .text.exit:
+
+000003c0 <exit>:
+ 3c0:	ec 01       	movw	r28, r24
+ 3c2:	0e 94 18 02 	call	0x430	; 0x430 <__funcs_on_exit>
+ 3c6:	0e 94 17 02 	call	0x42e	; 0x42e <_fini>
+ 3ca:	ce 01       	movw	r24, r28
+ 3cc:	0e 94 19 02 	call	0x432	; 0x432 <__simulator_exit>
+ 3d0:	ce 01       	movw	r24, r28
+ 3d2:	0e 94 15 02 	call	0x42a	; 0x42a <_Exit>
+
+Disassembly of section .text._Exit:
+
+0000042a <_Exit>:
+ 42a:	0e 94 34 00 	call	0x68	; 0x68 <_exit>

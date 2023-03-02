@@ -1,8 +1,5 @@
-#include "STD_TYPES.h"
-#include "BIT_MATH.h"
-#include "DIO_interface.h"
 #include "liquid_crystal_i2c.h"
-#include "i2c_master.h"
+#include "liquid_crystal_i2c_master.h"
 
 
 int main(void)

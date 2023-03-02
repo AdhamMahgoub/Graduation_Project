@@ -1,5 +1,4 @@
-main.d main.o: .././main.c .././STD_TYPES.h .././BIT_MATH.h \
- .././DIO_interface.h .././liquid_crystal_i2c.h \
+main.d main.o: .././main.c .././liquid_crystal_i2c.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\sfr_defs.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\inttypes.h \
@@ -13,13 +12,7 @@ main.d main.o: .././main.c .././STD_TYPES.h .././BIT_MATH.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\common.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h \
- .././i2c_master.h
-
-.././STD_TYPES.h:
-
-.././BIT_MATH.h:
-
-.././DIO_interface.h:
+ .././liquid_crystal_i2c_master.h
 
 .././liquid_crystal_i2c.h:
 
@@ -49,4 +42,4 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h:
 
-.././i2c_master.h:
+.././liquid_crystal_i2c_master.h:

@@ -1,7 +1,7 @@
 Archive member included to satisfy reference by file (symbol)
 
 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_udivmodsi4.o)
-                              i2c_master.o (__udivmodsi4)
+                              liquid_crystal_i2c_master.o (__udivmodsi4)
 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
                               C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o (exit)
 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
@@ -36,21 +36,21 @@ Discarded input sections
  .debug_str     0x0000000000000000       0x11 DIO_program.o
  .comment       0x0000000000000000       0x30 DIO_program.o
  .debug_frame   0x0000000000000000       0x64 DIO_program.o
- .text          0x0000000000000000        0x0 i2c_master.o
- .data          0x0000000000000000        0x0 i2c_master.o
- .bss           0x0000000000000000        0x0 i2c_master.o
+ .text          0x0000000000000000        0x0 liquid_crystal_i2c_master.o
+ .data          0x0000000000000000        0x0 liquid_crystal_i2c_master.o
+ .bss           0x0000000000000000        0x0 liquid_crystal_i2c_master.o
  .text.i2c_master_init
-                0x0000000000000000       0x28 i2c_master.o
+                0x0000000000000000       0x28 liquid_crystal_i2c_master.o
  .text.i2c_master_startWait
-                0x0000000000000000       0x48 i2c_master.o
+                0x0000000000000000       0x48 liquid_crystal_i2c_master.o
  .text.i2c_master_readAck
-                0x0000000000000000        0xe i2c_master.o
+                0x0000000000000000        0xe liquid_crystal_i2c_master.o
  .text.i2c_master_readNack
-                0x0000000000000000        0xe i2c_master.o
+                0x0000000000000000        0xe liquid_crystal_i2c_master.o
  .text.i2c_master_send
-                0x0000000000000000       0x4c i2c_master.o
+                0x0000000000000000       0x4c liquid_crystal_i2c_master.o
  .text.i2c_master_receive
-                0x0000000000000000       0x64 i2c_master.o
+                0x0000000000000000       0x64 liquid_crystal_i2c_master.o
  .text          0x0000000000000000        0x0 liquid_crystal_i2c.o
  .data          0x0000000000000000        0x0 liquid_crystal_i2c.o
  .bss           0x0000000000000000        0x0 liquid_crystal_i2c.o
@@ -144,7 +144,7 @@ Linker script and memory map
 
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
 LOAD DIO_program.o
-LOAD i2c_master.o
+LOAD liquid_crystal_i2c_master.o
 LOAD liquid_crystal_i2c.o
 LOAD main.o
 START GROUP
@@ -396,7 +396,7 @@ END GROUP
 
 .comment        0x0000000000000000       0x2f
  *(.comment)
- .comment       0x0000000000000000       0x2f i2c_master.o
+ .comment       0x0000000000000000       0x2f liquid_crystal_i2c_master.o
                                          0x30 (size before relaxing)
  .comment       0x000000000000002f       0x30 liquid_crystal_i2c.o
  .comment       0x000000000000002f       0x30 main.o
@@ -433,7 +433,7 @@ END GROUP
 .debug_aranges  0x0000000000000000      0x168
  *(.debug_aranges)
  .debug_aranges
-                0x0000000000000000       0x68 i2c_master.o
+                0x0000000000000000       0x68 liquid_crystal_i2c_master.o
  .debug_aranges
                 0x0000000000000068       0xe0 liquid_crystal_i2c.o
  .debug_aranges
@@ -442,43 +442,43 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x1fad
+.debug_info     0x0000000000000000     0x202b
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
- .debug_info    0x00000000000004e6      0x602 i2c_master.o
- .debug_info    0x0000000000000ae8     0x1088 liquid_crystal_i2c.o
- .debug_info    0x0000000000001b70      0x43d main.o
+ .debug_info    0x00000000000004e6      0x64d liquid_crystal_i2c_master.o
+ .debug_info    0x0000000000000b33     0x10c4 liquid_crystal_i2c.o
+ .debug_info    0x0000000000001bf7      0x434 main.o
 
 .debug_abbrev   0x0000000000000000      0x8d0
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
- .debug_abbrev  0x00000000000004a3      0x14f i2c_master.o
+ .debug_abbrev  0x00000000000004a3      0x14f liquid_crystal_i2c_master.o
  .debug_abbrev  0x00000000000005f2      0x20f liquid_crystal_i2c.o
  .debug_abbrev  0x0000000000000801       0xcf main.o
 
-.debug_line     0x0000000000000000      0x9fe
+.debug_line     0x0000000000000000      0xa1c
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x119 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
- .debug_line    0x0000000000000119      0x331 i2c_master.o
- .debug_line    0x000000000000044a      0x4ff liquid_crystal_i2c.o
- .debug_line    0x0000000000000949       0xb5 main.o
+ .debug_line    0x0000000000000119      0x340 liquid_crystal_i2c_master.o
+ .debug_line    0x0000000000000459      0x50e liquid_crystal_i2c.o
+ .debug_line    0x0000000000000967       0xb5 main.o
 
 .debug_frame    0x0000000000000000      0x37c
  *(.debug_frame)
- .debug_frame   0x0000000000000000      0x104 i2c_master.o
+ .debug_frame   0x0000000000000000      0x104 liquid_crystal_i2c_master.o
  .debug_frame   0x0000000000000104      0x244 liquid_crystal_i2c.o
  .debug_frame   0x0000000000000348       0x34 main.o
 
 .debug_str      0x0000000000000000      0x241
  *(.debug_str)
  .debug_str     0x0000000000000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
- .debug_str     0x0000000000000196        0xf i2c_master.o
+ .debug_str     0x0000000000000196        0xf liquid_crystal_i2c_master.o
  .debug_str     0x00000000000001a5       0x5d liquid_crystal_i2c.o
  .debug_str     0x0000000000000202       0x3f main.o
 
 .debug_loc      0x0000000000000000     0x100f
  *(.debug_loc)
- .debug_loc     0x0000000000000000      0x438 i2c_master.o
+ .debug_loc     0x0000000000000000      0x438 liquid_crystal_i2c_master.o
  .debug_loc     0x0000000000000438      0xb90 liquid_crystal_i2c.o
  .debug_loc     0x0000000000000fc8       0x47 main.o
 
@@ -502,7 +502,7 @@ END GROUP
 
 .debug_ranges   0x0000000000000000      0x138
  *(.debug_ranges)
- .debug_ranges  0x0000000000000000       0x58 i2c_master.o
+ .debug_ranges  0x0000000000000000       0x58 liquid_crystal_i2c_master.o
  .debug_ranges  0x0000000000000058       0xd0 liquid_crystal_i2c.o
  .debug_ranges  0x0000000000000128       0x10 main.o
 
@@ -532,7 +532,7 @@ LOAD data_init
 .text.i2c_master_start
                 0x0000000000000204       0x48
  .text.i2c_master_start
-                0x0000000000000204       0x48 i2c_master.o
+                0x0000000000000204       0x48 liquid_crystal_i2c_master.o
                 0x0000000000000204                i2c_master_start
 
 .text.lq_print  0x000000000000024c       0x42
@@ -566,7 +566,7 @@ LOAD data_init
 .text.i2c_master_sendByte
                 0x0000000000000364       0x22
  .text.i2c_master_sendByte
-                0x0000000000000364       0x22 i2c_master.o
+                0x0000000000000364       0x22 liquid_crystal_i2c_master.o
                 0x0000000000000364                i2c_master_sendByte
 
 .text.lq_writeDevice4Bits
@@ -578,7 +578,7 @@ LOAD data_init
 .text.i2c_master_write
                 0x00000000000003a4       0x1c
  .text.i2c_master_write
-                0x00000000000003a4       0x1c i2c_master.o
+                0x00000000000003a4       0x1c liquid_crystal_i2c_master.o
                 0x00000000000003a4                i2c_master_write
 
 .text.exit      0x00000000000003c0       0x16
@@ -618,7 +618,7 @@ LOAD data_init
 .text.i2c_master_stop
                 0x0000000000000420        0x6
  .text.i2c_master_stop
-                0x0000000000000420        0x6 i2c_master.o
+                0x0000000000000420        0x6 liquid_crystal_i2c_master.o
                 0x0000000000000420                i2c_master_stop
 
 .text           0x0000000000000426        0x4

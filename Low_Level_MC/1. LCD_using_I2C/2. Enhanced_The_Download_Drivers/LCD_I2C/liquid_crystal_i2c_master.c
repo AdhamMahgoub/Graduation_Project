@@ -13,7 +13,7 @@
 #include <util/twi.h>
 #include <stdint.h>
 
-#include "i2c_master.h"
+#include "liquid_crystal_i2c_master.h"
 
 #define I2C_SCL_FREQUENCY_PRESCALER 1
 #define I2C_TWBR_VALUE 

@@ -91,18 +91,6 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BIT_MATH.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="DIO_interface.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="DIO_private.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="DIO_program.c">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="liquid_crystal_i2c_master.c">
       <SubType>compile</SubType>
     </Compile>
@@ -116,9 +104,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="STD_TYPES.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

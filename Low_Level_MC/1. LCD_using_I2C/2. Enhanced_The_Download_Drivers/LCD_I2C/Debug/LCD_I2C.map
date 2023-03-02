@@ -13,29 +13,6 @@ Discarded input sections
 
  .data          0x0000000000000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
  .bss           0x0000000000000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
- .text          0x0000000000000000        0x0 DIO_program.o
- .data          0x0000000000000000        0x0 DIO_program.o
- .bss           0x0000000000000000        0x0 DIO_program.o
- .text.DIO_voidSetPinDirection
-                0x0000000000000000       0xec DIO_program.o
- .text.DIO_voidSetPinValue
-                0x0000000000000000       0xec DIO_program.o
- .text.DIO_u8GetPinValue
-                0x0000000000000000       0x6c DIO_program.o
- .text.DIO_voidSetPortValue
-                0x0000000000000000       0x24 DIO_program.o
- .text.DIO_voidSetPortDirection
-                0x0000000000000000       0x24 DIO_program.o
- .debug_info    0x0000000000000000      0x3f2 DIO_program.o
- .debug_abbrev  0x0000000000000000       0xb8 DIO_program.o
- .debug_loc     0x0000000000000000      0x2d7 DIO_program.o
- .debug_aranges
-                0x0000000000000000       0x40 DIO_program.o
- .debug_ranges  0x0000000000000000       0x30 DIO_program.o
- .debug_line    0x0000000000000000      0x1ca DIO_program.o
- .debug_str     0x0000000000000000       0x11 DIO_program.o
- .comment       0x0000000000000000       0x30 DIO_program.o
- .debug_frame   0x0000000000000000       0x64 DIO_program.o
  .text          0x0000000000000000        0x0 liquid_crystal_i2c_master.o
  .data          0x0000000000000000        0x0 liquid_crystal_i2c_master.o
  .bss           0x0000000000000000        0x0 liquid_crystal_i2c_master.o
@@ -143,7 +120,6 @@ user_signatures  0x0000000000850000 0x0000000000000400 rw !x
 Linker script and memory map
 
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
-LOAD DIO_program.o
 LOAD liquid_crystal_i2c_master.o
 LOAD liquid_crystal_i2c.o
 LOAD main.o

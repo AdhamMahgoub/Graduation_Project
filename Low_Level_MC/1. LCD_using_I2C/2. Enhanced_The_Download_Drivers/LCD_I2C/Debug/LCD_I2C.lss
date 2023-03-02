@@ -122,7 +122,7 @@ Disassembly of section .text:
 Disassembly of section .text:
 
 00000426 <__bad_interrupt>:
- 426:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+ 426:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 Disassembly of section .text.i2c_master_start:
 

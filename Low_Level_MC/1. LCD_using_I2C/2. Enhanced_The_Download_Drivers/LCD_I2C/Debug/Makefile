@@ -37,7 +37,6 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../DIO_program.c \
 ../liquid_crystal_i2c_master.c \
 ../liquid_crystal_i2c.c \
 ../main.c
@@ -50,25 +49,21 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-DIO_program.o \
 liquid_crystal_i2c_master.o \
 liquid_crystal_i2c.o \
 main.o
 
 OBJS_AS_ARGS +=  \
-DIO_program.o \
 liquid_crystal_i2c_master.o \
 liquid_crystal_i2c.o \
 main.o
 
 C_DEPS +=  \
-DIO_program.d \
 liquid_crystal_i2c_master.d \
 liquid_crystal_i2c.d \
 main.d
 
 C_DEPS_AS_ARGS +=  \
-DIO_program.d \
 liquid_crystal_i2c_master.d \
 liquid_crystal_i2c.d \
 main.d
@@ -87,13 +82,6 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-./DIO_program.o: .././DIO_program.c
-	@echo Building file: $<
-	@echo Invoking: XC8 C Compiler : 2.36
-	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
 ./liquid_crystal_i2c_master.o: .././liquid_crystal_i2c_master.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36

@@ -10,6 +10,7 @@
 
 extern float Acc_x,Acc_y,Acc_z,Temperature,Gyro_x,Gyro_y,Gyro_z;
 
+
 int main()
 {
 	float Xa,Ya,Za,t;

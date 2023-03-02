@@ -1,10 +1,3 @@
-/*
- * I2C_Master_H_file.h
- * http://www.electronicwings.com
- *
- */ 
-
-
 #ifndef I2C_MASTER_H_FILE_H_					/* Define library H file if not defined */
 #define I2C_MASTER_H_FILE_H_
 

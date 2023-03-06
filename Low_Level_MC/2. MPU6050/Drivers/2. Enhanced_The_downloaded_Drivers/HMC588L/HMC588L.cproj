@@ -12,9 +12,9 @@
     <OutputFileName>$(MSBuildProjectName)</OutputFileName>
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
-    <AssemblyName>MPU6050</AssemblyName>
-    <Name>MPU6050</Name>
-    <RootNamespace>MPU6050</RootNamespace>
+    <AssemblyName>HMC588L</AssemblyName>
+    <Name>HMC588L</Name>
+    <RootNamespace>HMC588L</RootNamespace>
     <ToolchainFlavour>XC8_2.36</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>
@@ -91,28 +91,36 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="HAL\MPU6050\MPU6050.c">
+    <Compile Include="BIT_MATH.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\MPU6050\MPU6050.h">
+    <Compile Include="HMC588L.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\MPU6050\MPU6050_I2C_Master.c">
+    <Compile Include="HMC588L.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\MPU6050\MPU6050_I2C_Master.h">
+    <Compile Include="I2C_Master_C_file.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\MPU6050\MPU6050_private.h">
+    <Compile Include="I2C_Master_H_file.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="HAL" />
-    <Folder Include="HAL\MPU6050" />
+    <Compile Include="STD_TYPES.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UART_Interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UART_Private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UART_Program.c">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

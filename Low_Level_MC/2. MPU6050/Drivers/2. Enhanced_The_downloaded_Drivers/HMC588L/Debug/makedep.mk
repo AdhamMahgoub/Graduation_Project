@@ -2,9 +2,11 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-HAL\MPU6050\MPU6050.c
+HMC588L.c
 
-HAL\MPU6050\MPU6050_I2C_Master.c
+I2C_Master_C_file.c
 
 main.c
+
+UART_Program.c
 

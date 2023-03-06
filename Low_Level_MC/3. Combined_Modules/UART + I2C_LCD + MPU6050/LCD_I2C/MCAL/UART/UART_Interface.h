@@ -16,11 +16,10 @@ struct DataPackage
 };
 
 void UART_init(void);
-void UART_TransmitData(u8 Data);
+void UART_send_char(u8 Data);
 u8 UART_RecieveData(void);
 
 void send_DataPackage_char(struct DataPackage *DataPackage_ptr);
 void send_DataPackege_String(struct DataPackage *DataPackage_ptr);
-void send_DataPackege_String_with_selector(struct DataPackage *DataPackage_ptr, char selector);
 
 #endif

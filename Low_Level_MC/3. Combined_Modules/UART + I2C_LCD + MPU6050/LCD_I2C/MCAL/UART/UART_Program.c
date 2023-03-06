@@ -25,7 +25,7 @@ void UART_init(void){
 }
 
 //A function to Transmit Data
-void UART_TransmitData(u8 Data){
+void UART_send_char(u8 Data){
 	while(GET_BIT(UCSRA,UDRE)==0);	//Wait until all data is transmitted
 	UDR=Data;
 }
@@ -40,8 +40,7 @@ u8 UART_RecieveData(void){
 /*		DataPackage Functions		*/
 void send_DataPackage_char(struct DataPackage *DataPackage_ptr)
 {
-	UART_TransmitData(DataPackage_ptr->Xa);
-	//UART_TransmitData(DataPackage_ptr->Ya);
+	UART_send_char(DataPackage_ptr->Xa);
 }
 
 void send_DataPackege_String(struct DataPackage *DataPackage_ptr)
@@ -49,36 +48,8 @@ void send_DataPackege_String(struct DataPackage *DataPackage_ptr)
 	int i = 0;
 	while (DataPackage_ptr->arr[i] != '\0')
 	{
-		UART_TransmitData(DataPackage_ptr->arr[i]);
+		UART_send_char(DataPackage_ptr->arr[i]);
 		i++;
 	}
 }
-
-void send_DataPackege_String_with_selector(struct DataPackage *DataPackage_ptr, char selector)
-{
-	int i = 0;
-	char error_message [20] = "incorrect selector";
-
-	switch (selector)
-	{
-		case 'a':
-		while (DataPackage_ptr->arr[i] != '\0')
-		{
-			UART_TransmitData(DataPackage_ptr->arr[i]);
-			i++;
-		}
-		break;
-		
-		default:
-		while (error_message[i] != '\0')
-		{
-			UART_TransmitData(error_message[i]);
-			i++;
-		}
-		break;
-		
-	}
-}
-
-
 

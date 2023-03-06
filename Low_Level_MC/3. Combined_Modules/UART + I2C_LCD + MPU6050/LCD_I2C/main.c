@@ -15,9 +15,10 @@
 extern float Acc_x,Acc_y,Acc_z,Temperature,Gyro_x,Gyro_y,Gyro_z;
 
 
+
+
 int main(void)
 {
-	
 	UART_init();
 	I2C_Init();
 	MPU6050_Init();
@@ -51,6 +52,8 @@ int main(void)
 		UART.Yg = Yg;
 		UART.Zg = Zg;
 	
+
+								
 	
 		strcpy(UART.arr,  "Xa = ");
 		send_DataPackege_String(&UART);
@@ -66,38 +69,46 @@ int main(void)
 		send_DataPackege_String(&UART);
 		strcpy(UART.arr,  "         \n\r");
 		send_DataPackege_String(&UART);
-
+		
 		strcpy(UART.arr,  "Za = ");
 		send_DataPackege_String(&UART);
 		sprintf(UART.arr, "%.3f", Za);
 		send_DataPackege_String(&UART);
 		strcpy(UART.arr,  "         \n\r");
 		send_DataPackege_String(&UART);
-
-		 _delay_ms(1000);
 		
-		/*
-		strcpy(UART.arr,  "Ya = \n\r");
-		send_DataPackege_String(&UART);	
-	
-		strcpy(UART.arr,  "Za = \n\r");
-		send_DataPackege_String(&UART);	
-	
-		strcpy(UART.arr,  "Xg =\n\r");
-		send_DataPackege_String(&UART);	
-	
-		strcpy(UART.arr,  "Yg = \n\r");
-		send_DataPackege_String(&UART);	
-	
-		strcpy(UART.arr, Zg = "\n\r");
+		strcpy(UART.arr,  "Xg = ");
 		send_DataPackege_String(&UART);
-		*/
+		sprintf(UART.arr, "%.3f", Xg);
+		send_DataPackege_String(&UART);
+		strcpy(UART.arr,  "         \n\r");
+		send_DataPackege_String(&UART);
+			
+		strcpy(UART.arr,  "Yg = ");
+		send_DataPackege_String(&UART);
+		sprintf(UART.arr, "%.3f", Yg);
+		send_DataPackege_String(&UART);
+		strcpy(UART.arr,  "         \n\r");
+		send_DataPackege_String(&UART);
+				
+		strcpy(UART.arr,  "Zg = ");
+		send_DataPackege_String(&UART);
+		sprintf(UART.arr, "%.3f", Zg);
+		send_DataPackege_String(&UART);
+		strcpy(UART.arr,  "         \n\r");
+		send_DataPackege_String(&UART);
+		
+		strcpy(UART.arr,  "         \n\n\n\n\r");
+		send_DataPackege_String(&UART);
+		
+		 _delay_ms(5000);
+		
 
 	
 		/*		Send DataPackage		*/
 		//send_DataPackage_char(&UART);
 		//send_DataPackege_String(&UART);
-		send_DataPackege_String_with_selector(&UART,'a');
+		//send_DataPackege_String_with_selector(&UART,'a');
 
 	}
 	

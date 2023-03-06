@@ -91,25 +91,30 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="HAL\LCD\liquid_crystal_i2c.c">
+    <Compile Include="Device_config.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\LCD\liquid_crystal_i2c.h">
+    <Compile Include="HAL\LCD\liquid_crystal.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\LCD\liquid_crystal_i2c_master.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="HAL\LCD\liquid_crystal_i2c_master.h">
+    <Compile Include="HAL\LCD\liquid_crystal.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\I2C\lcd_i2c_master.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\I2C\lcd_i2c_master.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HAL" />
     <Folder Include="HAL\LCD" />
+    <Folder Include="MCAL" />
+    <Folder Include="MCAL\I2C" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

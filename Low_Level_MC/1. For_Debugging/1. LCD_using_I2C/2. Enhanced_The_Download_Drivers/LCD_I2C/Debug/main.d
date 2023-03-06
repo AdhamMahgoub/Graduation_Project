@@ -1,4 +1,4 @@
-main.d main.o: .././main.c .././HAL/LCD/liquid_crystal_i2c.h \
+main.d main.o: .././main.c .././HAL/LCD/liquid_crystal.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\sfr_defs.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\inttypes.h \
@@ -12,9 +12,9 @@ main.d main.o: .././main.c .././HAL/LCD/liquid_crystal_i2c.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\common.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h \
- .././HAL/LCD/liquid_crystal_i2c_master.h
+ .././MCAL/I2C/lcd_i2c_master.h
 
-.././HAL/LCD/liquid_crystal_i2c.h:
+.././HAL/LCD/liquid_crystal.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h:
 
@@ -42,4 +42,4 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h:
 
-.././HAL/LCD/liquid_crystal_i2c_master.h:
+.././MCAL/I2C/lcd_i2c_master.h:

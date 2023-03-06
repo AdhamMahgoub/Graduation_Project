@@ -1,12 +1,5 @@
-/*
-* LiquidCrystalI2CDevice.c
-*
-* Created: 12/9/2018 11:35:38 AM
-*  Author: Barrett
-*/
-
-#include "liquid_crystal_i2c_master.h"
-#include "liquid_crystal_i2c.h"
+#include "../../MCAL/I2C/lcd_i2c_master.h"
+#include "liquid_crystal.h"
 
 #include <avr/io.h>
 #include <util/delay.h>

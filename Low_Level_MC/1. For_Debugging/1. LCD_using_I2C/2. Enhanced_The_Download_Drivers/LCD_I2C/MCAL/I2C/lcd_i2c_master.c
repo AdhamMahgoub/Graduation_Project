@@ -1,23 +1,12 @@
-/*
-* I2CMasterDevice.c
-*
-* Created: 12/9/2018 10:53:45 AM
-*  Author: Denis Goriachev
-*/
-
-#ifndef  F_CPU
-#define F_CPU 16000000UL
-#endif
-
 #include <avr/io.h>
 #include <util/twi.h>
 #include <stdint.h>
 
-#include "liquid_crystal_i2c_master.h"
+#include "../../Device_config.h"
 
+#include "lcd_i2c_master.h"
 #define I2C_SCL_FREQUENCY_PRESCALER 1
 #define I2C_TWBR_VALUE 
-
 #define I2C_PRESCALER_MASK 0xF8
 
 void i2c_master_init(unsigned long frequency)

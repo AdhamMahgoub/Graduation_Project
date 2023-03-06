@@ -1,20 +1,9 @@
-/*
- * LiquidCrystalI2CDevice.h
- *
- * Created: 12/9/2018 11:12:08 AM
- *  Author: Barrett
- */ 
-
-
 #ifndef LIQUIDCRYSTALI2CDEVICE_H_
 #define LIQUIDCRYSTALI2CDEVICE_H_
 
 #include <avr/io.h>
 #include <stdint.h>
 
-#ifndef  F_CPU
-#define F_CPU 16000000UL
-#endif
 
 // commands
 #define LCD_CLEARDISPLAY 0x01

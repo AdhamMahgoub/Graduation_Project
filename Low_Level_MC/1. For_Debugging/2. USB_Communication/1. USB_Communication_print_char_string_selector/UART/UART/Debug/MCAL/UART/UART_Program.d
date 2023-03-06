@@ -1,5 +1,7 @@
-UART_Program.d UART_Program.o: .././UART_Program.c .././STD_TYPES.h \
- .././BIT_MATH.h .././UART_Private.h \
+MCAL/UART/UART_Program.d MCAL/UART/UART_Program.o: \
+ ../MCAL/UART/UART_Program.c ../MCAL/UART/../../System_Config.h \
+ ../MCAL/UART/../../LIB/STD_TYPES.h ../MCAL/UART/../../LIB/BIT_MATH.h \
+ ../MCAL/UART/UART_Private.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\sfr_defs.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\inttypes.h \
@@ -14,11 +16,13 @@ UART_Program.d UART_Program.o: .././UART_Program.c .././STD_TYPES.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h
 
-.././STD_TYPES.h:
+../MCAL/UART/../../System_Config.h:
 
-.././BIT_MATH.h:
+../MCAL/UART/../../LIB/STD_TYPES.h:
 
-.././UART_Private.h:
+../MCAL/UART/../../LIB/BIT_MATH.h:
+
+../MCAL/UART/UART_Private.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h:
 

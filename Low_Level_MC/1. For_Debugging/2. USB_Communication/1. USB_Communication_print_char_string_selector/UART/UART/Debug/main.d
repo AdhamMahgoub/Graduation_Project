@@ -1,5 +1,5 @@
-main.d main.o: .././main.c .././STD_TYPES.h .././BIT_MATH.h \
- .././UART_Interface.h \
+main.d main.o: .././main.c .././System_Config.h .././LIB/STD_TYPES.h \
+ .././LIB/BIT_MATH.h .././MCAL/UART/UART_Interface.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\string.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\features.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\bits\alltypes.h \
@@ -11,11 +11,13 @@ main.d main.o: .././main.c .././STD_TYPES.h .././BIT_MATH.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h
 
-.././STD_TYPES.h:
+.././System_Config.h:
 
-.././BIT_MATH.h:
+.././LIB/STD_TYPES.h:
 
-.././UART_Interface.h:
+.././LIB/BIT_MATH.h:
+
+.././MCAL/UART/UART_Interface.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\string.h:
 

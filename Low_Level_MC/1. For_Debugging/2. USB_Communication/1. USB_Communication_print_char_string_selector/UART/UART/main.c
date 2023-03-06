@@ -1,11 +1,11 @@
-#include "STD_TYPES.h"
-#include "BIT_MATH.h"
+#include "System_Config.h"
 
-#include "UART_Interface.h"
+#include "LIB/STD_TYPES.h"
+#include "LIB/BIT_MATH.h"
+
+#include "MCAL/UART/UART_Interface.h"
 #include <string.h>
 
-
-#define F_CPU 8000000UL
 #include <util/delay.h>
 
 
@@ -45,14 +45,16 @@ void send_DataPackege_String_with_selector(struct DataPackage *DataPackage_ptr, 
 			UART_TransmitData(DataPackage_ptr->arr[i]);
 			i++;
 		}
-		break;
+		break;	 
+		
 		default:
 			while (error_message[i] != '\0')
 			{
 				UART_TransmitData(error_message[i]);
 				i++;
 			}
-		break;
+		break;	
+		
 	}
 }
 
@@ -66,13 +68,13 @@ int main(void)
 	 struct DataPackage UART;
 	 UART.x = 'a';
 	 UART.y = 'b';
-	 strcpy(UART.arr, "Adham Mahgoub\nEmbedded Systems");
+	 strcpy(UART.arr, "Adham Mahgoub\n\rEmbedded Systems\n\rSiemens Digital Industries");
 
 	 //send_DataPackage_char(&UART);
 	 //send_DataPackege_String(&UART);
 	 send_DataPackege_String_with_selector(&UART,'a');
 
-	 return 0;
+	 
 
 	
     while(1)
@@ -80,5 +82,5 @@ int main(void)
 		 //  
     }
 	
-	
+	return 0;
 }

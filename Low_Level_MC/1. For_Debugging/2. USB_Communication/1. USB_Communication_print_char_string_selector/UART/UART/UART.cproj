@@ -91,24 +91,32 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BIT_MATH.h">
+    <Compile Include="LIB\BIT_MATH.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LIB\STD_TYPES.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="STD_TYPES.h">
+    <Compile Include="MCAL\UART\UART_Interface.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="UART_Interface.h">
+    <Compile Include="MCAL\UART\UART_Private.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="UART_Private.h">
+    <Compile Include="MCAL\UART\UART_Program.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="UART_Program.c">
+    <Compile Include="System_Config.h">
       <SubType>compile</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MCAL" />
+    <Folder Include="MCAL\UART" />
+    <Folder Include="LIB" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

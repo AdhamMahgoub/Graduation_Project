@@ -32,13 +32,16 @@ LIB_DEP:=
 LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
-SUBDIRS := 
+SUBDIRS :=  \
+../MCAL \
+../MCAL/UART \
+../LIB
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../main.c \
-../UART_Program.c
+../MCAL/UART/UART_Program.c
 
 
 PREPROCESSING_SRCS += 
@@ -49,19 +52,19 @@ ASM_SRCS +=
 
 OBJS +=  \
 main.o \
-UART_Program.o
+MCAL/UART/UART_Program.o
 
 OBJS_AS_ARGS +=  \
 main.o \
-UART_Program.o
+MCAL/UART/UART_Program.o
 
 C_DEPS +=  \
 main.d \
-UART_Program.d
+MCAL/UART/UART_Program.d
 
 C_DEPS_AS_ARGS +=  \
 main.d \
-UART_Program.d
+MCAL/UART/UART_Program.d
 
 OUTPUT_FILE_PATH +=UART.elf
 
@@ -84,7 +87,7 @@ LINKER_SCRIPT_DEP+=
 	@echo Finished building: $<
 	
 
-./UART_Program.o: .././UART_Program.c
+MCAL/UART/UART_Program.o: ../MCAL/UART/UART_Program.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

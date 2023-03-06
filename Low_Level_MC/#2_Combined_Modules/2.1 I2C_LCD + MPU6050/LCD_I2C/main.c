@@ -4,7 +4,7 @@
 #include "MCAL/I2C/i2c_master.h"
 
 #include "HAL/MPU6050/MPU6050_private.h"				/* Include MPU6050 register define file */
-#include "HAL/MPU6050/MPU6050_I2C_Master.h"				/* Include I2C Master header file */
+#include "MCAL/i2c/i2c_master.h"				/* Include I2C Master header file */
 #include "HAL/MPU6050/MPU6050.h"						/* Include I2C MPU6050 header file */
 
 #include <avr/io.h>										/* Include AVR std. library file */
@@ -62,7 +62,8 @@ int main(void)
 		
 		lq_print(&device, "Za=");
 		print_float(device, Za);
-
+		 
+		lq_setCursor(&device, 1, 0); // moving cursor to the next line
 		print_float(device, Xg);
 		print_float(device, Yg);
 		print_float(device, Zg);

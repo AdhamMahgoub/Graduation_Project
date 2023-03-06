@@ -13,10 +13,7 @@ MCAL/I2C/i2c_master.d MCAL/I2C/i2c_master.o: ../MCAL/I2C/i2c_master.c \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\twi.h \
- ../MCAL/I2C/../../Device_config.h ../MCAL/I2C/i2c_master.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h
+ ../MCAL/I2C/../../Device_config.h ../MCAL/I2C/i2c_master.h
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h:
 
@@ -49,9 +46,3 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\twi.h:
 ../MCAL/I2C/../../Device_config.h:
 
 ../MCAL/I2C/i2c_master.h:
-
-c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h:
-
-c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h:
-
-c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h:

@@ -1,5 +1,6 @@
 #include "MPU6050_private.h"
-#include "../../MCAL/I2C/i2c_Master.h"
+#include "MPU6050_I2C_Master.h"
+
 
 float Acc_x,Acc_y,Acc_z,Temperature,Gyro_x,Gyro_y,Gyro_z;
 

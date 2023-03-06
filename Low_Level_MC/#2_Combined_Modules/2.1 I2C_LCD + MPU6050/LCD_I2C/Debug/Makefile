@@ -44,6 +44,7 @@ SUBDIRS :=  \
 C_SRCS +=  \
 ../HAL/LCD/liquid_crystal.c \
 ../HAL/MPU6050/MPU6050.c \
+../HAL/MPU6050/MPU6050_I2C_Master.c \
 ../main.c \
 ../MCAL/I2C/i2c_master.c
 
@@ -57,24 +58,28 @@ ASM_SRCS +=
 OBJS +=  \
 HAL/LCD/liquid_crystal.o \
 HAL/MPU6050/MPU6050.o \
+HAL/MPU6050/MPU6050_I2C_Master.o \
 main.o \
 MCAL/I2C/i2c_master.o
 
 OBJS_AS_ARGS +=  \
 HAL/LCD/liquid_crystal.o \
 HAL/MPU6050/MPU6050.o \
+HAL/MPU6050/MPU6050_I2C_Master.o \
 main.o \
 MCAL/I2C/i2c_master.o
 
 C_DEPS +=  \
 HAL/LCD/liquid_crystal.d \
 HAL/MPU6050/MPU6050.d \
+HAL/MPU6050/MPU6050_I2C_Master.d \
 main.d \
 MCAL/I2C/i2c_master.d
 
 C_DEPS_AS_ARGS +=  \
 HAL/LCD/liquid_crystal.d \
 HAL/MPU6050/MPU6050.d \
+HAL/MPU6050/MPU6050_I2C_Master.d \
 main.d \
 MCAL/I2C/i2c_master.d
 
@@ -100,6 +105,13 @@ HAL/LCD/liquid_crystal.o: ../HAL/LCD/liquid_crystal.c
 	
 
 HAL/MPU6050/MPU6050.o: ../HAL/MPU6050/MPU6050.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.36
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+HAL/MPU6050/MPU6050_I2C_Master.o: ../HAL/MPU6050/MPU6050_I2C_Master.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

@@ -4,6 +4,7 @@ HAL/LCD/liquid_crystal.d HAL/LCD/liquid_crystal.o: \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\stdint.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\bits\alltypes.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\bits\stdint.h \
+ ../HAL/LCD/liquid_crystal.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\sfr_defs.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\inttypes.h \
@@ -15,8 +16,7 @@ HAL/LCD/liquid_crystal.d HAL/LCD/liquid_crystal.o: \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h \
- ../HAL/LCD/liquid_crystal.h
+ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h
 
 ../HAL/LCD/../../MCAL/I2C/i2c_master.h:
 
@@ -27,6 +27,8 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\stdint.h:
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\bits\alltypes.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\bits\stdint.h:
+
+../HAL/LCD/liquid_crystal.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h:
 
@@ -51,5 +53,3 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h:
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h:
-
-../HAL/LCD/liquid_crystal.h:

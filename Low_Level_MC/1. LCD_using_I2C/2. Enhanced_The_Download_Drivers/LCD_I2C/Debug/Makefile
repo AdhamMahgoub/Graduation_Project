@@ -34,14 +34,16 @@ LINKER_SCRIPT_DEP:=
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
 ../HAL \
-../HAL/LCD
+../HAL/LCD \
+../MCAL \
+../MCAL/I2C
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../HAL/LCD/liquid_crystal_i2c.c \
-../HAL/LCD/liquid_crystal_i2c_master.c \
-../main.c
+../HAL/LCD/liquid_crystal.c \
+../main.c \
+../MCAL/I2C/i2c_master.c
 
 
 PREPROCESSING_SRCS += 
@@ -51,24 +53,24 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-HAL/LCD/liquid_crystal_i2c.o \
-HAL/LCD/liquid_crystal_i2c_master.o \
-main.o
+HAL/LCD/liquid_crystal.o \
+main.o \
+MCAL/I2C/i2c_master.o
 
 OBJS_AS_ARGS +=  \
-HAL/LCD/liquid_crystal_i2c.o \
-HAL/LCD/liquid_crystal_i2c_master.o \
-main.o
+HAL/LCD/liquid_crystal.o \
+main.o \
+MCAL/I2C/i2c_master.o
 
 C_DEPS +=  \
-HAL/LCD/liquid_crystal_i2c.d \
-HAL/LCD/liquid_crystal_i2c_master.d \
-main.d
+HAL/LCD/liquid_crystal.d \
+main.d \
+MCAL/I2C/i2c_master.d
 
 C_DEPS_AS_ARGS +=  \
-HAL/LCD/liquid_crystal_i2c.d \
-HAL/LCD/liquid_crystal_i2c_master.d \
-main.d
+HAL/LCD/liquid_crystal.d \
+main.d \
+MCAL/I2C/i2c_master.d
 
 OUTPUT_FILE_PATH +=LCD_I2C.elf
 
@@ -84,14 +86,7 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-HAL/LCD/liquid_crystal_i2c.o: ../HAL/LCD/liquid_crystal_i2c.c
-	@echo Building file: $<
-	@echo Invoking: XC8 C Compiler : 2.36
-	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-HAL/LCD/liquid_crystal_i2c_master.o: ../HAL/LCD/liquid_crystal_i2c_master.c
+HAL/LCD/liquid_crystal.o: ../HAL/LCD/liquid_crystal.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -99,6 +94,13 @@ HAL/LCD/liquid_crystal_i2c_master.o: ../HAL/LCD/liquid_crystal_i2c_master.c
 	
 
 ./main.o: .././main.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.36
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/I2C/i2c_master.o: ../MCAL/I2C/i2c_master.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

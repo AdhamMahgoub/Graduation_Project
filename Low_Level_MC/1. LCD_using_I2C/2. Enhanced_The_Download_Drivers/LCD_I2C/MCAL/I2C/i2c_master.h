@@ -1,11 +1,3 @@
-/*
-* I2CMasterDevice.h
-*
-* Created: 12/9/2018 10:52:02 AM
-*  Author: Denis Goriachev
-*/
-
-
 #ifndef I2CMASTERDEVICE_H_
 #define I2CMASTERDEVICE_H_
 

@@ -1,34 +1,19 @@
-HAL/LCD/liquid_crystal_i2c.d HAL/LCD/liquid_crystal_i2c.o: \
- ../HAL/LCD/liquid_crystal_i2c.c ../HAL/LCD/i2c_master.h \
- c:\program\ files\microchip\xc8\v2.36\avr\lib\gcc\avr\5.4.0\include\stdint.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\stdint.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\bits\alltypes.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\bits\stdint.h \
- ../HAL/LCD/liquid_crystal_i2c.h \
+MCAL/I2C/i2c_master.d MCAL/I2C/i2c_master.o: ../MCAL/I2C/i2c_master.c \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\sfr_defs.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\inttypes.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\features.h \
+ c:\program\ files\microchip\xc8\v2.36\avr\lib\gcc\avr\5.4.0\include\stdint.h \
+ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\stdint.h \
+ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\bits\alltypes.h \
+ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\bits\stdint.h \
  C:/Program\ Files\ (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/include/avr/iom32.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\portpins.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\common.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h
-
-../HAL/LCD/i2c_master.h:
-
-c:\program\ files\microchip\xc8\v2.36\avr\lib\gcc\avr\5.4.0\include\stdint.h:
-
-c:\program\ files\microchip\xc8\v2.36\avr\avr\include\stdint.h:
-
-c:\program\ files\microchip\xc8\v2.36\avr\avr\include\bits\alltypes.h:
-
-c:\program\ files\microchip\xc8\v2.36\avr\avr\include\bits\stdint.h:
-
-../HAL/LCD/liquid_crystal_i2c.h:
+ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\twi.h \
+ ../MCAL/I2C/../../Device_config.h ../MCAL/I2C/i2c_master.h
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h:
 
@@ -37,6 +22,14 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\sfr_defs.h:
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\inttypes.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\features.h:
+
+c:\program\ files\microchip\xc8\v2.36\avr\lib\gcc\avr\5.4.0\include\stdint.h:
+
+c:\program\ files\microchip\xc8\v2.36\avr\avr\include\stdint.h:
+
+c:\program\ files\microchip\xc8\v2.36\avr\avr\include\bits\alltypes.h:
+
+c:\program\ files\microchip\xc8\v2.36\avr\avr\include\bits\stdint.h:
 
 C:/Program\ Files\ (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/include/avr/iom32.h:
 
@@ -48,8 +41,8 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h:
 
-c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h:
+c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\twi.h:
 
-c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h:
+../MCAL/I2C/../../Device_config.h:
 
-c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h:
+../MCAL/I2C/i2c_master.h:

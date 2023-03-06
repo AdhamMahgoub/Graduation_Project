@@ -3,83 +3,85 @@ UART.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         0000006c  00000000  00000000  00000074  2**1
+  0 .text         0000006c  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00800060  00000286  2**0
+  1 .data         00000000  00800060  00800060  000002c0  2**0
                   ALLOC, LOAD, DATA
-  2 .comment      0000002f  00000000  00000000  00000286  2**0
+  2 .comment      0000002f  00000000  00000000  000002c0  2**0
                   CONTENTS, READONLY
-  3 .stack.descriptors.hdr 0000001c  00000000  00000000  000002b5  2**0
+  3 .stack.descriptors.hdr 0000001c  00000000  00000000  000002ef  2**0
                   CONTENTS, READONLY
-  4 .debug_aranges 00000068  00000000  00000000  000002d1  2**0
+  4 .debug_aranges 00000068  00000000  00000000  0000030b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000d94  00000000  00000000  00000339  2**0
+  5 .debug_info   00000def  00000000  00000000  00000373  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000651  00000000  00000000  000010cd  2**0
+  6 .debug_abbrev 000006a2  00000000  00000000  00001162  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   0000035e  00000000  00000000  0000171e  2**0
+  7 .debug_line   00000372  00000000  00000000  00001804  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  000000ec  00000000  00000000  00001a7c  2**2
+  8 .debug_frame  000000ec  00000000  00000000  00001b78  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    000001c2  00000000  00000000  00001b68  2**0
+  9 .debug_str    000001d6  00000000  00000000  00001c64  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    000002af  00000000  00000000  00001d2a  2**0
+ 10 .debug_loc    000002af  00000000  00000000  00001e3a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000048  00000000  00000000  00001fd9  2**0
+ 11 .debug_ranges 00000048  00000000  00000000  000020e9  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .text         00000004  00000204  00000204  00000278  2**1
+ 12 .text         00000004  0000021e  0000021e  000002b2  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 13 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00002024  2**2
+ 13 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00002134  2**2
                   CONTENTS, READONLY, DEBUGGING
- 14 .progmemx.data 00000050  0000006c  0000006c  000000e0  2**0
+ 14 .progmemx.data 00000055  0000006c  0000006c  00000100  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, PROGMEMX
- 15 .text.send_DataPackege_String_with_selector 00000090  000000bc  000000bc  00000130  2**1
+ 15 .text.main    0000003e  00000166  00000166  000001fa  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 16 .text.main    0000003e  0000014c  0000014c  000001c0  2**1
+ 16 .text.UART_init 00000010  00000206  00000206  0000029a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 17 .text.UART_init 00000010  000001ec  000001ec  00000260  2**1
+ 17 .text.UART_TransmitData 00000008  00000216  00000216  000002aa  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 18 .text.UART_TransmitData 00000008  000001fc  000001fc  00000270  2**1
+ 18 .progmemx.data 00000014  000000c1  000000c1  00000155  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, PROGMEMX
+ 19 .text.send_DataPackege_String_with_selector 00000090  000000d6  000000d6  0000016a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 19 .text.libgcc  0000001a  000001bc  000001bc  00000230  2**1
+ 20 .text.libgcc  0000001a  000001d6  000001d6  0000026a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 20 .text.__dummy_fini 00000002  0000020c  0000020c  00000280  2**1
+ 21 .text.__dummy_fini 00000002  00000226  00000226  000002ba  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 21 .text.__dummy_funcs_on_exit 00000002  0000020e  0000020e  00000282  2**1
+ 22 .text.__dummy_funcs_on_exit 00000002  00000228  00000228  000002bc  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 22 .text.__dummy_simulator_exit 00000002  00000210  00000210  00000284  2**1
+ 23 .text.__dummy_simulator_exit 00000002  0000022a  0000022a  000002be  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 23 .text.exit    00000016  000001d6  000001d6  0000024a  2**1
+ 24 .text.exit    00000016  000001f0  000001f0  00000284  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 24 .text.memcpy  00000032  0000018a  0000018a  000001fe  2**1
+ 25 .text.memcpy  00000032  000001a4  000001a4  00000238  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 25 .text._Exit   00000004  00000208  00000208  0000027c  2**1
+ 26 .text._Exit   00000004  00000222  00000222  000002b6  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
    0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
-   4:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-   8:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-   c:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-  10:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-  14:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-  18:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-  1c:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-  20:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-  24:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-  28:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-  2c:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-  30:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-  34:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-  38:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-  3c:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-  40:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-  44:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-  48:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-  4c:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
-  50:	0c 94 02 01 	jmp	0x204	; 0x204 <__bad_interrupt>
+   4:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+   8:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+   c:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+  10:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+  14:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+  18:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+  1c:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+  20:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+  24:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+  28:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+  2c:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+  30:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+  34:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+  38:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+  3c:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+  40:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+  44:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+  48:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+  4c:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
+  50:	0c 94 0f 01 	jmp	0x21e	; 0x21e <__bad_interrupt>
 
 00000054 <__ctors_end>:
   54:	11 24       	eor	r1, r1
@@ -88,8 +90,8 @@ Disassembly of section .text:
   5a:	d8 e0       	ldi	r29, 0x08	; 8
   5c:	de bf       	out	0x3e, r29	; 62
   5e:	cd bf       	out	0x3d, r28	; 61
-  60:	0e 94 a6 00 	call	0x14c	; 0x14c <main>
-  64:	0c 94 eb 00 	jmp	0x1d6	; 0x1d6 <exit>
+  60:	0e 94 b3 00 	call	0x166	; 0x166 <main>
+  64:	0c 94 f8 00 	jmp	0x1f0	; 0x1f0 <exit>
 
 00000068 <_exit>:
   68:	f8 94       	cli
@@ -99,294 +101,296 @@ Disassembly of section .text:
 
 Disassembly of section .text:
 
-00000204 <__bad_interrupt>:
- 204:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
-
-Disassembly of section .text.send_DataPackege_String_with_selector:
-
-000000bc <send_DataPackege_String_with_selector>:
-		i++;
-	}
-}
-
-void send_DataPackege_String_with_selector(struct DataPackage *DataPackage_ptr, char selector)
-{
-  bc:	ef 92       	push	r14
-  be:	ff 92       	push	r15
-  c0:	0f 93       	push	r16
-  c2:	1f 93       	push	r17
-  c4:	cf 93       	push	r28
-  c6:	df 93       	push	r29
-  c8:	cd b7       	in	r28, 0x3d	; 61
-  ca:	de b7       	in	r29, 0x3e	; 62
-  cc:	64 97       	sbiw	r28, 0x14	; 20
-  ce:	0f b6       	in	r0, 0x3f	; 63
-  d0:	f8 94       	cli
-  d2:	de bf       	out	0x3e, r29	; 62
-  d4:	0f be       	out	0x3f, r0	; 63
-  d6:	cd bf       	out	0x3d, r28	; 61
-  d8:	7c 01       	movw	r14, r24
-	int i = 0;
-	char error_message [20] = "incorrect selector";
-  da:	2c e6       	ldi	r18, 0x6C	; 108
-  dc:	30 e0       	ldi	r19, 0x00	; 0
-  de:	40 e0       	ldi	r20, 0x00	; 0
-  e0:	83 e1       	ldi	r24, 0x13	; 19
-  e2:	f9 01       	movw	r30, r18
-  e4:	de 01       	movw	r26, r28
-  e6:	11 96       	adiw	r26, 0x01	; 1
-  e8:	74 2f       	mov	r23, r20
-  ea:	0e 94 de 00 	call	0x1bc	; 0x1bc <__movmemx_qi>
-  ee:	1c 8a       	std	Y+20, r1	; 0x14
-
-	switch (selector)
-  f0:	61 36       	cpi	r22, 0x61	; 97
-  f2:	31 f0       	breq	.+12     	; 0x100 <send_DataPackege_String_with_selector+0x44>
-  f4:	13 c0       	rjmp	.+38     	; 0x11c <send_DataPackege_String_with_selector+0x60>
-	{
-		case 'a':
-		while (DataPackage_ptr->arr[i] != '\0')
-		{
-			UART_TransmitData(DataPackage_ptr->arr[i]);
-  f6:	0e 94 fe 00 	call	0x1fc	; 0x1fc <UART_TransmitData>
-			i++;
-  fa:	0f 5f       	subi	r16, 0xFF	; 255
-  fc:	1f 4f       	sbci	r17, 0xFF	; 255
-  fe:	02 c0       	rjmp	.+4      	; 0x104 <send_DataPackege_String_with_selector+0x48>
-void send_DataPackege_String_with_selector(struct DataPackage *DataPackage_ptr, char selector)
-{
-	int i = 0;
-	char error_message [20] = "incorrect selector";
-
-	switch (selector)
- 100:	00 e0       	ldi	r16, 0x00	; 0
- 102:	10 e0       	ldi	r17, 0x00	; 0
-	{
-		case 'a':
-		while (DataPackage_ptr->arr[i] != '\0')
- 104:	f7 01       	movw	r30, r14
- 106:	e0 0f       	add	r30, r16
- 108:	f1 1f       	adc	r31, r17
- 10a:	82 81       	ldd	r24, Z+2	; 0x02
- 10c:	81 11       	cpse	r24, r1
- 10e:	f3 cf       	rjmp	.-26     	; 0xf6 <send_DataPackege_String_with_selector+0x3a>
- 110:	10 c0       	rjmp	.+32     	; 0x132 <send_DataPackege_String_with_selector+0x76>
-		break;	 
-		
-		default:
-			while (error_message[i] != '\0')
-			{
-				UART_TransmitData(error_message[i]);
- 112:	0e 94 fe 00 	call	0x1fc	; 0x1fc <UART_TransmitData>
-				i++;
- 116:	0f 5f       	subi	r16, 0xFF	; 255
- 118:	1f 4f       	sbci	r17, 0xFF	; 255
- 11a:	02 c0       	rjmp	.+4      	; 0x120 <send_DataPackege_String_with_selector+0x64>
-void send_DataPackege_String_with_selector(struct DataPackage *DataPackage_ptr, char selector)
-{
-	int i = 0;
-	char error_message [20] = "incorrect selector";
-
-	switch (selector)
- 11c:	00 e0       	ldi	r16, 0x00	; 0
- 11e:	10 e0       	ldi	r17, 0x00	; 0
-			i++;
-		}
-		break;	 
-		
-		default:
-			while (error_message[i] != '\0')
- 120:	e1 e0       	ldi	r30, 0x01	; 1
- 122:	f0 e0       	ldi	r31, 0x00	; 0
- 124:	ec 0f       	add	r30, r28
- 126:	fd 1f       	adc	r31, r29
- 128:	e0 0f       	add	r30, r16
- 12a:	f1 1f       	adc	r31, r17
- 12c:	80 81       	ld	r24, Z
- 12e:	81 11       	cpse	r24, r1
- 130:	f0 cf       	rjmp	.-32     	; 0x112 <send_DataPackege_String_with_selector+0x56>
-				i++;
-			}
-		break;	
-		
-	}
-}
- 132:	64 96       	adiw	r28, 0x14	; 20
- 134:	0f b6       	in	r0, 0x3f	; 63
- 136:	f8 94       	cli
- 138:	de bf       	out	0x3e, r29	; 62
- 13a:	0f be       	out	0x3f, r0	; 63
- 13c:	cd bf       	out	0x3d, r28	; 61
- 13e:	df 91       	pop	r29
- 140:	cf 91       	pop	r28
- 142:	1f 91       	pop	r17
- 144:	0f 91       	pop	r16
- 146:	ff 90       	pop	r15
- 148:	ef 90       	pop	r14
- 14a:	08 95       	ret
+0000021e <__bad_interrupt>:
+ 21e:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
 
 Disassembly of section .text.main:
 
-0000014c <main>:
+00000166 <main>:
+
+#include <util/delay.h>
 
 
 int main(void)
 {
- 14c:	cf 93       	push	r28
- 14e:	df 93       	push	r29
- 150:	cd b7       	in	r28, 0x3d	; 61
- 152:	de b7       	in	r29, 0x3e	; 62
- 154:	a0 97       	sbiw	r28, 0x20	; 32
- 156:	0f b6       	in	r0, 0x3f	; 63
- 158:	f8 94       	cli
- 15a:	de bf       	out	0x3e, r29	; 62
- 15c:	0f be       	out	0x3f, r0	; 63
- 15e:	cd bf       	out	0x3d, r28	; 61
+ 166:	cf 93       	push	r28
+ 168:	df 93       	push	r29
+ 16a:	cd b7       	in	r28, 0x3d	; 61
+ 16c:	de b7       	in	r29, 0x3e	; 62
+ 16e:	a0 97       	sbiw	r28, 0x20	; 32
+ 170:	0f b6       	in	r0, 0x3f	; 63
+ 172:	f8 94       	cli
+ 174:	de bf       	out	0x3e, r29	; 62
+ 176:	0f be       	out	0x3f, r0	; 63
+ 178:	cd bf       	out	0x3d, r28	; 61
 
 	UART_init();
- 160:	0e 94 f6 00 	call	0x1ec	; 0x1ec <UART_init>
+ 17a:	0e 94 03 01 	call	0x206	; 0x206 <UART_init>
 	
 	 /*  Initialize the DataPackage  */
 	 struct DataPackage UART;
 	 UART.x = 'a';
- 164:	81 e6       	ldi	r24, 0x61	; 97
- 166:	89 83       	std	Y+1, r24	; 0x01
+ 17e:	81 e6       	ldi	r24, 0x61	; 97
+ 180:	89 83       	std	Y+1, r24	; 0x01
 	 UART.y = 'b';
- 168:	82 e6       	ldi	r24, 0x62	; 98
- 16a:	8a 83       	std	Y+2, r24	; 0x02
-	 strcpy(UART.arr, "Adham Mahgoub\n\rEmbedded Systems\n\rSiemens Digital Industries");
- 16c:	2c e3       	ldi	r18, 0x3C	; 60
- 16e:	30 e0       	ldi	r19, 0x00	; 0
- 170:	40 e8       	ldi	r20, 0x80	; 128
- 172:	50 e0       	ldi	r21, 0x00	; 0
- 174:	60 e0       	ldi	r22, 0x00	; 0
- 176:	ce 01       	movw	r24, r28
- 178:	03 96       	adiw	r24, 0x03	; 3
- 17a:	0e 94 c5 00 	call	0x18a	; 0x18a <memcpy>
+ 182:	82 e6       	ldi	r24, 0x62	; 98
+ 184:	8a 83       	std	Y+2, r24	; 0x02
+	 strcpy(UART.arr, "Adham Mahgoub\n\rEmbedded Systems\n\rSiemens Digital Industries\n\rGraduation Project 2023");
+ 186:	25 e5       	ldi	r18, 0x55	; 85
+ 188:	30 e0       	ldi	r19, 0x00	; 0
+ 18a:	4c e6       	ldi	r20, 0x6C	; 108
+ 18c:	50 e0       	ldi	r21, 0x00	; 0
+ 18e:	60 e0       	ldi	r22, 0x00	; 0
+ 190:	ce 01       	movw	r24, r28
+ 192:	03 96       	adiw	r24, 0x03	; 3
+ 194:	0e 94 d2 00 	call	0x1a4	; 0x1a4 <memcpy>
 
 	 //send_DataPackage_char(&UART);
 	 //send_DataPackege_String(&UART);
 	 send_DataPackege_String_with_selector(&UART,'a');
- 17e:	61 e6       	ldi	r22, 0x61	; 97
- 180:	ce 01       	movw	r24, r28
- 182:	01 96       	adiw	r24, 0x01	; 1
- 184:	0e 94 5e 00 	call	0xbc	; 0xbc <send_DataPackege_String_with_selector>
- 188:	ff cf       	rjmp	.-2      	; 0x188 <main+0x3c>
+ 198:	61 e6       	ldi	r22, 0x61	; 97
+ 19a:	ce 01       	movw	r24, r28
+ 19c:	01 96       	adiw	r24, 0x01	; 1
+ 19e:	0e 94 6b 00 	call	0xd6	; 0xd6 <send_DataPackege_String_with_selector>
+ 1a2:	ff cf       	rjmp	.-2      	; 0x1a2 <main+0x3c>
 
 Disassembly of section .text.UART_init:
 
-000001ec <UART_init>:
+00000206 <UART_init>:
 
 
 // A function to initialize UART Communication
 void UART_init(void){
 
 	UBRRH = (unsigned char)(BAUD_PRESCALE>>8);
- 1ec:	10 bc       	out	0x20, r1	; 32
+ 206:	10 bc       	out	0x20, r1	; 32
 	UBRRL = (unsigned char)BAUD_PRESCALE;
- 1ee:	8f ec       	ldi	r24, 0xCF	; 207
- 1f0:	89 b9       	out	0x09, r24	; 9
+ 208:	8f ec       	ldi	r24, 0xCF	; 207
+ 20a:	89 b9       	out	0x09, r24	; 9
 	
 	// Enable receiver and transmitter
 	UCSRB = (1<<RXEN)|(1<<TXEN);
- 1f2:	88 e1       	ldi	r24, 0x18	; 24
- 1f4:	8a b9       	out	0x0a, r24	; 10
+ 20c:	88 e1       	ldi	r24, 0x18	; 24
+ 20e:	8a b9       	out	0x0a, r24	; 10
 
 	// Set frame format: 8data, 1stop bit
 	UCSRC = (1<<URSEL)|(1<<UCSZ1)|(1<<UCSZ0);
- 1f6:	86 e8       	ldi	r24, 0x86	; 134
- 1f8:	80 bd       	out	0x20, r24	; 32
- 1fa:	08 95       	ret
+ 210:	86 e8       	ldi	r24, 0x86	; 134
+ 212:	80 bd       	out	0x20, r24	; 32
+ 214:	08 95       	ret
 
 Disassembly of section .text.UART_TransmitData:
 
-000001fc <UART_TransmitData>:
+00000216 <UART_TransmitData>:
 }
 
 //A function to Transmit Data
 void UART_TransmitData(u8 Data){
 	while(GET_BIT(UCSRA,UDRE)==0);	//Wait until all data is transmitted
- 1fc:	5d 9b       	sbis	0x0b, 5	; 11
- 1fe:	fe cf       	rjmp	.-4      	; 0x1fc <UART_TransmitData>
+ 216:	5d 9b       	sbis	0x0b, 5	; 11
+ 218:	fe cf       	rjmp	.-4      	; 0x216 <UART_TransmitData>
 	UDR=Data;
- 200:	8c b9       	out	0x0c, r24	; 12
- 202:	08 95       	ret
+ 21a:	8c b9       	out	0x0c, r24	; 12
+ 21c:	08 95       	ret
+
+Disassembly of section .text.send_DataPackege_String_with_selector:
+
+000000d6 <send_DataPackege_String_with_selector>:
+		i++;
+	}
+}
+
+void send_DataPackege_String_with_selector(struct DataPackage *DataPackage_ptr, char selector)
+{
+  d6:	ef 92       	push	r14
+  d8:	ff 92       	push	r15
+  da:	0f 93       	push	r16
+  dc:	1f 93       	push	r17
+  de:	cf 93       	push	r28
+  e0:	df 93       	push	r29
+  e2:	cd b7       	in	r28, 0x3d	; 61
+  e4:	de b7       	in	r29, 0x3e	; 62
+  e6:	64 97       	sbiw	r28, 0x14	; 20
+  e8:	0f b6       	in	r0, 0x3f	; 63
+  ea:	f8 94       	cli
+  ec:	de bf       	out	0x3e, r29	; 62
+  ee:	0f be       	out	0x3f, r0	; 63
+  f0:	cd bf       	out	0x3d, r28	; 61
+  f2:	7c 01       	movw	r14, r24
+	int i = 0;
+	char error_message [20] = "incorrect selector";
+  f4:	21 ec       	ldi	r18, 0xC1	; 193
+  f6:	30 e0       	ldi	r19, 0x00	; 0
+  f8:	40 e0       	ldi	r20, 0x00	; 0
+  fa:	83 e1       	ldi	r24, 0x13	; 19
+  fc:	f9 01       	movw	r30, r18
+  fe:	de 01       	movw	r26, r28
+ 100:	11 96       	adiw	r26, 0x01	; 1
+ 102:	74 2f       	mov	r23, r20
+ 104:	0e 94 eb 00 	call	0x1d6	; 0x1d6 <__movmemx_qi>
+ 108:	1c 8a       	std	Y+20, r1	; 0x14
+
+	switch (selector)
+ 10a:	61 36       	cpi	r22, 0x61	; 97
+ 10c:	31 f0       	breq	.+12     	; 0x11a <send_DataPackege_String_with_selector+0x44>
+ 10e:	13 c0       	rjmp	.+38     	; 0x136 <send_DataPackege_String_with_selector+0x60>
+	{
+		case 'a':
+		while (DataPackage_ptr->arr[i] != '\0')
+		{
+			UART_TransmitData(DataPackage_ptr->arr[i]);
+ 110:	0e 94 0b 01 	call	0x216	; 0x216 <UART_TransmitData>
+			i++;
+ 114:	0f 5f       	subi	r16, 0xFF	; 255
+ 116:	1f 4f       	sbci	r17, 0xFF	; 255
+ 118:	02 c0       	rjmp	.+4      	; 0x11e <send_DataPackege_String_with_selector+0x48>
+void send_DataPackege_String_with_selector(struct DataPackage *DataPackage_ptr, char selector)
+{
+	int i = 0;
+	char error_message [20] = "incorrect selector";
+
+	switch (selector)
+ 11a:	00 e0       	ldi	r16, 0x00	; 0
+ 11c:	10 e0       	ldi	r17, 0x00	; 0
+	{
+		case 'a':
+		while (DataPackage_ptr->arr[i] != '\0')
+ 11e:	f7 01       	movw	r30, r14
+ 120:	e0 0f       	add	r30, r16
+ 122:	f1 1f       	adc	r31, r17
+ 124:	82 81       	ldd	r24, Z+2	; 0x02
+ 126:	81 11       	cpse	r24, r1
+ 128:	f3 cf       	rjmp	.-26     	; 0x110 <send_DataPackege_String_with_selector+0x3a>
+ 12a:	10 c0       	rjmp	.+32     	; 0x14c <send_DataPackege_String_with_selector+0x76>
+		break;
+		
+		default:
+		while (error_message[i] != '\0')
+		{
+			UART_TransmitData(error_message[i]);
+ 12c:	0e 94 0b 01 	call	0x216	; 0x216 <UART_TransmitData>
+			i++;
+ 130:	0f 5f       	subi	r16, 0xFF	; 255
+ 132:	1f 4f       	sbci	r17, 0xFF	; 255
+ 134:	02 c0       	rjmp	.+4      	; 0x13a <send_DataPackege_String_with_selector+0x64>
+void send_DataPackege_String_with_selector(struct DataPackage *DataPackage_ptr, char selector)
+{
+	int i = 0;
+	char error_message [20] = "incorrect selector";
+
+	switch (selector)
+ 136:	00 e0       	ldi	r16, 0x00	; 0
+ 138:	10 e0       	ldi	r17, 0x00	; 0
+			i++;
+		}
+		break;
+		
+		default:
+		while (error_message[i] != '\0')
+ 13a:	e1 e0       	ldi	r30, 0x01	; 1
+ 13c:	f0 e0       	ldi	r31, 0x00	; 0
+ 13e:	ec 0f       	add	r30, r28
+ 140:	fd 1f       	adc	r31, r29
+ 142:	e0 0f       	add	r30, r16
+ 144:	f1 1f       	adc	r31, r17
+ 146:	80 81       	ld	r24, Z
+ 148:	81 11       	cpse	r24, r1
+ 14a:	f0 cf       	rjmp	.-32     	; 0x12c <send_DataPackege_String_with_selector+0x56>
+			i++;
+		}
+		break;
+		
+	}
+}
+ 14c:	64 96       	adiw	r28, 0x14	; 20
+ 14e:	0f b6       	in	r0, 0x3f	; 63
+ 150:	f8 94       	cli
+ 152:	de bf       	out	0x3e, r29	; 62
+ 154:	0f be       	out	0x3f, r0	; 63
+ 156:	cd bf       	out	0x3d, r28	; 61
+ 158:	df 91       	pop	r29
+ 15a:	cf 91       	pop	r28
+ 15c:	1f 91       	pop	r17
+ 15e:	0f 91       	pop	r16
+ 160:	ff 90       	pop	r15
+ 162:	ef 90       	pop	r14
+ 164:	08 95       	ret
 
 Disassembly of section .text.libgcc:
 
-000001bc <__movmemx_qi>:
- 1bc:	99 27       	eor	r25, r25
+000001d6 <__movmemx_qi>:
+ 1d6:	99 27       	eor	r25, r25
 
-000001be <__movmemx_hi>:
- 1be:	77 fd       	sbrc	r23, 7
- 1c0:	05 c0       	rjmp	.+10     	; 0x1cc <__movmemx_hi+0xe>
- 1c2:	05 90       	lpm	r0, Z+
- 1c4:	0d 92       	st	X+, r0
- 1c6:	01 97       	sbiw	r24, 0x01	; 1
- 1c8:	e1 f7       	brne	.-8      	; 0x1c2 <__movmemx_hi+0x4>
- 1ca:	08 95       	ret
- 1cc:	01 90       	ld	r0, Z+
- 1ce:	0d 92       	st	X+, r0
- 1d0:	01 97       	sbiw	r24, 0x01	; 1
- 1d2:	e1 f7       	brne	.-8      	; 0x1cc <__movmemx_hi+0xe>
- 1d4:	08 95       	ret
+000001d8 <__movmemx_hi>:
+ 1d8:	77 fd       	sbrc	r23, 7
+ 1da:	05 c0       	rjmp	.+10     	; 0x1e6 <__movmemx_hi+0xe>
+ 1dc:	05 90       	lpm	r0, Z+
+ 1de:	0d 92       	st	X+, r0
+ 1e0:	01 97       	sbiw	r24, 0x01	; 1
+ 1e2:	e1 f7       	brne	.-8      	; 0x1dc <__movmemx_hi+0x4>
+ 1e4:	08 95       	ret
+ 1e6:	01 90       	ld	r0, Z+
+ 1e8:	0d 92       	st	X+, r0
+ 1ea:	01 97       	sbiw	r24, 0x01	; 1
+ 1ec:	e1 f7       	brne	.-8      	; 0x1e6 <__movmemx_hi+0xe>
+ 1ee:	08 95       	ret
 
 Disassembly of section .text.__dummy_fini:
 
-0000020c <_fini>:
- 20c:	08 95       	ret
+00000226 <_fini>:
+ 226:	08 95       	ret
 
 Disassembly of section .text.__dummy_funcs_on_exit:
 
-0000020e <__funcs_on_exit>:
- 20e:	08 95       	ret
+00000228 <__funcs_on_exit>:
+ 228:	08 95       	ret
 
 Disassembly of section .text.__dummy_simulator_exit:
 
-00000210 <__simulator_exit>:
- 210:	08 95       	ret
+0000022a <__simulator_exit>:
+ 22a:	08 95       	ret
 
 Disassembly of section .text.exit:
 
-000001d6 <exit>:
- 1d6:	ec 01       	movw	r28, r24
- 1d8:	0e 94 07 01 	call	0x20e	; 0x20e <__funcs_on_exit>
- 1dc:	0e 94 06 01 	call	0x20c	; 0x20c <_fini>
- 1e0:	ce 01       	movw	r24, r28
- 1e2:	0e 94 08 01 	call	0x210	; 0x210 <__simulator_exit>
- 1e6:	ce 01       	movw	r24, r28
- 1e8:	0e 94 04 01 	call	0x208	; 0x208 <_Exit>
+000001f0 <exit>:
+ 1f0:	ec 01       	movw	r28, r24
+ 1f2:	0e 94 14 01 	call	0x228	; 0x228 <__funcs_on_exit>
+ 1f6:	0e 94 13 01 	call	0x226	; 0x226 <_fini>
+ 1fa:	ce 01       	movw	r24, r28
+ 1fc:	0e 94 15 01 	call	0x22a	; 0x22a <__simulator_exit>
+ 200:	ce 01       	movw	r24, r28
+ 202:	0e 94 11 01 	call	0x222	; 0x222 <_Exit>
 
 Disassembly of section .text.memcpy:
 
-0000018a <memcpy>:
- 18a:	cf 92       	push	r12
- 18c:	df 92       	push	r13
- 18e:	ef 92       	push	r14
- 190:	6a 01       	movw	r12, r20
- 192:	e6 2e       	mov	r14, r22
- 194:	dc 01       	movw	r26, r24
- 196:	28 0f       	add	r18, r24
- 198:	39 1f       	adc	r19, r25
- 19a:	a2 17       	cp	r26, r18
- 19c:	b3 07       	cpc	r27, r19
- 19e:	51 f0       	breq	.+20     	; 0x1b4 <memcpy+0x2a>
- 1a0:	f6 01       	movw	r30, r12
- 1a2:	44 91       	lpm	r20, Z
- 1a4:	e7 fc       	sbrc	r14, 7
- 1a6:	40 81       	ld	r20, Z
- 1a8:	4d 93       	st	X+, r20
- 1aa:	4f ef       	ldi	r20, 0xFF	; 255
- 1ac:	c4 1a       	sub	r12, r20
- 1ae:	d4 0a       	sbc	r13, r20
- 1b0:	e4 0a       	sbc	r14, r20
- 1b2:	f3 cf       	rjmp	.-26     	; 0x19a <memcpy+0x10>
- 1b4:	ef 90       	pop	r14
- 1b6:	df 90       	pop	r13
- 1b8:	cf 90       	pop	r12
- 1ba:	08 95       	ret
+000001a4 <memcpy>:
+ 1a4:	cf 92       	push	r12
+ 1a6:	df 92       	push	r13
+ 1a8:	ef 92       	push	r14
+ 1aa:	6a 01       	movw	r12, r20
+ 1ac:	e6 2e       	mov	r14, r22
+ 1ae:	dc 01       	movw	r26, r24
+ 1b0:	28 0f       	add	r18, r24
+ 1b2:	39 1f       	adc	r19, r25
+ 1b4:	a2 17       	cp	r26, r18
+ 1b6:	b3 07       	cpc	r27, r19
+ 1b8:	51 f0       	breq	.+20     	; 0x1ce <memcpy+0x2a>
+ 1ba:	f6 01       	movw	r30, r12
+ 1bc:	44 91       	lpm	r20, Z
+ 1be:	e7 fc       	sbrc	r14, 7
+ 1c0:	40 81       	ld	r20, Z
+ 1c2:	4d 93       	st	X+, r20
+ 1c4:	4f ef       	ldi	r20, 0xFF	; 255
+ 1c6:	c4 1a       	sub	r12, r20
+ 1c8:	d4 0a       	sbc	r13, r20
+ 1ca:	e4 0a       	sbc	r14, r20
+ 1cc:	f3 cf       	rjmp	.-26     	; 0x1b4 <memcpy+0x10>
+ 1ce:	ef 90       	pop	r14
+ 1d0:	df 90       	pop	r13
+ 1d2:	cf 90       	pop	r12
+ 1d4:	08 95       	ret
 
 Disassembly of section .text._Exit:
 
-00000208 <_Exit>:
- 208:	0e 94 34 00 	call	0x68	; 0x68 <_exit>
+00000222 <_Exit>:
+ 222:	0e 94 34 00 	call	0x68	; 0x68 <_exit>

@@ -32,15 +32,16 @@ LIB_DEP:=
 LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
-SUBDIRS := 
+SUBDIRS :=  \
+../HAL \
+../HAL/MPU6050
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../HMC588L.c \
-../I2C_Master_C_file.c \
-../main.c \
-../UART_Program.c
+../HAL/MPU6050/MPU6050.c \
+../HAL/MPU6050/MPU6050_I2C_Master.c \
+../main.c
 
 
 PREPROCESSING_SRCS += 
@@ -50,32 +51,28 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-HMC588L.o \
-I2C_Master_C_file.o \
-main.o \
-UART_Program.o
+HAL/MPU6050/MPU6050.o \
+HAL/MPU6050/MPU6050_I2C_Master.o \
+main.o
 
 OBJS_AS_ARGS +=  \
-HMC588L.o \
-I2C_Master_C_file.o \
-main.o \
-UART_Program.o
+HAL/MPU6050/MPU6050.o \
+HAL/MPU6050/MPU6050_I2C_Master.o \
+main.o
 
 C_DEPS +=  \
-HMC588L.d \
-I2C_Master_C_file.d \
-main.d \
-UART_Program.d
+HAL/MPU6050/MPU6050.d \
+HAL/MPU6050/MPU6050_I2C_Master.d \
+main.d
 
 C_DEPS_AS_ARGS +=  \
-HMC588L.d \
-I2C_Master_C_file.d \
-main.d \
-UART_Program.d
+HAL/MPU6050/MPU6050.d \
+HAL/MPU6050/MPU6050_I2C_Master.d \
+main.d
 
-OUTPUT_FILE_PATH +=HMC588L.elf
+OUTPUT_FILE_PATH +=MPU6050.elf
 
-OUTPUT_FILE_PATH_AS_ARGS +=HMC588L.elf
+OUTPUT_FILE_PATH_AS_ARGS +=MPU6050.elf
 
 ADDITIONAL_DEPENDENCIES:=
 
@@ -87,14 +84,14 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-./HMC588L.o: .././HMC588L.c
+HAL/MPU6050/MPU6050.o: ../HAL/MPU6050/MPU6050.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-./I2C_Master_C_file.o: .././I2C_Master_C_file.c
+HAL/MPU6050/MPU6050_I2C_Master.o: ../HAL/MPU6050/MPU6050_I2C_Master.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -102,13 +99,6 @@ LINKER_SCRIPT_DEP+=
 	
 
 ./main.o: .././main.c
-	@echo Building file: $<
-	@echo Invoking: XC8 C Compiler : 2.36
-	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-./UART_Program.o: .././UART_Program.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -141,11 +131,11 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
 	@echo Invoking:  XC8 C Linker : 2.36
-	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -Wl,-Map="HMC588L.map" -funsigned-char -funsigned-bitfields -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums --memorysummary,memoryfile.xml  
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -Wl,-Map="MPU6050.map" -funsigned-char -funsigned-bitfields -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums --memorysummary,memoryfile.xml  
 	@echo Finished building target: $@
-	"C:\Program Files\Microchip\xc8\v2.36\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "HMC588L.elf" "HMC588L.hex"
-	"C:\Program Files\Microchip\xc8\v2.36\bin\avr-objcopy.exe" -j .eeprom --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0 --no-change-warnings -O ihex "HMC588L.elf" "HMC588L.eep" || exit 0
-	"C:\Program Files\Microchip\xc8\v2.36\bin\avr-objdump.exe" -h -S "HMC588L.elf" > "HMC588L.lss"
+	"C:\Program Files\Microchip\xc8\v2.36\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "MPU6050.elf" "MPU6050.hex"
+	"C:\Program Files\Microchip\xc8\v2.36\bin\avr-objcopy.exe" -j .eeprom --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0 --no-change-warnings -O ihex "MPU6050.elf" "MPU6050.eep" || exit 0
+	"C:\Program Files\Microchip\xc8\v2.36\bin\avr-objdump.exe" -h -S "MPU6050.elf" > "MPU6050.lss"
 	
 	
 
@@ -157,5 +147,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "HMC588L.elf" "HMC588L.hex" "HMC588L.eep" "HMC588L.map" "HMC588L.usersignatures" "HMC588L.a"  "HMC588L.lss"
+	rm -rf "MPU6050.elf" "MPU6050.hex" "MPU6050.eep" "MPU6050.map" "MPU6050.usersignatures" "MPU6050.a"  "MPU6050.lss"
 	

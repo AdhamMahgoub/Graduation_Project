@@ -1,11 +1,5 @@
-/*
- * I2C_Master_C_file.c
- * http://www.electronicwings.com
- *
- */ 
+#include "MPU6050_I2C_Master.h"						/* Include I2C header file */
 
-
-#include "I2C_Master_H_file.h"								/* Include I2C header file */
 
 void I2C_Init()												/* I2C initialize function */
 {
@@ -13,7 +7,7 @@ void I2C_Init()												/* I2C initialize function */
 }	
 
 
-uint8_t I2C_Start(char slave_write_address)					/* I2C start function */
+uint8_t I2C_Start(char slave_write_address)						/* I2C start function */
 {
 	uint8_t status;											/* Declare variable */
 	TWCR = (1<<TWSTA)|(1<<TWEN)|(1<<TWINT);					/* Enable TWI, generate start condition and clear interrupt flag */
@@ -97,7 +91,7 @@ uint8_t I2C_Write(char data)								/* I2C write function */
 	return 2;												/* Else return 2 to indicate data transmission failed */
 }
 
-char I2C_Read_Ack()											/* I2C read ack function */
+char I2C_Read_Ack()										/* I2C read ack function */
 {
 	TWCR=(1<<TWEN)|(1<<TWINT)|(1<<TWEA);					/* Enable TWI, generation of ack and clear interrupt flag */
 	while (!(TWCR & (1<<TWINT)));							/* Wait until TWI finish its current job (read operation) */

@@ -1,12 +1,5 @@
-/*
-* LiquidCrystalI2CDevice.c
-*
-* Created: 12/9/2018 11:35:38 AM
-*  Author: Barrett
-*/
-
-#include "liquid_crystal_i2c_master.h"
-#include "liquid_crystal_i2c.h"
+#include "../../MCAL/I2C/i2c_master.h"
+#include "liquid_crystal.h"
 
 #include <avr/io.h>
 #include <util/delay.h>
@@ -106,7 +99,7 @@ void lq_turnOffBacklight(struct LiquidCrystalDevice_t* device)
 void lq_clear(LiquidCrystalDevice_t* device)
 {
 	lq_sendCommand(device, LCD_CLEARDISPLAY); // clear display, set cursor position to zero
-	//_delay_us(2000);  // this command takes a long time!
+	_delay_us(2000);  // this command takes a long time!
 
 	lq_setCursor(device, 0, 0);
 }

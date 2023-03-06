@@ -269,7 +269,7 @@ Disassembly of section .text:
 Disassembly of section .text:
 
 000022e2 <__bad_interrupt>:
-    22e2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+    22e2:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
 
 Disassembly of section .text.lq_transmitI2C:
 
@@ -795,7 +795,7 @@ int main(void)
     1c12:	cd bf       	out	0x3d, r28	; 61
 	
 	/*		LCD Initialization		*/
-	LiquidCrystalDevice_t device1 = lq_init(0x27, 20, 4, LCD_5x8DOTS); // intialize 4-lines display
+	LiquidCrystalDevice_t device1 = lq_init(0x27, 20, 4, LCD_5x8DOTS);	// intialize 4-lines display
     1c14:	20 e0       	ldi	r18, 0x00	; 0
     1c16:	44 e0       	ldi	r20, 0x04	; 4
     1c18:	64 e1       	ldi	r22, 0x14	; 20
@@ -808,7 +808,7 @@ int main(void)
     1c28:	6d 83       	std	Y+5, r22	; 0x05
     1c2a:	7e 83       	std	Y+6, r23	; 0x06
     1c2c:	8f 83       	std	Y+7, r24	; 0x07
-	lq_turnOnBacklight(&device1); // simply turning on the backlight
+	lq_turnOnBacklight(&device1);										// simply turning on the backlight
     1c2e:	ce 01       	movw	r24, r28
     1c30:	01 96       	adiw	r24, 0x01	; 1
     1c32:	0e 94 1c 11 	call	0x2238	; 0x2238 <lq_turnOnBacklight>
@@ -821,13 +821,12 @@ int main(void)
     1c3c:	ce 01       	movw	r24, r28
     1c3e:	01 96       	adiw	r24, 0x01	; 1
     1c40:	0e 94 03 0f 	call	0x1e06	; 0x1e06 <lq_print>
-	lq_setCursor(&device1, 1, 0);	// moving cursor to the next line
+	lq_setCursor(&device1, 1, 0);					// moving cursor to the next line	
     1c44:	40 e0       	ldi	r20, 0x00	; 0
     1c46:	61 e0       	ldi	r22, 0x01	; 1
     1c48:	ce 01       	movw	r24, r28
     1c4a:	01 96       	adiw	r24, 0x01	; 1
     1c4c:	0e 94 44 0f 	call	0x1e88	; 0x1e88 <lq_setCursor>
-	
 	print_float(3.14567, device1);
     1c50:	e9 80       	ldd	r14, Y+1	; 0x01
     1c52:	fa 80       	ldd	r15, Y+2	; 0x02
@@ -3120,8 +3119,8 @@ Disassembly of section .text.__printf_core:
  8ec:	4c f4       	brge	.+18     	; 0x900 <__stack+0xa1>
  8ee:	8f e4       	ldi	r24, 0x4F	; 79
  8f0:	90 e0       	ldi	r25, 0x00	; 0
- 8f2:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <_edata+0x1>
- 8f6:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <_edata>
+ 8f2:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 8f6:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
  8fa:	8f ef       	ldi	r24, 0xFF	; 255
  8fc:	9f ef       	ldi	r25, 0xFF	; 255
  8fe:	03 c0       	rjmp	.+6      	; 0x906 <__stack+0xa7>
@@ -3749,8 +3748,8 @@ Disassembly of section .text.__vsnprintf:
     195e:	09 c0       	rjmp	.+18     	; 0x1972 <__vsnprintf+0x52>
     1960:	8f e4       	ldi	r24, 0x4F	; 79
     1962:	90 e0       	ldi	r25, 0x00	; 0
-    1964:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <_edata+0x1>
-    1968:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <_edata>
+    1964:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+    1968:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
     196c:	8f ef       	ldi	r24, 0xFF	; 255
     196e:	9f ef       	ldi	r25, 0xFF	; 255
     1970:	19 c0       	rjmp	.+50     	; 0x19a4 <__vsnprintf+0x84>

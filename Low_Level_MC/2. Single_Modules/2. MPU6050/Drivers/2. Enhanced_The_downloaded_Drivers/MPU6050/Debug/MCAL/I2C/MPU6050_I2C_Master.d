@@ -1,5 +1,5 @@
-HAL/MPU6050/MPU6050_I2C_Master.d HAL/MPU6050/MPU6050_I2C_Master.o: \
- ../HAL/MPU6050/MPU6050_I2C_Master.c ../HAL/MPU6050/MPU6050_I2C_Master.h \
+MCAL/I2C/MPU6050_I2C_Master.d MCAL/I2C/MPU6050_I2C_Master.o: \
+ ../MCAL/I2C/MPU6050_I2C_Master.c ../MCAL/I2C/MPU6050_I2C_Master.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\sfr_defs.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\inttypes.h \
@@ -17,7 +17,7 @@ HAL/MPU6050/MPU6050_I2C_Master.d HAL/MPU6050/MPU6050_I2C_Master.o: \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h
 
-../HAL/MPU6050/MPU6050_I2C_Master.h:
+../MCAL/I2C/MPU6050_I2C_Master.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h:
 

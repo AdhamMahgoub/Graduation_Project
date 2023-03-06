@@ -97,22 +97,27 @@
     <Compile Include="HAL\MPU6050\MPU6050.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\MPU6050\MPU6050_I2C_Master.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="HAL\MPU6050\MPU6050_I2C_Master.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="HAL\MPU6050\MPU6050_private.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\I2C\MPU6050_I2C_Master.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\I2C\MPU6050_I2C_Master.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="System_Config.h">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HAL" />
     <Folder Include="HAL\MPU6050" />
+    <Folder Include="MCAL" />
+    <Folder Include="MCAL\I2C" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

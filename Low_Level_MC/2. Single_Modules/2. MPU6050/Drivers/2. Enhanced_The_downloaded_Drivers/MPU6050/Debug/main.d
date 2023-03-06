@@ -1,4 +1,4 @@
-main.d main.o: .././main.c \
+main.d main.o: .././main.c .././System_Config.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\sfr_defs.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\inttypes.h \
@@ -14,11 +14,13 @@ main.d main.o: .././main.c \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\stdlib.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\stdio.h \
- .././HAL/MPU6050/MPU6050_private.h .././HAL/MPU6050/MPU6050_I2C_Master.h \
+ .././HAL/MPU6050/MPU6050_private.h .././MCAL/I2C/MPU6050_I2C_Master.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h \
  .././HAL/MPU6050/MPU6050.h
+
+.././System_Config.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h:
 
@@ -52,7 +54,7 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\stdio.h:
 
 .././HAL/MPU6050/MPU6050_private.h:
 
-.././HAL/MPU6050/MPU6050_I2C_Master.h:
+.././MCAL/I2C/MPU6050_I2C_Master.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h:
 

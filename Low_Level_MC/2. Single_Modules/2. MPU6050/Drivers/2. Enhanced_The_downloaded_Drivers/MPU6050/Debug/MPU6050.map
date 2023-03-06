@@ -29,14 +29,14 @@ Discarded input sections
  .text          0x0000000000000000        0x0 HAL/MPU6050/MPU6050.o
  .data          0x0000000000000000        0x0 HAL/MPU6050/MPU6050.o
  .bss           0x0000000000000000        0x0 HAL/MPU6050/MPU6050.o
- .text          0x0000000000000000        0x0 HAL/MPU6050/MPU6050_I2C_Master.o
- .data          0x0000000000000000        0x0 HAL/MPU6050/MPU6050_I2C_Master.o
- .bss           0x0000000000000000        0x0 HAL/MPU6050/MPU6050_I2C_Master.o
- .text.I2C_Start
-                0x0000000000000000       0x3a HAL/MPU6050/MPU6050_I2C_Master.o
  .text          0x0000000000000000        0x0 main.o
  .data          0x0000000000000000        0x0 main.o
  .bss           0x0000000000000000        0x0 main.o
+ .text          0x0000000000000000        0x0 MCAL/I2C/MPU6050_I2C_Master.o
+ .data          0x0000000000000000        0x0 MCAL/I2C/MPU6050_I2C_Master.o
+ .bss           0x0000000000000000        0x0 MCAL/I2C/MPU6050_I2C_Master.o
+ .text.I2C_Start
+                0x0000000000000000       0x3a MCAL/I2C/MPU6050_I2C_Master.o
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(floatsisf.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(floatsisf.o)
  .stack.descriptors
@@ -98,8 +98,8 @@ Linker script and memory map
 
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
 LOAD HAL/MPU6050/MPU6050.o
-LOAD HAL/MPU6050/MPU6050_I2C_Master.o
 LOAD main.o
+LOAD MCAL/I2C/MPU6050_I2C_Master.o
 START GROUP
 LOAD c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a
 END GROUP
@@ -363,8 +363,8 @@ END GROUP
  *(.comment)
  .comment       0x0000000000000000       0x2f HAL/MPU6050/MPU6050.o
                                          0x30 (size before relaxing)
- .comment       0x000000000000002f       0x30 HAL/MPU6050/MPU6050_I2C_Master.o
  .comment       0x000000000000002f       0x30 main.o
+ .comment       0x000000000000002f       0x30 MCAL/I2C/MPU6050_I2C_Master.o
  .comment       0x000000000000002f       0x30 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
  .comment       0x000000000000002f       0x30 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
 
@@ -404,52 +404,52 @@ END GROUP
  .debug_aranges
                 0x0000000000000000       0x30 HAL/MPU6050/MPU6050.o
  .debug_aranges
-                0x0000000000000030       0x58 HAL/MPU6050/MPU6050_I2C_Master.o
+                0x0000000000000030       0x20 main.o
  .debug_aranges
-                0x0000000000000088       0x20 main.o
+                0x0000000000000050       0x58 MCAL/I2C/MPU6050_I2C_Master.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x1379
+.debug_info     0x0000000000000000     0x13ac
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
- .debug_info    0x00000000000004e6      0x695 HAL/MPU6050/MPU6050.o
- .debug_info    0x0000000000000b7b      0x44e HAL/MPU6050/MPU6050_I2C_Master.o
- .debug_info    0x0000000000000fc9      0x3b0 main.o
+ .debug_info    0x00000000000004e6      0x6a7 HAL/MPU6050/MPU6050.o
+ .debug_info    0x0000000000000b8d      0x3c2 main.o
+ .debug_info    0x0000000000000f4f      0x45d MCAL/I2C/MPU6050_I2C_Master.o
 
 .debug_abbrev   0x0000000000000000      0x70d
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
  .debug_abbrev  0x00000000000004a3      0x118 HAL/MPU6050/MPU6050.o
- .debug_abbrev  0x00000000000005bb       0xca HAL/MPU6050/MPU6050_I2C_Master.o
- .debug_abbrev  0x0000000000000685       0x88 main.o
+ .debug_abbrev  0x00000000000005bb       0x88 main.o
+ .debug_abbrev  0x0000000000000643       0xca MCAL/I2C/MPU6050_I2C_Master.o
 
-.debug_line     0x0000000000000000      0x62b
+.debug_line     0x0000000000000000      0x654
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x119 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
- .debug_line    0x0000000000000119      0x1db HAL/MPU6050/MPU6050.o
- .debug_line    0x00000000000002f4      0x2b2 HAL/MPU6050/MPU6050_I2C_Master.o
- .debug_line    0x00000000000005a6       0x85 main.o
+ .debug_line    0x0000000000000119      0x1f9 HAL/MPU6050/MPU6050.o
+ .debug_line    0x0000000000000312       0x93 main.o
+ .debug_line    0x00000000000003a5      0x2af MCAL/I2C/MPU6050_I2C_Master.o
 
 .debug_frame    0x0000000000000000      0x110
  *(.debug_frame)
  .debug_frame   0x0000000000000000       0x50 HAL/MPU6050/MPU6050.o
- .debug_frame   0x0000000000000050       0x9c HAL/MPU6050/MPU6050_I2C_Master.o
- .debug_frame   0x00000000000000ec       0x24 main.o
+ .debug_frame   0x0000000000000050       0x24 main.o
+ .debug_frame   0x0000000000000074       0x9c MCAL/I2C/MPU6050_I2C_Master.o
 
 .debug_str      0x0000000000000000      0x225
  *(.debug_str)
  .debug_str     0x0000000000000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
  .debug_str     0x0000000000000196       0x50 HAL/MPU6050/MPU6050.o
- .debug_str     0x00000000000001e6       0x1b HAL/MPU6050/MPU6050_I2C_Master.o
- .debug_str     0x0000000000000201       0x24 main.o
+ .debug_str     0x00000000000001e6       0x24 main.o
+ .debug_str     0x000000000000020a       0x1b MCAL/I2C/MPU6050_I2C_Master.o
 
 .debug_loc      0x0000000000000000      0x266
  *(.debug_loc)
  .debug_loc     0x0000000000000000       0x77 HAL/MPU6050/MPU6050.o
- .debug_loc     0x0000000000000077      0x1d7 HAL/MPU6050/MPU6050_I2C_Master.o
- .debug_loc     0x000000000000024e       0x18 main.o
+ .debug_loc     0x0000000000000077       0x18 main.o
+ .debug_loc     0x000000000000008f      0x1d7 MCAL/I2C/MPU6050_I2C_Master.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -472,8 +472,8 @@ END GROUP
 .debug_ranges   0x0000000000000000       0x78
  *(.debug_ranges)
  .debug_ranges  0x0000000000000000       0x20 HAL/MPU6050/MPU6050.o
- .debug_ranges  0x0000000000000020       0x48 HAL/MPU6050/MPU6050_I2C_Master.o
- .debug_ranges  0x0000000000000068       0x10 main.o
+ .debug_ranges  0x0000000000000020       0x10 main.o
+ .debug_ranges  0x0000000000000030       0x48 MCAL/I2C/MPU6050_I2C_Master.o
 
 .debug_macro
  *(.debug_macro)
@@ -506,19 +506,19 @@ LOAD data_init
 .text.I2C_Repeated_Start
                 0x000000000000030c       0x3a
  .text.I2C_Repeated_Start
-                0x000000000000030c       0x3a HAL/MPU6050/MPU6050_I2C_Master.o
+                0x000000000000030c       0x3a MCAL/I2C/MPU6050_I2C_Master.o
                 0x000000000000030c                I2C_Repeated_Start
 
 .text.I2C_Start_Wait
                 0x0000000000000346       0x34
  .text.I2C_Start_Wait
-                0x0000000000000346       0x34 HAL/MPU6050/MPU6050_I2C_Master.o
+                0x0000000000000346       0x34 MCAL/I2C/MPU6050_I2C_Master.o
                 0x0000000000000346                I2C_Start_Wait
 
 .text.I2C_Write
                 0x000000000000037a       0x24
  .text.I2C_Write
-                0x000000000000037a       0x24 HAL/MPU6050/MPU6050_I2C_Master.o
+                0x000000000000037a       0x24 MCAL/I2C/MPU6050_I2C_Master.o
                 0x000000000000037a                I2C_Write
 
 .text.exit      0x000000000000039e       0x16
@@ -531,30 +531,30 @@ LOAD data_init
                 0x00000000000003b4       0x14 HAL/MPU6050/MPU6050.o
                 0x00000000000003b4                MPU_Start_Loc
 
+.text.main      0x00000000000003c8        0xe
+ .text.main     0x00000000000003c8        0xe main.o
+                0x00000000000003c8                main
+
 .text.I2C_Read_Ack
-                0x00000000000003c8        0xe
+                0x00000000000003d6        0xe
  .text.I2C_Read_Ack
-                0x00000000000003c8        0xe HAL/MPU6050/MPU6050_I2C_Master.o
-                0x00000000000003c8                I2C_Read_Ack
+                0x00000000000003d6        0xe MCAL/I2C/MPU6050_I2C_Master.o
+                0x00000000000003d6                I2C_Read_Ack
 
 .text.I2C_Read_Nack
-                0x00000000000003d6        0xe
+                0x00000000000003e4        0xe
  .text.I2C_Read_Nack
-                0x00000000000003d6        0xe HAL/MPU6050/MPU6050_I2C_Master.o
-                0x00000000000003d6                I2C_Read_Nack
-
-.text.main      0x00000000000003e4        0xe
- .text.main     0x00000000000003e4        0xe main.o
-                0x00000000000003e4                main
+                0x00000000000003e4        0xe MCAL/I2C/MPU6050_I2C_Master.o
+                0x00000000000003e4                I2C_Read_Nack
 
 .text.I2C_Stop  0x00000000000003f2        0xc
  .text.I2C_Stop
-                0x00000000000003f2        0xc HAL/MPU6050/MPU6050_I2C_Master.o
+                0x00000000000003f2        0xc MCAL/I2C/MPU6050_I2C_Master.o
                 0x00000000000003f2                I2C_Stop
 
 .text.I2C_Init  0x00000000000003fe        0x8
  .text.I2C_Init
-                0x00000000000003fe        0x8 HAL/MPU6050/MPU6050_I2C_Master.o
+                0x00000000000003fe        0x8 MCAL/I2C/MPU6050_I2C_Master.o
                 0x00000000000003fe                I2C_Init
 
 .text           0x0000000000000406        0x4

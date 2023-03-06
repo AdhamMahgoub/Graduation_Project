@@ -5,6 +5,11 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "MPU6050", "MPU6050\MPU6050.cproj", "{2285C48D-296E-43FD-A7B6-69885F64CFFD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{988647EF-B8F7-49B8-A745-029EC7D014C1}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\1. For_Debugging\2. USB_Communication\1. USB_Communication_print_char_string_selector\UART\UART\System_Config.h = ..\..\..\..\1. For_Debugging\2. USB_Communication\1. USB_Communication_print_char_string_selector\UART\UART\System_Config.h
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AVR = Debug|AVR

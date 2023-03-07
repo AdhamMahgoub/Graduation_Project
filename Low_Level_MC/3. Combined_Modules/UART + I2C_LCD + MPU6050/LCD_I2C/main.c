@@ -1,7 +1,5 @@
 #include "Device_Config.h"
 
-//#include "LIB/STD_TYPES.h"
-//#include "LIB/BIT_MATH.h"
 
 #include "MCAL/UART/UART_Interface.h"
 #include "MCAL/I2C/MPU6050_I2C_Master.h"
@@ -13,8 +11,6 @@
 
 
 extern float Acc_x,Acc_y,Acc_z,Temperature,Gyro_x,Gyro_y,Gyro_z;
-
-
 
 
 int main(void)

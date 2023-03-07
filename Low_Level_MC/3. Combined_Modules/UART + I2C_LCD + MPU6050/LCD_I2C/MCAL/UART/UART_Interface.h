@@ -15,9 +15,6 @@ struct DataPackage
 };
 
 
-
-
-
 void UART_init(void);
 u8 UART_RecieveData(void);
 void UART_send_byte(u8 Data);

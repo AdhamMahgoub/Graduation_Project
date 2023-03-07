@@ -6,27 +6,25 @@
 #include <string.h>
 #include <util/delay.h>
 
-extern float Acc_x, Acc_y, Acc_z, Temperature, Gyro_x, Gyro_y, Gyro_z; // Raw Values of MPU6050	(won't use it)
+/*	MPU6050 Variables	*/
+extern float Acc_x, Acc_y, Acc_z, Temperature, Gyro_x, Gyro_y, Gyro_z;	// Raw Values of MPU6050	(won't use it)
+extern float Xa, Ya, Za, t;												//	Real Value of MPU6050s	
+extern float Xg, Yg, Zg;												//	Real Values of MPU6050	
 
-extern float Xa, Ya, Za, t; /*	Real Value of MPU6050s	*/
-extern float Xg, Yg, Zg;	/*	Real Values of MPU6050	*/
-
-extern struct DataPackage;
+//extern struct DataPackage;	 //	Datatype -- used to define a struct with the type DataPackage inside the main function 
 
 int main(void)
 {
 	UART_init();
 	MPU6050_Init();
 
+	char string[] = "Besm Allah";
+	UART_send_string(string);
 
 	while (1)
 	{
 
 		MPU6050_Read_RealValue();		//	Keeps updating the Readings 
-
-		//UART_send_byte('a');
-		//UART_send_string(string);
-		//UART_send_float(Xa);
 
 
 		/*		MPU6050	DataPackage	*/
@@ -63,7 +61,7 @@ int main(void)
 		 UART_send_string(UART_MPU6050_Package.formats[1]);
 
 
-
+		  _delay_ms(1000);
 
 
 

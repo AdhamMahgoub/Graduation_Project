@@ -2,6 +2,7 @@
 
 #include "MCAL/UART/UART_Interface.h"
 #include "HAL/MPU6050/MPU6050.h"
+#include "HAL/LCD/liquid_crystal.h"
 
 #include <string.h>
 #include <util/delay.h>
@@ -15,6 +16,16 @@ extern float Xg, Yg, Zg;												//	Real Values of MPU6050
 
 int main(void)
 {
+	
+	/*		LCD Initialization		*/
+	LiquidCrystalDevice_t device1 = lq_init(0x27, 20, 4, LCD_5x8DOTS);	// intialize 4-lines display
+	lq_turnOnBacklight(&device1);										// simply turning on the backlight
+	/*	Printing on LCD	*/
+	lq_print(&device1, "Embedded Systems!");
+	lq_setCursor(&device1, 1, 0);					// moving cursor to the next line
+	
+	
+	
 	UART_init();
 	MPU6050_Init();
 
@@ -64,92 +75,6 @@ int main(void)
 		  _delay_ms(1000);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-		//		/*  Initialize the DataPackage  */
-		//		struct DataPackage UART_MPU6050;
-		//		UART_MPU6050.Xa = Xa;
-		//		UART_MPU6050.Ya = Ya;
-		//		UART_MPU6050.Za = Za;
-		//
-		//		UART_MPU6050.Xg = Xg;
-		//		UART_MPU6050.Yg = Yg;
-		//		UART_MPU6050.Zg = Zg;
-		//
-		//		UART_MPU6050.t = t;
-		//
-		//
-		//
-		//		strcpy(UART_MPU6050.arr,  "Xa = ");
-		//		send_DataPackege_String(&UART_MPU6050);
-		//		sprintf(UART_MPU6050.arr, "%.3f", Xa);
-		//		send_DataPackege_String(&UART_MPU6050);
-		//		strcpy(UART_MPU6050.arr,  "         \n\r");
-		//		send_DataPackege_String(&UART_MPU6050);
-		//
-		//
-		//		strcpy(UART_MPU6050.arr,  "Ya = ");
-		//		send_DataPackege_String(&UART_MPU6050);
-		//		sprintf(UART_MPU6050.arr, "%.3f", Ya);
-		//		send_DataPackege_String(&UART_MPU6050);
-		//		strcpy(UART_MPU6050.arr,  "         \n\r");
-		//		send_DataPackege_String(&UART_MPU6050);
-		//
-		//		strcpy(UART_MPU6050.arr,  "Za = ");
-		//		send_DataPackege_String(&UART_MPU6050);
-		//		sprintf(UART_MPU6050.arr, "%.3f", Za);
-		//		send_DataPackege_String(&UART_MPU6050);
-		//		strcpy(UART_MPU6050.arr,  "         \n\r");
-		//		send_DataPackege_String(&UART_MPU6050);
-		//
-		//		strcpy(UART_MPU6050.arr,  "Xg = ");
-		//		send_DataPackege_String(&UART_MPU6050);
-		//		sprintf(UART_MPU6050.arr, "%.3f", Xg);
-		//		send_DataPackege_String(&UART_MPU6050);
-		//		strcpy(UART_MPU6050.arr,  "         \n\r");
-		//		send_DataPackege_String(&UART_MPU6050);
-		//
-		//		strcpy(UART_MPU6050.arr,  "Yg = ");
-		//		send_DataPackege_String(&UART_MPU6050);
-		//		sprintf(UART_MPU6050.arr, "%.3f", Yg);
-		//		send_DataPackege_String(&UART_MPU6050);
-		//		strcpy(UART_MPU6050.arr,  "         \n\r");
-		//		send_DataPackege_String(&UART_MPU6050);
-		//
-		//		strcpy(UART_MPU6050.arr,  "Zg = ");
-		//		send_DataPackege_String(&UART_MPU6050);
-		//		sprintf(UART_MPU6050.arr, "%.3f", Zg);
-		//		send_DataPackege_String(&UART_MPU6050);
-		//		strcpy(UART_MPU6050.arr,  "         \n\r");
-		//		send_DataPackege_String(&UART_MPU6050);
-		//
-		//		strcpy(UART_MPU6050.arr,  "t = ");
-		//		send_DataPackege_String(&UART_MPU6050);
-		//		sprintf(UART_MPU6050.arr, "%.3f", t);
-		//		send_DataPackege_String(&UART_MPU6050);
-		//		strcpy(UART_MPU6050.arr,  "         \n\r");
-		//		send_DataPackege_String(&UART_MPU6050);
-		//
-		//		strcpy(UART_MPU6050.arr,  "         \n\n\n\n\r");
-		//		send_DataPackege_String(&UART_MPU6050);
-		//
-		//		 _delay_ms(5000);
-
-		/*		Send DataPackage		*/
-		// UART_send_DataPackage_char(&UART_MPU6050);
-		// send_DataPackege_String(&UART_MPU6050);
-		// send_DataPackege_String_with_selector(&UART_MPU6050,'a');
 	}
 
 	return 0;

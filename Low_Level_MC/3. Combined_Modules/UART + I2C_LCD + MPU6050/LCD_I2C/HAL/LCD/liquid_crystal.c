@@ -1,8 +1,6 @@
-#include "../../MCAL/I2C/lcd_i2c_master.h"
 #include "liquid_crystal.h"
 
-#include <avr/io.h>
-#include <util/delay.h>
+
 
 LiquidCrystalDevice_t lq_init(uint8_t address, uint8_t columns, uint8_t rows, uint8_t dotSize)
 {
@@ -82,7 +80,6 @@ void lq_print(struct LiquidCrystalDevice_t* device, const char * value)
 		letter = *(++value);
 	}
 };
-
 
 void lq_turnOnBacklight(struct LiquidCrystalDevice_t* device)
 {
@@ -199,7 +196,6 @@ void lq_createChar(struct LiquidCrystalDevice_t* device, uint8_t slot, uint8_t c
 	}
 }
 
-
 void lq_sendCommand(LiquidCrystalDevice_t* device, uint8_t command)
 {
 	lq_writeDeviceByte(device, command, 0);
@@ -234,3 +230,9 @@ void lq_transmitI2C(LiquidCrystalDevice_t* device, uint8_t value)
 	i2c_master_sendByte(device->Address, value | device->Backlight);
 };
 
+void lq_print_float (float reading, LiquidCrystalDevice_t device)
+{
+	char str[20];
+	sprintf(str, "%.3f", reading);
+	lq_print(&device, str);
+}

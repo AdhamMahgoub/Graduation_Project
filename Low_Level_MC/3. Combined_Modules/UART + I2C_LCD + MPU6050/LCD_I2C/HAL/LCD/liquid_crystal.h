@@ -1,8 +1,13 @@
 #ifndef LIQUIDCRYSTALI2CDEVICE_H_
 #define LIQUIDCRYSTALI2CDEVICE_H_
 
+ #include "../../MCAL/I2C/lcd_i2c_master.h"
+
+
 #include <avr/io.h>
 #include <stdint.h>
+#include <util/delay.h>
+
 
 
 // commands
@@ -111,5 +116,7 @@ void lq_writeDevice4Bits(struct LiquidCrystalDevice_t* device, uint8_t value);
 void lq_writeDevicePulse(struct LiquidCrystalDevice_t* device, uint8_t value);
 
 void lq_transmitI2C(struct LiquidCrystalDevice_t* device, uint8_t value);
+
+void lq_print_float (float reading, LiquidCrystalDevice_t device);
 
 #endif /* LIQUIDCRYSTALI2CDEVICE_H_ */

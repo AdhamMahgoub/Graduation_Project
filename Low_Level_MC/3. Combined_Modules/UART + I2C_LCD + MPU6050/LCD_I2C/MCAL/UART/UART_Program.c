@@ -1,18 +1,13 @@
-#include "../../Device_Config.h"
-#include "../../LIB/STD_TYPES.h"
-#include "../../LIB/BIT_MATH.h"
 #include "UART_Private.h"
 #include "UART_Interface.h"
-
-#include <avr/io.h>
-#include <avr/fuse.h>
 
 #define USART_BAUDRATE  2400
 #define BAUD_PRESCALE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1)
 
 
-// A function to initialize UART Communication
-void UART_init(void){
+
+void UART_init(void)					// A function to initialize UART Communication
+{
 
 	UBRRH = (unsigned char)(BAUD_PRESCALE>>8);
 	UBRRL = (unsigned char)BAUD_PRESCALE;
@@ -24,23 +19,43 @@ void UART_init(void){
 	UCSRC = (1<<URSEL)|(1<<UCSZ1)|(1<<UCSZ0);
 }
 
-//A function to Transmit Data
-void UART_send_char(u8 Data){
-	while(GET_BIT(UCSRA,UDRE)==0);	//Wait until all data is transmitted
-	UDR=Data;
-}
-
-//A function to Receive Data
-u8 UART_RecieveData(void){
+u8 UART_RecieveData(void)				//A function to Receive Data
+{
 	while(GET_BIT(UCSRA,RXC)==0);	//wait until all data is received
 	return UDR;
 }
 
+void UART_send_byte(u8 Data)			//A function to Transmit Char (1 Byte)
+{
+	while(GET_BIT(UCSRA,UDRE)==0);	//Wait until all data is transmitted
+	UDR=Data;
+}
+
+void UART_send_string(char *arr)		//A function to Transmit String
+{
+	int i = 0;
+	while (arr[i] != '\0')
+	{
+		UART_send_byte(arr[i]);
+		i++;
+	}
+}
+
+void UART_send_float(float x)			//A function to Transmit float 
+{
+	char arr[10] = {0}; 
+	sprintf(arr, "%.3f", x);
+	UART_send_string(&arr);
+}
+
+
+
+
 
 /*		DataPackage Functions		*/
-void send_DataPackage_char(struct DataPackage *DataPackage_ptr)
+void UART_send_DataPackage_char(struct DataPackage *DataPackage_ptr)
 {
-	UART_send_char(DataPackage_ptr->Xa);
+	UART_send_byte(DataPackage_ptr->Xa);
 }
 
 void send_DataPackege_String(struct DataPackage *DataPackage_ptr)
@@ -48,7 +63,7 @@ void send_DataPackege_String(struct DataPackage *DataPackage_ptr)
 	int i = 0;
 	while (DataPackage_ptr->arr[i] != '\0')
 	{
-		UART_send_char(DataPackage_ptr->arr[i]);
+		UART_send_byte(DataPackage_ptr->arr[i]);
 		i++;
 	}
 }

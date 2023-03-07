@@ -1,13 +1,17 @@
-#include "../../Device_config.h"
 #include "MPU6050_private.h"
+#include "MPU6050.h"
+
 #include "../../MCAL/I2C/MPU6050_I2C_Master.h"
- 
 
 
-float Acc_x,Acc_y,Acc_z,Temperature,Gyro_x,Gyro_y,Gyro_z;
+float Acc_x,Acc_y,Acc_z,Temperature,Gyro_x,Gyro_y,Gyro_z;	/* Raw Values	*/
+float Xa,Ya,Za,t;			/*	Real Values	*/														
+float Xg=0,Yg=0,Zg=0;		/*	Real Values	*/
+
 
 void MPU6050_Init()										/* Gyro initialization function */
 {
+	I2C_Init();
 
 	_delay_ms(150);										/* Power up time >100ms */
 	
@@ -48,7 +52,7 @@ void MPU_Start_Loc()
 
 void Read_RawValue()
 {
-	MPU_Start_Loc();									/* Read Gyro values */
+	MPU_Start_Loc();		/* Read Gyro values */
 	Acc_x = (((int)I2C_Read_Ack()<<8) | (int)I2C_Read_Ack());
 	Acc_y = (((int)I2C_Read_Ack()<<8) | (int)I2C_Read_Ack());
 	Acc_z = (((int)I2C_Read_Ack()<<8) | (int)I2C_Read_Ack());
@@ -59,5 +63,18 @@ void Read_RawValue()
 	I2C_Stop();
 }
 
+void Read_RealValue()
+{
+	Read_RawValue();								/*	Gets the RawValue in order to make calculations to get Real Values	*/
+	
+	Xa = Acc_x/16384.0;								/* Divide raw value by sensitivity scale factor to get real values */
+	Ya = Acc_y/16384.0;
+	Za = Acc_z/16384.0;
+	
+	Xg = Gyro_x/16.4;
+	Yg = Gyro_y/16.4;
+	Zg = Gyro_z/16.4;
 
+	t = (Temperature/340.00)+36.53;					/* Convert temperature in °/c using formula */
+}
 

@@ -1,7 +1,7 @@
 #include "Device_Config.h"
 
-#include "LIB/STD_TYPES.h"
-#include "LIB/BIT_MATH.h"
+//#include "LIB/STD_TYPES.h"
+//#include "LIB/BIT_MATH.h"
 
 #include "MCAL/UART/UART_Interface.h"
 #include "MCAL/I2C/MPU6050_I2C_Master.h"
@@ -41,74 +41,81 @@ int main(void)
 		t = (Temperature/340.00)+36.53;					/* Convert temperature in °/c using formula */
 
 
-
 		/*  Initialize the DataPackage  */
-		struct DataPackage UART;
-		UART.Xa = Xa;
-		UART.Ya = Ya;
-		UART.Za = Za;
+		struct DataPackage UART_MPU6050;
+		UART_MPU6050.Xa = Xa;
+		UART_MPU6050.Ya = Ya;
+		UART_MPU6050.Za = Za;
 	
-		UART.Xg = Xg;
-		UART.Yg = Yg;
-		UART.Zg = Zg;
-	
+		UART_MPU6050.Xg = Xg;
+		UART_MPU6050.Yg = Yg;
+		UART_MPU6050.Zg = Zg;
+		
+		UART_MPU6050.t = t;
 
 								
 	
-		strcpy(UART.arr,  "Xa = ");
-		send_DataPackege_String(&UART);
-		sprintf(UART.arr, "%.3f", Xa);
-		send_DataPackege_String(&UART);
-		strcpy(UART.arr,  "         \n\r");
-		send_DataPackege_String(&UART);
+		strcpy(UART_MPU6050.arr,  "Xa = ");
+		send_DataPackege_String(&UART_MPU6050);
+		sprintf(UART_MPU6050.arr, "%.3f", Xa);
+		send_DataPackege_String(&UART_MPU6050);
+		strcpy(UART_MPU6050.arr,  "         \n\r");
+		send_DataPackege_String(&UART_MPU6050);
 		
 		
-		strcpy(UART.arr,  "Ya = ");
-		send_DataPackege_String(&UART);
-		sprintf(UART.arr, "%.3f", Ya);
-		send_DataPackege_String(&UART);
-		strcpy(UART.arr,  "         \n\r");
-		send_DataPackege_String(&UART);
+		strcpy(UART_MPU6050.arr,  "Ya = ");
+		send_DataPackege_String(&UART_MPU6050);
+		sprintf(UART_MPU6050.arr, "%.3f", Ya);
+		send_DataPackege_String(&UART_MPU6050);
+		strcpy(UART_MPU6050.arr,  "         \n\r");
+		send_DataPackege_String(&UART_MPU6050);
 		
-		strcpy(UART.arr,  "Za = ");
-		send_DataPackege_String(&UART);
-		sprintf(UART.arr, "%.3f", Za);
-		send_DataPackege_String(&UART);
-		strcpy(UART.arr,  "         \n\r");
-		send_DataPackege_String(&UART);
+		strcpy(UART_MPU6050.arr,  "Za = ");
+		send_DataPackege_String(&UART_MPU6050);
+		sprintf(UART_MPU6050.arr, "%.3f", Za);
+		send_DataPackege_String(&UART_MPU6050);
+		strcpy(UART_MPU6050.arr,  "         \n\r");
+		send_DataPackege_String(&UART_MPU6050);
 		
-		strcpy(UART.arr,  "Xg = ");
-		send_DataPackege_String(&UART);
-		sprintf(UART.arr, "%.3f", Xg);
-		send_DataPackege_String(&UART);
-		strcpy(UART.arr,  "         \n\r");
-		send_DataPackege_String(&UART);
+		strcpy(UART_MPU6050.arr,  "Xg = ");
+		send_DataPackege_String(&UART_MPU6050);
+		sprintf(UART_MPU6050.arr, "%.3f", Xg);
+		send_DataPackege_String(&UART_MPU6050);
+		strcpy(UART_MPU6050.arr,  "         \n\r");
+		send_DataPackege_String(&UART_MPU6050);
 			
-		strcpy(UART.arr,  "Yg = ");
-		send_DataPackege_String(&UART);
-		sprintf(UART.arr, "%.3f", Yg);
-		send_DataPackege_String(&UART);
-		strcpy(UART.arr,  "         \n\r");
-		send_DataPackege_String(&UART);
+		strcpy(UART_MPU6050.arr,  "Yg = ");
+		send_DataPackege_String(&UART_MPU6050);
+		sprintf(UART_MPU6050.arr, "%.3f", Yg);
+		send_DataPackege_String(&UART_MPU6050);
+		strcpy(UART_MPU6050.arr,  "         \n\r");
+		send_DataPackege_String(&UART_MPU6050);
 				
-		strcpy(UART.arr,  "Zg = ");
-		send_DataPackege_String(&UART);
-		sprintf(UART.arr, "%.3f", Zg);
-		send_DataPackege_String(&UART);
-		strcpy(UART.arr,  "         \n\r");
-		send_DataPackege_String(&UART);
-		
-		strcpy(UART.arr,  "         \n\n\n\n\r");
-		send_DataPackege_String(&UART);
+		strcpy(UART_MPU6050.arr,  "Zg = ");
+		send_DataPackege_String(&UART_MPU6050);
+		sprintf(UART_MPU6050.arr, "%.3f", Zg);
+		send_DataPackege_String(&UART_MPU6050);
+		strcpy(UART_MPU6050.arr,  "         \n\r");
+		send_DataPackege_String(&UART_MPU6050);
+
+		strcpy(UART_MPU6050.arr,  "t = ");
+		send_DataPackege_String(&UART_MPU6050);
+		sprintf(UART_MPU6050.arr, "%.3f", t);
+		send_DataPackege_String(&UART_MPU6050);
+		strcpy(UART_MPU6050.arr,  "         \n\r");
+		send_DataPackege_String(&UART_MPU6050);
+
+		strcpy(UART_MPU6050.arr,  "         \n\n\n\n\r");
+		send_DataPackege_String(&UART_MPU6050);
 		
 		 _delay_ms(5000);
 		
 
 	
 		/*		Send DataPackage		*/
-		//send_DataPackage_char(&UART);
-		//send_DataPackege_String(&UART);
-		//send_DataPackege_String_with_selector(&UART,'a');
+		//send_DataPackage_char(&UART_MPU6050);
+		//send_DataPackege_String(&UART_MPU6050);
+		//send_DataPackege_String_with_selector(&UART_MPU6050,'a');
 
 	}
 	

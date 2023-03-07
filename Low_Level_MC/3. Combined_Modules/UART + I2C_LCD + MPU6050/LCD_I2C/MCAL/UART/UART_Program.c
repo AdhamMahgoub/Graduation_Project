@@ -45,26 +45,28 @@ void UART_send_float(float x)			//A function to Transmit float
 {
 	char arr[10] = {0}; 
 	sprintf(arr, "%.3f", x);
-	UART_send_string(&arr);
+	UART_send_string(arr);
 }
 
 
 
 
 
-/*		DataPackage Functions		*/
-void UART_send_DataPackage_char(struct DataPackage *DataPackage_ptr)
-{
-	UART_send_byte(DataPackage_ptr->Xa);
-}
 
-void send_DataPackege_String(struct DataPackage *DataPackage_ptr)
-{
-	int i = 0;
-	while (DataPackage_ptr->arr[i] != '\0')
-	{
-		UART_send_byte(DataPackage_ptr->arr[i]);
-		i++;
-	}
-}
+
+///*		DataPackage Functions		*/
+//void UART_send_DataPackage_char(struct DataPackage *DataPackage_ptr)
+//{
+//	UART_send_byte(DataPackage_ptr->Xa);
+//}
+//
+//void send_DataPackege_String(struct DataPackage *DataPackage_ptr)
+//{
+//	int i = 0;
+//	while (DataPackage_ptr->arr[i] != '\0')
+//	{
+//		UART_send_byte(DataPackage_ptr->arr[i]);
+//		i++;
+//	}
+//}
 

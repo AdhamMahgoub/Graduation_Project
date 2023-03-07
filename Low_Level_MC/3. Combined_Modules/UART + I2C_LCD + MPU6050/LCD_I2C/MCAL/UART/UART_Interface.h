@@ -7,16 +7,16 @@
 
 struct DataPackage
 {
-	char Xa; // 1 byte
-	char Ya; // 1 byte
-	char Za; // 1 byte
-	char Xg; // 1 byte
-	char Yg; // 1 byte
-	char Zg; // 1 byte
-	char t; // 1 byte
-
 	char arr[30];
+
+	char labels[7][10];
+	char formats[7][10];
+	float values [7];
 };
+
+
+
+
 
 void UART_init(void);
 u8 UART_RecieveData(void);
@@ -25,7 +25,7 @@ void UART_send_string(char *arr);
 void UART_send_float(float x);
 
 
-void UART_send_DataPackage_char(struct DataPackage *DataPackage_ptr);
-void send_DataPackege_String(struct DataPackage *DataPackage_ptr);
+//void UART_send_DataPackage_char(struct DataPackage *DataPackage_ptr);
+//void send_DataPackege_String(struct DataPackage *DataPackage_ptr);
 
 #endif

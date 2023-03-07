@@ -4,7 +4,7 @@
 void MPU6050_Init();
 void MPU_Start_Loc();
 void Read_RawValue();
-void Read_RealValue();
+void MPU6050_Read_RealValue();
 
 
 #endif /* MPU6050_H_ */

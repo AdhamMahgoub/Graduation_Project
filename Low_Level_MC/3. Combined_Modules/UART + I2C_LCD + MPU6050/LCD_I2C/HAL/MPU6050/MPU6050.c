@@ -63,7 +63,7 @@ void Read_RawValue()
 	I2C_Stop();
 }
 
-void Read_RealValue()
+void MPU6050_Read_RealValue()
 {
 	Read_RawValue();								/*	Gets the RawValue in order to make calculations to get Real Values	*/
 	

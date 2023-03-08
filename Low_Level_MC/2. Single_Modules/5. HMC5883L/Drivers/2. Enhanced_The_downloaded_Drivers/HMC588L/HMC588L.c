@@ -6,9 +6,13 @@
 #include "UART_Interface.h"
 #include "I2C_Master_H_file.h"
 
+#define SLA 0x0D
+#define SLA_W 0x1A
+#define SLA_R 0x1B
+
 void Magneto_init()										/* Magneto initialize function */
 {
-	I2C_Start(0x3C);									/* Start and write SLA+W */
+	I2C_Start(SLA_W);									/* Start and write SLA+W */
 	
 	I2C_Write(0x00);									/* Write memory location address */
 	I2C_Write(0x70);									/* Configure register A as 8-average, 15 Hz default, normal measurement */
@@ -21,17 +25,13 @@ int Magneto_GetHeading()
 {
 	int x, y, z;
 	double Heading;
-	UART_send_byte('e');		//debugging
-	I2C_Start_Wait(0x3C);								/* Start and wait for acknowledgment -- Has a problemo */
-	UART_send_byte('g');		//debugging
-	I2C_Write(0x03);									/* Write X register address */
-	UART_send_byte('k');		//debugging
-	I2C_Repeated_Start(0x3D);							/* Generate repeat start condition with SLA+R */
+	I2C_Start_Wait(SLA_W);								/* Start and wait for acknowledgment */
+	I2C_Write(SLA_W);									/* Write X register address */
+	I2C_Repeated_Start(SLA_R);							/* Generate repeat start condition with SLA+R */
 	/* Read 16 bit x,y,z value (2’s complement form) */
 	x = (((int)I2C_Read_Ack()<<8) | (int)I2C_Read_Ack());
 	z = (((int)I2C_Read_Ack()<<8) | (int)I2C_Read_Ack());
 	y = (((int)I2C_Read_Ack()<<8) | (int)I2C_Read_Nack());
-	UART_send_byte('g');		//debugging
 
 	I2C_Stop();											/* Stop I2C */
 	Heading = atan2((double)y,(double)x) + Declination;

@@ -14,24 +14,18 @@
 
 int main(void)
 {
-	UART_init();
-
-	_delay_ms(10);
-	
+	UART_init();	
 	I2C_Init();											/* Initialize I2C */
-	_delay_ms(10);
-	
-	
-	Magneto_init();										/* Initialize magneto */
-	_delay_ms(10);
 	
 	
 	int reading; 
-	reading = Magneto_GetHeading();				// Has a problemo
-
+	char string[10] = "\n\r"; 
 	while (1)
 	{
+		Magneto_init();										/* Initialize magneto */
+		reading = Magneto_GetHeading();
 		UART_send_float((float)reading);
+		UART_send_string(string);
 		
 	}
 }

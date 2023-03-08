@@ -1,22 +1,14 @@
-#include "STD_TYPES.h"
-#include "BIT_MATH.h"
 #include "UART_Private.h"
-
-#include <avr/io.h>
-#include <avr/fuse.h>
+#include "UART_Interface.h"
 
 #define F_CPU 8000000UL
 #define USART_BAUDRATE  2400
 #define BAUD_PRESCALE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1)
 
 
+void UART_init(void)					// A function to initialize UART Communication
+{
 
-
-// A function to initialize UART Communication
-void UART_init(void){
-	
-
-	
 	UBRRH = (unsigned char)(BAUD_PRESCALE>>8);
 	UBRRL = (unsigned char)BAUD_PRESCALE;
 	
@@ -25,39 +17,56 @@ void UART_init(void){
 
 	// Set frame format: 8data, 1stop bit
 	UCSRC = (1<<URSEL)|(1<<UCSZ1)|(1<<UCSZ0);
-	
-	/*
-	//Enable RX and TX
-	SET_BIT(UCSRB,RXEN);
-	SET_BIT(UCSRB,TXEN);
-	
-	//Setting frame format
-	SET_BIT(UCSRC,URSEL);		//Set to select the UCSRC Register instead of UBRRH
-	CLR_BIT(UCSRC,UMSEL);		//Asynchronous Mode
-	CLR_BIT(UCSRC,UPM1);
-	CLR_BIT(UCSRC,UPM0);		//Disable Parity
-	CLR_BIT(UCSRC,USBS);		//Selecting 1 BIT for Stop Bits
-	CLR_BIT(UCSRB,UCSZ2);
-	SET_BIT(UCSRC,UCSZ1);
-	SET_BIT(UCSRC,UCSZ0);		//Setting Character size to 8 bits
-	
-	
-	//Setting Baudrate to 9600
-	UBRRL = 51;
-	CLR_BIT(UCSRC,URSEL);		//Cleared to select the UBRRH Register instead of UCSRC
-	UBRRH = 0;
-	*/
-	
 }
 
-//A function to Transmit Data
-void UART_TransmitData(u8 Data){
+u8 UART_RecieveData(void)				//A function to Receive Data
+{
+	while(GET_BIT(UCSRA,RXC)==0);	//wait until all data is received
+	return UDR;
+}
+
+void UART_send_byte(u8 Data)			//A function to Transmit Char (1 Byte)
+{
 	while(GET_BIT(UCSRA,UDRE)==0);	//Wait until all data is transmitted
 	UDR=Data;
 }
 
-//A function to Receive Data
-u8 UART_RecieveData(void){
-	while(GET_BIT(UCSRA,RXC)==0);	//wait until all data is received
-	return UDR;
+void UART_send_string(char *arr)		//A function to Transmit String
+{
+	int i = 0;
+	while (arr[i] != '\0')
+	{
+		UART_send_byte(arr[i]);
+		i++;
+	}
 }
+
+void UART_send_float(float x)			//A function to Transmit float 
+{
+	char arr[10] = {0}; 
+	sprintf(arr, "%.3f", x);
+	UART_send_string(arr);
+}
+
+
+
+
+
+
+
+///*		DataPackage Functions		*/
+//void UART_send_DataPackage_char(struct DataPackage *DataPackage_ptr)
+//{
+//	UART_send_byte(DataPackage_ptr->Xa);
+//}
+//
+//void send_DataPackege_String(struct DataPackage *DataPackage_ptr)
+//{
+//	int i = 0;
+//	while (DataPackage_ptr->arr[i] != '\0')
+//	{
+//		UART_send_byte(DataPackage_ptr->arr[i]);
+//		i++;
+//	}
+//}
+

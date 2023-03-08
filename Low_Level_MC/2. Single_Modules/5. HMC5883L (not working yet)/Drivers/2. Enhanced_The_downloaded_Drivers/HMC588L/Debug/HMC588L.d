@@ -1,5 +1,5 @@
 HMC588L.d HMC588L.o: .././HMC588L.c .././STD_TYPES.h \
- .././UART_Interface.h .././I2C_Master_H_file.h \
+ .././UART_Interface.h .././BIT_MATH.h .././I2C_Master_H_file.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\sfr_defs.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\inttypes.h \
@@ -20,6 +20,8 @@ HMC588L.d HMC588L.o: .././HMC588L.c .././STD_TYPES.h \
 .././STD_TYPES.h:
 
 .././UART_Interface.h:
+
+.././BIT_MATH.h:
 
 .././I2C_Master_H_file.h:
 

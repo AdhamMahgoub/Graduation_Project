@@ -1,9 +1,3 @@
-/*
- * I2C_Master_C_file.c
- * http://www.electronicwings.com
- *
- */ 
-
 
 #include "I2C_Master_H_file.h"								/* Include I2C header file */
 
@@ -68,16 +62,17 @@ void I2C_Start_Wait(char slave_write_address)				/* I2C start wait function */
 		while (!(TWCR & (1<<TWINT)));						/* Wait until TWI finish its current job (start condition) */
 		status = TWSR & 0xF8;								/* Read TWI status register with masking lower three bits */
 		if (status != 0x08)									/* Check weather start condition transmitted successfully or not? */
-		continue;											/* If no then continue with start loop again */
+			continue;											/* If no then continue with start loop again */
 		TWDR = slave_write_address;							/* If yes then write SLA+W in TWI data register */
 		TWCR = (1<<TWEN)|(1<<TWINT);						/* Enable TWI and clear interrupt flag */
 		while (!(TWCR & (1<<TWINT)));						/* Wait until TWI finish its current job (Write operation) */
 		status = TWSR & 0xF8;								/* Read TWI status register with masking lower three bits */
 		if (status != 0x18 )								/* Check weather SLA+W transmitted & ack received or not? */
 		{
+			UART_send_byte('z');   //debugging
 			I2C_Stop();										/* If not then generate stop condition */
 			continue;										/* continue with start loop again */
-		}
+		}	
 		break;												/* If yes then break loop */
 	}
 }
@@ -109,4 +104,4 @@ char I2C_Read_Nack()										/* I2C read nack function */
 	TWCR=(1<<TWEN)|(1<<TWINT);								/* Enable TWI and clear interrupt flag */
 	while (!(TWCR & (1<<TWINT)));							/* Wait until TWI finish its current job (read operation) */
 	return TWDR;											/* Return received data */
-}	
+}

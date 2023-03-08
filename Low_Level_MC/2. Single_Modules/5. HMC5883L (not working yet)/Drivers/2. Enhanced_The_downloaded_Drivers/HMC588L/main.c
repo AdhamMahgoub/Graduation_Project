@@ -16,25 +16,22 @@ int main(void)
 {
 	UART_init();
 
-	UART_TransmitData('a');	
 	_delay_ms(10);
 	
 	I2C_Init();											/* Initialize I2C */
 	_delay_ms(10);
 	
-	UART_TransmitData('b');
-	_delay_ms(10);
 	
 	Magneto_init();										/* Initialize magneto */
 	_delay_ms(10);
 	
-	UART_TransmitData('c');
-	UART_TransmitData('d');
 	
+	int reading; 
+	reading = Magneto_GetHeading();				// Has a problemo
+
 	while (1)
 	{
-
+		UART_send_float((float)reading);
 		
-		//UART_TransmitData((char)Magneto_GetHeading());
 	}
 }

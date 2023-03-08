@@ -16,8 +16,8 @@ main.d main.o: .././main.c \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h \
- .././STD_TYPES.h .././UART_Interface.h .././I2C_Master_H_file.h \
- .././HMC588L.h
+ .././STD_TYPES.h .././UART_Interface.h .././BIT_MATH.h \
+ .././I2C_Master_H_file.h .././HMC588L.h
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h:
 
@@ -56,6 +56,8 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h:
 .././STD_TYPES.h:
 
 .././UART_Interface.h:
+
+.././BIT_MATH.h:
 
 .././I2C_Master_H_file.h:
 

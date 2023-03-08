@@ -20,14 +20,14 @@
 #define HX711_MODECALIBRATION2OF2 3
 #define HX711_MODECURRENT 1
 
-//2 step calibration procedure
+/*2 step calibration procedure
 //set the mode to calibration step 1
 //read the calibration offset leaving the load cell with no weight
 //set the offset to value read
 //put a know weight on the load cell and set calibrationweight value
 //run the calibration stes 2 of 2
 //read the calibration scale
-//set the scale to value read
+set the scale to value read */
 
 //set the gain
 int8_t gain = HX711_GAINCHANNELA128;
@@ -107,4 +107,8 @@ int main(void) {
 		_delay_ms(500);
 	}
 #endif
+
+
+
+
 }

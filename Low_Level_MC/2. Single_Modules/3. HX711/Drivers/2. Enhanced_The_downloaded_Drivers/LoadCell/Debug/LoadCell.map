@@ -976,12 +976,12 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x1732
+.debug_info     0x0000000000000000     0x182c
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
- .debug_info    0x00000000000004e6      0x777 hx711.o
- .debug_info    0x0000000000000c5d      0x55e main.o
- .debug_info    0x00000000000011bb      0x577 uart.o
+ .debug_info    0x00000000000004e6      0x7cb hx711.o
+ .debug_info    0x0000000000000cb1      0x5b2 main.o
+ .debug_info    0x0000000000001263      0x5c9 uart.o
 
 .debug_abbrev   0x0000000000000000      0x95a
  *(.debug_abbrev)
@@ -990,12 +990,12 @@ END GROUP
  .debug_abbrev  0x00000000000006cc      0x16a main.o
  .debug_abbrev  0x0000000000000836      0x124 uart.o
 
-.debug_line     0x0000000000000000      0x862
+.debug_line     0x0000000000000000      0x861
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x119 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
- .debug_line    0x0000000000000119      0x3c3 hx711.o
- .debug_line    0x00000000000004dc      0x180 main.o
- .debug_line    0x000000000000065c      0x206 uart.o
+ .debug_line    0x0000000000000119      0x3c2 hx711.o
+ .debug_line    0x00000000000004db      0x180 main.o
+ .debug_line    0x000000000000065b      0x206 uart.o
 
 .debug_frame    0x0000000000000000      0x2cc
  *(.debug_frame)

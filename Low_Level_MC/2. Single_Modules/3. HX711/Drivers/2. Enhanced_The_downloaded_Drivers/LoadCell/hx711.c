@@ -1,13 +1,3 @@
-/*
-hx711 lib 0x02
-
-copyright (c) Davide Gironi, 2018
-
-Released under GPLv3.
-Please refer to LICENSE file for licensing information.
-*/
-
-
 #include "hx711.h"
 
 #include <stdio.h>

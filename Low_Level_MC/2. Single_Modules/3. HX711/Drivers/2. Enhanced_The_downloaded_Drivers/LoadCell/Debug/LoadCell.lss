@@ -15,23 +15,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 00000108  00000000  00000000  00002558  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00001732  00000000  00000000  00002660  2**0
+  6 .debug_info   0000182c  00000000  00000000  00002660  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 0000095a  00000000  00000000  00003d92  2**0
+  7 .debug_abbrev 0000095a  00000000  00000000  00003e8c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000862  00000000  00000000  000046ec  2**0
+  8 .debug_line   00000861  00000000  00000000  000047e6  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000002cc  00000000  00000000  00004f50  2**2
+  9 .debug_frame  000002cc  00000000  00000000  00005048  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000001d0  00000000  00000000  0000521c  2**0
+ 10 .debug_str    000001d0  00000000  00000000  00005314  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000007dd  00000000  00000000  000053ec  2**0
+ 11 .debug_loc    000007dd  00000000  00000000  000054e4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000f0  00000000  00000000  00005bc9  2**0
+ 12 .debug_ranges 000000f0  00000000  00000000  00005cc1  2**0
                   CONTENTS, READONLY, DEBUGGING
  13 .text         00000004  00002292  00002292  000023a6  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 14 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00005cbc  2**2
+ 14 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00005db4  2**2
                   CONTENTS, READONLY, DEBUGGING
  15 .text.hx711_read 0000006a  00001c16  00001c16  00001d2a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE

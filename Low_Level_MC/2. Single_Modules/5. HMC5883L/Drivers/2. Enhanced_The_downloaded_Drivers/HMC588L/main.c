@@ -26,8 +26,10 @@ int main(void)
 	{
 		Magneto_init();									/* Initialize magneto */
 		reading = Magneto_GetHeading();
-		UART_send_float((float)reading);
-		UART_send_string(string);
+		
+		
+		//UART_send_float((float)reading);
+		//UART_send_string(string);
 		_delay_ms(2000);
 	}
 }

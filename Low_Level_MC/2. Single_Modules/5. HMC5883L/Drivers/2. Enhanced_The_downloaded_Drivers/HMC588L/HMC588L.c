@@ -3,6 +3,7 @@
 #include "STD_TYPES.h"
 #include "UART_Interface.h"
 #include "I2C_Master_H_file.h"
+#include <string.h>
 
 #define QMC5883L_ADDR 0x0D
 #define QMC5883L_REG_CONFIG 0x09
@@ -15,6 +16,8 @@ void Magneto_init() {
 	I2C_Stop();                             // Stop I2C
 }
 
+char string[100]; //for printing
+
 int Magneto_GetHeading() {
 	int x, y, z;
 	double Heading;
@@ -25,11 +28,47 @@ int Magneto_GetHeading() {
 	x = (((int)I2C_Read_Ack()<<8) | (int)I2C_Read_Ack());
 	z = (((int)I2C_Read_Ack()<<8) | (int)I2C_Read_Ack());
 	y = (((int)I2C_Read_Ack()<<8) | (int)I2C_Read_Nack());
+
+	
+	
 	I2C_Stop();                             // Stop I2C
 	Heading = atan2((double)y, (double)x) + PI; // Calculate heading
 	if (Heading > 2*PI)                      // Due to declination check for >360 degree
 	Heading = Heading - 2*PI;
 	if (Heading < 0)                         // Check for sign
 	Heading = Heading + 2*PI;
+	
+	
+	
+	strcpy(string, "x = ");
+	UART_send_string(string);
+	UART_send_float((float)x);
+	strcpy(string, "\t");
+	UART_send_string(string);
+		
+	strcpy(string, "y = ");
+	UART_send_string(string);
+	UART_send_float((float)y);
+	strcpy(string, "\t");
+	UART_send_string(string);
+		
+	strcpy(string, "z = ");
+	UART_send_string(string);
+	UART_send_float((float)z);
+	strcpy(string, "\t");
+	UART_send_string(string);
+		
+	strcpy(string, "Reading = ");
+	UART_send_string(string);
+	UART_send_float((float)(Heading * 180 / PI));
+
+		
+	strcpy(string, "\n\r");
+	UART_send_string(string);
+	
+	
+	
+	
+	
 	return (Heading * 180 / PI);             // Convert into angle and return
 }

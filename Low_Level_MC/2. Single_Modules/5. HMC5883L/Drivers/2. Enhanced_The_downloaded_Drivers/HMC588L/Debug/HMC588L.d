@@ -15,7 +15,8 @@ HMC588L.d HMC588L.o: .././HMC588L.c .././STD_TYPES.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h
+ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h \
+ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\string.h
 
 .././STD_TYPES.h:
 
@@ -56,3 +57,5 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h:
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h:
+
+c:\program\ files\microchip\xc8\v2.36\avr\avr\include\string.h:

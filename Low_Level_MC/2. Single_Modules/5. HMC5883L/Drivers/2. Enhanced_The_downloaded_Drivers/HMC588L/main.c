@@ -17,15 +17,17 @@ int main(void)
 	UART_init();	
 	I2C_Init();											/* Initialize I2C */
 	
+	char string[10] = "\n\r";
+	UART_send_string(string);
+
 	
 	int reading; 
-	char string[10] = "\n\r"; 
 	while (1)
 	{
-		Magneto_init();										/* Initialize magneto */
+		Magneto_init();									/* Initialize magneto */
 		reading = Magneto_GetHeading();
 		UART_send_float((float)reading);
 		UART_send_string(string);
-		
+		_delay_ms(2000);
 	}
 }

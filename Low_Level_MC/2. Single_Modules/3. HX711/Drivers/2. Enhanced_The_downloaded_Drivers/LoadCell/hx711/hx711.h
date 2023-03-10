@@ -49,7 +49,7 @@ Reference:
 #define HX711_USEAVERAGEONREAD 1
 
 //calibration average times read
-#define HX711_CALIBRATIONREADTIMES 10
+#define HX711_CALIBRATIONREADTIMES 5
 
 //enable the atomic mode on shift in
 #define HX711_ATOMICMODEENABLED 1

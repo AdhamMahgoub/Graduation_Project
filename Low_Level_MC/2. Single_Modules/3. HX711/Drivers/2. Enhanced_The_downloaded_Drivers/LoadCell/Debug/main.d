@@ -17,8 +17,9 @@ main.d main.o: .././main.c \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\interrupt.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h .././uart.h \
- .././hx711.h
+ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h \
+ .././UART_Interface.h .././LIB/STD_TYPES.h .././LIB/BIT_MATH.h \
+ .././hx711/hx711.h
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\stdio.h:
 
@@ -58,6 +59,10 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h:
 
-.././uart.h:
+.././UART_Interface.h:
 
-.././hx711.h:
+.././LIB/STD_TYPES.h:
+
+.././LIB/BIT_MATH.h:
+
+.././hx711/hx711.h:

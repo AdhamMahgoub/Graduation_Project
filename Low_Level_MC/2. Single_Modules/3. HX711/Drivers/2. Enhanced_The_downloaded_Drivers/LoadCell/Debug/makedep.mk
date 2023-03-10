@@ -2,9 +2,9 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-hx711.c
+hx711\hx711.c
 
 main.c
 
-uart.c
+UART_Program.c
 

@@ -25,7 +25,7 @@
 //read the calibration offset leaving the load cell with no weight
 //set the offset to value read
 //put a know weight on the load cell and set calibrationweight value
-//run the calibration stes 2 of 2
+//run the calibration stes 2 of 2	   
 //read the calibration scale
 //set the scale to value read
 
@@ -34,9 +34,9 @@ int8_t gain = HX711_GAINCHANNELA128;
 
 #if HX711_MODECURRENT == HX711_MODERUNNING
 //set the offset
-int32_t offset =  8000000;
+int32_t offset =  8365406;
 //set the scale
-double scale = 4775;
+double scale = 280;
 
 
 #elif HX711_MODECURRENT == HX711_MODECALIBRATION1OF2
@@ -48,11 +48,11 @@ double scale = HX711_SCALEDEFAULT;
 
 #elif HX711_MODECURRENT == HX711_MODECALIBRATION2OF2
 //set the offset
-int32_t offset =  6439952; 
+int32_t offset =  8365406; 	  
 //set the scale
 double scale = HX711_SCALEDEFAULT;
 //set the calibration weight
-double calibrationweight = 59;
+double calibrationweight = 60;
 #endif
 
 
@@ -82,7 +82,7 @@ int main(void) {
 
 		UART_send_string("\r\n");
 		
-		_delay_ms(1000);
+		_delay_ms(10);
 	
 	}
 #elif HX711_MODECURRENT == HX711_MODECALIBRATION1OF2

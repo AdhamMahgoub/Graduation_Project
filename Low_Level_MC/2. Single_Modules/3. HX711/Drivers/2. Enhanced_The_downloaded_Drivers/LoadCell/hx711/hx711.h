@@ -43,13 +43,13 @@ Reference:
 #define HX711_OFFSETDEFAULT 8000000
 
 //set how many time to read
-#define HX711_READTIMES 10
+#define HX711_READTIMES 10		
 
 //set if use average for read
 #define HX711_USEAVERAGEONREAD 1
 
 //calibration average times read
-#define HX711_CALIBRATIONREADTIMES 5
+#define HX711_CALIBRATIONREADTIMES 100  //5
 
 //enable the atomic mode on shift in
 #define HX711_ATOMICMODEENABLED 1

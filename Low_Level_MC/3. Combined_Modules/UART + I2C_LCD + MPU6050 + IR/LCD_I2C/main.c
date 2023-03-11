@@ -2,7 +2,7 @@
 
 #include "MCAL/UART/UART_Interface.h"
 #include "HAL/MPU6050/MPU6050.h"
-#include "HAL/LCD/liquid_crystal.h"
+//#include "HAL/LCD/liquid_crystal.h"
 #include "HAL/IR/IR.h"
 
 #include <string.h>
@@ -18,12 +18,12 @@ extern float Xg, Yg, Zg;												//	Real Values of MPU6050
 int main(void)
 {
 	
-	/*		LCD Initialization		*/
-	LiquidCrystalDevice_t device1 = lq_init(0x27, 20, 4, LCD_5x8DOTS);	// intialize 4-lines display
-	lq_turnOnBacklight(&device1);										// simply turning on the backlight
-	/*	Printing on LCD	*/
-	lq_print(&device1, "Hello");
-	lq_setCursor(&device1, 1, 0);					// moving cursor to the next line
+//	/*		LCD Initialization		*/
+//	LiquidCrystalDevice_t device1 = lq_init(0x27, 20, 4, LCD_5x8DOTS);	// intialize 4-lines display
+//	lq_turnOnBacklight(&device1);										// simply turning on the backlight
+//	/*	Printing on LCD	*/
+//	lq_print(&device1, "Hello");
+//	lq_setCursor(&device1, 1, 0);					// moving cursor to the next line
 	
 	
 	
@@ -72,7 +72,7 @@ int main(void)
 		}
 		 UART_send_string(UART_MPU6050_Package.formats[1]);
 
-
+		UART_puts("Adham");
 
 		_delay_ms(2000);
 

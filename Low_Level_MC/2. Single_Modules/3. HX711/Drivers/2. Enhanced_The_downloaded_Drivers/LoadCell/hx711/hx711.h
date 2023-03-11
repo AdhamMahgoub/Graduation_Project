@@ -1,21 +1,4 @@
-/*
-hx711 lib 0x02
-
-copyright (c) Davide Gironi, 2013
-
-Released under GPLv3.
-Please refer to LICENSE file for licensing information.
-
-Reference:
-  + This library is the port of HX711
-    https://github.com/bogde/HX711
-  + Other reference are
-    https://github.com/getsiddd/HX711
-    https://bitbucket.org/tmfret/avr-hx711-library/src/master/
-*/
-
 #include <avr/io.h>
-
 
 #ifndef HX711_H_
 #define HX711_H_
@@ -49,7 +32,7 @@ Reference:
 #define HX711_USEAVERAGEONREAD 1
 
 //calibration average times read
-#define HX711_CALIBRATIONREADTIMES 100  //5
+#define HX711_CALIBRATIONREADTIMES 100  
 
 //enable the atomic mode on shift in
 #define HX711_ATOMICMODEENABLED 1
@@ -71,5 +54,6 @@ extern void hx711_powerup();
 extern void hx711_calibrate1setoffset();
 extern void hx711_calibrate2setscale(double weight);
 extern void hx711_init(uint8_t gain, double scale, int32_t offset);
+void HX711_main_function(void);		//	to do what was in the main.c 
 
 #endif

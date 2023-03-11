@@ -17,7 +17,9 @@ hx711/hx711.d hx711/hx711.o: ../hx711/hx711.c ../hx711/hx711.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\atomic.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\interrupt.h
+ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\interrupt.h \
+ ../hx711/../UART_Interface.h ../hx711/../LIB/STD_TYPES.h \
+ ../hx711/../LIB/BIT_MATH.h
 
 ../hx711/hx711.h:
 
@@ -58,3 +60,9 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h:
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\atomic.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\interrupt.h:
+
+../hx711/../UART_Interface.h:
+
+../hx711/../LIB/STD_TYPES.h:
+
+../hx711/../LIB/BIT_MATH.h:

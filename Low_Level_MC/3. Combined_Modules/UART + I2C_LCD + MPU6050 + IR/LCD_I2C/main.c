@@ -4,6 +4,7 @@
 #include "HAL/MPU6050/MPU6050.h"
 //#include "HAL/LCD/liquid_crystal.h"
 #include "HAL/IR/IR.h"
+#include "HAL/HX711/hx711.h"
 
 #include <string.h>
 #include <util/delay.h>
@@ -17,7 +18,8 @@ extern float Xg, Yg, Zg;												//	Real Values of MPU6050
 
 int main(void)
 {
-	
+
+/*	///////////////////////////////////////////			LCD			*///////////////////////////////////////////	
 //	/*		LCD Initialization		*/
 //	LiquidCrystalDevice_t device1 = lq_init(0x27, 20, 4, LCD_5x8DOTS);	// intialize 4-lines display
 //	lq_turnOnBacklight(&device1);										// simply turning on the backlight
@@ -25,8 +27,7 @@ int main(void)
 //	lq_print(&device1, "Hello");
 //	lq_setCursor(&device1, 1, 0);					// moving cursor to the next line
 	
-	
-	
+
 	UART_init();
 	MPU6050_Init();
 
@@ -36,9 +37,8 @@ int main(void)
 	while (1)
 	{
 
+		/*	///////////////////////////////////////////			MPU6050			*///////////////////////////////////////////
 		MPU6050_Read_RealValue();		//	Keeps updating the Readings 
-
-
 		/*		MPU6050	DataPackage	*/
 		struct DataPackage UART_MPU6050_Package;
 		
@@ -61,7 +61,6 @@ int main(void)
 		strcpy(UART_MPU6050_Package.formats[0], "\n\r");		//	Next line
 		strcpy(UART_MPU6050_Package.formats[1], "\n\n\n\r");	//	Next set
 
-
 		/*		Sending over UART		*/
 		int i; 
 		for (i=0; i<7; i++)
@@ -72,18 +71,22 @@ int main(void)
 		}
 		 UART_send_string(UART_MPU6050_Package.formats[1]);
 
-		UART_puts("Adham");
 
-		_delay_ms(2000);
+ 		/*	///////////////////////////////////////////			HX711			*///////////////////////////////////////////
+		HX711_main_function();
 
-//		if (IR_Triggered())
-//			lq_print(&device1, "YES");
-//		else 
-//			lq_print(&device1, "NO");
-//			
-//		lq_clear(&device1);
-//	
 
+		/*	///////////////////////////////////////////			IR			*///////////////////////////////////////////
+		//		if (IR_Triggered())
+		//			lq_print(&device1, "YES");
+		//		else 
+		//			lq_print(&device1, "NO");
+		//			
+		//		lq_clear(&device1);
+		//	
+
+
+	_delay_ms(2000);
 	}
 
 	return 0;

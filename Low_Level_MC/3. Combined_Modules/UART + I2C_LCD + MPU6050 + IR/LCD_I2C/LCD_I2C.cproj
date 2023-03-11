@@ -94,6 +94,12 @@
     <Compile Include="Device_config.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\HX711\hx711.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\HX711\hx711.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\IR\IR.c">
       <SubType>compile</SubType>
     </Compile>
@@ -160,6 +166,7 @@
     <Folder Include="HAL\LCD" />
     <Folder Include="HAL\MPU6050" />
     <Folder Include="HAL\IR" />
+    <Folder Include="HAL\HX711" />
     <Folder Include="MCAL\" />
     <Folder Include="MCAL\I2C" />
     <Folder Include="MCAL\DIO" />

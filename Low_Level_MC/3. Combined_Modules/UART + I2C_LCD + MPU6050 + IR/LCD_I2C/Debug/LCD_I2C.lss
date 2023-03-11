@@ -13,25 +13,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   4 .stack.descriptors.hdr 0000016c  00000000  00000000  00002b17  2**0
                   CONTENTS, READONLY
-  5 .debug_aranges 00000240  00000000  00000000  00002c83  2**0
+  5 .debug_aranges 00000248  00000000  00000000  00002c83  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00003586  00000000  00000000  00002ec3  2**0
+  6 .debug_info   000035bd  00000000  00000000  00002ecb  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000d36  00000000  00000000  00006449  2**0
+  7 .debug_abbrev 00000d36  00000000  00000000  00006488  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000011e2  00000000  00000000  0000717f  2**0
+  8 .debug_line   0000120a  00000000  00000000  000071be  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000544  00000000  00000000  00008364  2**2
+  9 .debug_frame  00000564  00000000  00000000  000083c8  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000314  00000000  00000000  000088a8  2**0
+ 10 .debug_str    00000314  00000000  00000000  0000892c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000013f8  00000000  00000000  00008bbc  2**0
+ 11 .debug_loc    00001462  00000000  00000000  00008c40  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000001e0  00000000  00000000  00009fb4  2**0
+ 12 .debug_ranges 000001e8  00000000  00000000  0000a0a2  2**0
                   CONTENTS, READONLY, DEBUGGING
  13 .text         00000004  00002a26  00002a26  00002ada  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 14 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000a194  2**2
+ 14 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000a28c  2**2
                   CONTENTS, READONLY, DEBUGGING
  15 .text.lq_transmitI2C 0000000e  00002936  00002936  000029ea  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE

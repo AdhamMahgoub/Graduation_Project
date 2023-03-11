@@ -40,6 +40,13 @@ void UART_send_string(char *arr)		//A function to Transmit String
 	}
 }
 
+void UART_puts(const char *s)
+{
+	while (*s)
+		UART_send_byte(*s++);
+}
+
+
 void UART_send_float(float x)			//A function to Transmit float 
 {
 	char arr[10] = {0}; 

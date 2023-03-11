@@ -5,7 +5,6 @@
 #include "../../LIB/BIT_MATH.h"
 #include "DIO_private.h"
 
-
 #define 	PORTA		0
 #define 	PORTB		1
 #define 	PORTC		2

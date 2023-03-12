@@ -9,33 +9,26 @@
 #include <string.h>
 #include <util/delay.h>
 
+#define SELECTOR 1
+/*	1. MPU6050
+2. HX711
+3. IR
+4. HMC
+5. LCD		*/
 
 
 int main(void)
 {
-
-	/*	///////////////////////////////////////////			LCD			*///////////////////////////////////////////
-	//	/*		LCD Initialization		*/
-	//	LiquidCrystalDevice_t device1 = lq_init(0x27, 20, 4, LCD_5x8DOTS);	// intialize 4-lines display
-	//	lq_turnOnBacklight(&device1);										// simply turning on the backlight
-	//	/*	Printing on LCD	*/
-	//	lq_print(&device1, "Hello");
-	//	lq_setCursor(&device1, 1, 0);					// moving cursor to the next line
-	
-
 	UART_init();
-	char string[] = "Besm Allah";
-	UART_send_string(string);
-
-	
 	MPU6050_Init();
 	/*	MPU6050 Variables	*/
-	extern float Xa, Ya, Za, t;												//	Real Value of MPU6050s
+	extern float Xa, Ya, Za, t;												//	Real Value of MPU6050
 	extern float Xg, Yg, Zg;												//	Real Values of MPU6050
-	//extern struct DataPackage;	 //	Datatype -- used to define a struct with the type DataPackage inside the main function
 
 	while (1)
 	{
+		
+		#if SELECTOR == 1		//	MPU6050
 		/*	///////////////////////////////////////////			MPU6050			*///////////////////////////////////////////
 		MPU6050_Read_RealValue();		//	Keeps updating the Readings
 		/*		MPU6050	DataPackage	*/
@@ -68,13 +61,15 @@ int main(void)
 			UART_send_float(UART_MPU6050_Package.values[i]);
 			UART_send_string(UART_MPU6050_Package.formats[0]);
 		}
-		UART_send_string(UART_MPU6050_Package.formats[1]);
+		UART_send_string(UART_MPU6050_Package.formats[1]);	//MPU6050
+		#endif
 
-
+		#if SELECTOR == 2		//	HX711
 		/*	///////////////////////////////////////////			HX711			*///////////////////////////////////////////
 		HX711_main_function();
+		#endif
 
-
+		#if SELECTOR == 3		//	IR
 		/*	///////////////////////////////////////////			IR			*///////////////////////////////////////////
 		//		if (IR_Triggered())
 		//			lq_print(&device1, "YES");
@@ -82,8 +77,22 @@ int main(void)
 		//			lq_print(&device1, "NO");
 		//
 		//		lq_clear(&device1);
-		//
+		#endif
 
+		#if SELECTOR == 4	//HMC
+		
+		#endif
+
+		#if SELECTOR == 5 	//	LCD
+
+		/*	///////////////////////////////////////////			LCD			*///////////////////////////////////////////
+		//	/*		LCD Initialization		*/
+		//	LiquidCrystalDevice_t device1 = lq_init(0x27, 20, 4, LCD_5x8DOTS);	// intialize 4-lines display
+		//	lq_turnOnBacklight(&device1);										// simply turning on the backlight
+		//	/*	Printing on LCD	*/
+		//	lq_print(&device1, "Hello");
+		//	lq_setCursor(&device1, 1, 0);					// moving cursor to the next line
+		#endif
 
 		_delay_ms(2000);
 	}

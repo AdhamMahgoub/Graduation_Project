@@ -15,23 +15,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 00000198  00000000  00000000  00003640  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00002724  00000000  00000000  000037d8  2**0
+  6 .debug_info   0000271d  00000000  00000000  000037d8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000c64  00000000  00000000  00005efc  2**0
+  7 .debug_abbrev 00000c43  00000000  00000000  00005ef5  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000e0a  00000000  00000000  00006b60  2**0
+  8 .debug_line   00000e3e  00000000  00000000  00006b38  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000003c8  00000000  00000000  0000796c  2**2
+  9 .debug_frame  000003c8  00000000  00000000  00007978  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000002a0  00000000  00000000  00007d34  2**0
+ 10 .debug_str    00000298  00000000  00000000  00007d40  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000b23  00000000  00000000  00007fd4  2**0
+ 11 .debug_loc    00000b23  00000000  00000000  00007fd8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000160  00000000  00000000  00008af7  2**0
+ 12 .debug_ranges 00000160  00000000  00000000  00008afb  2**0
                   CONTENTS, READONLY, DEBUGGING
  13 .text         00000004  00003346  00003346  0000343a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 14 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00008c58  2**2
+ 14 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00008c5c  2**2
                   CONTENTS, READONLY, DEBUGGING
  15 .text.hx711_read 0000006a  00002a26  00002a26  00002b1a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
@@ -465,10 +465,10 @@ Disassembly of section .text.hx711_readwithtare:
     2c2c:	0e 94 37 16 	call	0x2c6e	; 0x2c6e <hx711_readaverage>
     2c30:	4b 01       	movw	r8, r22
     2c32:	5c 01       	movw	r10, r24
-    2c34:	60 91 8e 00 	lds	r22, 0x008E	; 0x80008e <hx711_offset>
-    2c38:	70 91 8f 00 	lds	r23, 0x008F	; 0x80008f <hx711_offset+0x1>
-    2c3c:	80 91 90 00 	lds	r24, 0x0090	; 0x800090 <hx711_offset+0x2>
-    2c40:	90 91 91 00 	lds	r25, 0x0091	; 0x800091 <hx711_offset+0x3>
+    2c34:	60 91 8e 00 	lds	r22, 0x008E	; 0x80008e <_end>
+    2c38:	70 91 8f 00 	lds	r23, 0x008F	; 0x80008f <_end+0x1>
+    2c3c:	80 91 90 00 	lds	r24, 0x0090	; 0x800090 <_end+0x2>
+    2c40:	90 91 91 00 	lds	r25, 0x0091	; 0x800091 <_end+0x3>
     2c44:	0e 94 d8 14 	call	0x29b0	; 0x29b0 <__floatsisf>
     2c48:	6b 01       	movw	r12, r22
     2c4a:	7c 01       	movw	r14, r24
@@ -545,10 +545,10 @@ Disassembly of section .text.hx711_setoffset:
  */
 void hx711_setoffset(int32_t offset) {
 	hx711_offset = offset;
-    3226:	60 93 8e 00 	sts	0x008E, r22	; 0x80008e <hx711_offset>
-    322a:	70 93 8f 00 	sts	0x008F, r23	; 0x80008f <hx711_offset+0x1>
-    322e:	80 93 90 00 	sts	0x0090, r24	; 0x800090 <hx711_offset+0x2>
-    3232:	90 93 91 00 	sts	0x0091, r25	; 0x800091 <hx711_offset+0x3>
+    3226:	60 93 8e 00 	sts	0x008E, r22	; 0x80008e <_end>
+    322a:	70 93 8f 00 	sts	0x008F, r23	; 0x80008f <_end+0x1>
+    322e:	80 93 90 00 	sts	0x0090, r24	; 0x800090 <_end+0x2>
+    3232:	90 93 91 00 	sts	0x0091, r25	; 0x800091 <_end+0x3>
     3236:	08 95       	ret
 
 Disassembly of section .text.hx711_init:

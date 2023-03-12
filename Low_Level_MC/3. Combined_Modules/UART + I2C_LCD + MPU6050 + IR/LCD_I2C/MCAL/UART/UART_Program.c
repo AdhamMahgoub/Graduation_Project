@@ -1,5 +1,6 @@
 #include "UART_Private.h"
 #include "UART_Interface.h"
+#include <stdio.h>
 
 #define USART_BAUDRATE  2400
 #define BAUD_PRESCALE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1)

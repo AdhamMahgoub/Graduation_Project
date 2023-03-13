@@ -2,6 +2,7 @@
 #include "MPU6050.h"
 
 #include "../../MCAL/I2C/I2C_Master.h"
+#include "../../MCAL/UART/UART_Interface.h"
 
 
 float Acc_x,Acc_y,Acc_z,Temperature,Gyro_x,Gyro_y,Gyro_z;	/* Raw Values	*/
@@ -61,12 +62,37 @@ void Read_RawValue()
 	Gyro_y = (((int)I2C_Read_Ack()<<8) | (int)I2C_Read_Ack());
 	Gyro_z = (((int)I2C_Read_Ack()<<8) | (int)I2C_Read_Nack());
 	I2C_Stop();
+	
+	
+	/*	Calibration to Compensate for the Offset -- Done by me	*/
+	Acc_x += 213;
+	Acc_y += 485;
+	Acc_z -= 17077;
+	
+	Gyro_x += 5.33; 	// leave as it is
+	Gyro_y -= 63.04;
+	Gyro_z -= 1.7;
+	
+//	UART_puts("Xa_raw = ");		UART_send_float(Acc_x);		UART_puts("\t\t");
+//	UART_puts("Ya_raw = ");		UART_send_float(Acc_y);		UART_puts("\t\t");
+//	UART_puts("Za_raw = ");		UART_send_float(Acc_z);		UART_puts("\t\t");
+//	
+//	UART_puts("\n\r");
+//	
+//	UART_puts("Xg_raw = ");		UART_send_float(Gyro_x);		UART_puts("\t\t");
+//	UART_puts("Yg_raw = ");		UART_send_float(Gyro_y);		UART_puts("\t\t");
+//	UART_puts("Zg_raw = ");		UART_send_float(Gyro_z);		UART_puts("\t\t");
+//	
+//	UART_puts("\n\n\r");
+	/*	End of Calibration	*/
+	
 }
 
 void MPU6050_Read_RealValue()
 {
 	Read_RawValue();								/*	Gets the RawValue in order to make calculations to get Real Values	*/
 	
+		
 	Xa = Acc_x/16384.0;								/* Divide raw value by sensitivity scale factor to get real values */
 	Ya = Acc_y/16384.0;
 	Za = Acc_z/16384.0;
@@ -76,5 +102,9 @@ void MPU6050_Read_RealValue()
 	Zg = Gyro_z/16.4;
 
 	t = (Temperature/340.00)+36.53;					/* Convert temperature in °/c using formula */
+	
+	
+
 }
+
 

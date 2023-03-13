@@ -10,7 +10,7 @@
 #include <string.h>
 #include <util/delay.h>
 
-#define SELECTOR 3
+#define SELECTOR 1
 /*
 1. MPU6050
 2. HX711
@@ -27,6 +27,8 @@ int main(void)
 	/*	MPU6050 Variables	*/
 	extern float Xa, Ya, Za, t;												//	Real Value of MPU6050
 	extern float Xg, Yg, Zg;												//	Real Values of MPU6050
+	extern float Acc_x,Acc_y,Acc_z,Temperature,Gyro_x,Gyro_y,Gyro_z;		//	Raw Values	
+
 
 	float Heading; 
 	Magneto_init();
@@ -59,10 +61,40 @@ int main(void)
 		strcpy(UART_MPU6050_Package.formats[0], "\n\r");		//	Next line
 		strcpy(UART_MPU6050_Package.formats[1], "\n\n\n\r");	//	Next set
 
+
+//		/*				CALIBRATION				*/
+//		//	Calculate the Average for 100 readings for the raw values -- to calibrate
+//		int i;
+//		float sum[6] = {0};
+//		for (i=0; i<100; i++)
+//		{
+//			Read_RawValue();
+//			sum[0] += Acc_x;
+//			sum[1] += Acc_y;
+//			sum[2] += Acc_z;
+//			
+//			sum[3] += Gyro_x;
+//			sum[4] += Gyro_y;
+//			sum[5] += Gyro_z; 
+//		}
+//		//	printing the average		
+//		for (i=0; i<6; i++)
+//		{
+//			UART_send_float((float)i); UART_puts("== ");
+//			UART_send_float(sum[i]/100);
+//			UART_puts("average = \n\r");
+//		}
+//		UART_puts("average = \n\r");
+//		/*				End of CALIBRATION				*/
+
+
+
 		/*		Sending over UART		*/
 		int i;
 		for (i=0; i<7; i++)
 		{
+			if (i==0 || i==1 || i==2  || i==3 || i==4 || i==6)
+				continue;
 			UART_send_string(UART_MPU6050_Package.labels[i]);
 			UART_send_float(UART_MPU6050_Package.values[i]);
 			UART_send_string(UART_MPU6050_Package.formats[0]);

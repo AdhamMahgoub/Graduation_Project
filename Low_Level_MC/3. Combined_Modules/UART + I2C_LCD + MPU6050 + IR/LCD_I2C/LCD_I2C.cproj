@@ -94,6 +94,12 @@
     <Compile Include="Device_config.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\HMC5883L\HMC588L.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\HMC5883L\HMC588L.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\HX711\hx711.c">
       <SubType>compile</SubType>
     </Compile>
@@ -139,6 +145,12 @@
     <Compile Include="MCAL\DIO\DIO_program.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\I2C\HMC_I2C_Master_C_file.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\I2C\HMC_I2C_Master_H_file.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\I2C\lcd_i2c_master.c">
       <SubType>compile</SubType>
     </Compile>
@@ -163,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HAL" />
+    <Folder Include="HAL\HMC5883L\" />
     <Folder Include="HAL\LCD" />
     <Folder Include="HAL\MPU6050" />
     <Folder Include="HAL\IR" />

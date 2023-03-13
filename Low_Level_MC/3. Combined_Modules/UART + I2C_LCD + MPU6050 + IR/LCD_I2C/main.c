@@ -5,11 +5,12 @@
 //#include "HAL/LCD/liquid_crystal.h"
 #include "HAL/IR/IR.h"
 #include "HAL/HX711/hx711.h"
+#include "HAL/HMC5883L/HMC588L.h"
 
 #include <string.h>
 #include <util/delay.h>
 
-#define SELECTOR 1
+#define SELECTOR 4
 /*
 1. MPU6050
 2. HX711
@@ -26,6 +27,9 @@ int main(void)
 	/*	MPU6050 Variables	*/
 	extern float Xa, Ya, Za, t;												//	Real Value of MPU6050
 	extern float Xg, Yg, Zg;												//	Real Values of MPU6050
+
+	float Heading; 
+	Magneto_init();
 
 	while (1)
 	{
@@ -82,7 +86,9 @@ int main(void)
 		#endif
 
 		#if SELECTOR == 4		//HMC
-		
+			   
+			   Heading = Magneto_GetHeading();
+			   UART_puts("Heading = ");	UART_send_float(Heading);
 		#endif
 
 		#if SELECTOR == 5 		//	LCD

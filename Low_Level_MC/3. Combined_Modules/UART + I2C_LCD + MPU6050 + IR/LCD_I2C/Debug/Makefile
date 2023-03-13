@@ -34,6 +34,7 @@ LINKER_SCRIPT_DEP:=
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
 ../HAL \
+../HAL/HMC5883L/ \
 ../HAL/LCD \
 ../HAL/MPU6050 \
 ../HAL/IR \
@@ -47,12 +48,14 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../HAL/HMC5883L/HMC588L.c \
 ../HAL/HX711/hx711.c \
 ../HAL/IR/IR.c \
 ../HAL/LCD/liquid_crystal.c \
 ../HAL/MPU6050/MPU6050.c \
 ../main.c \
 ../MCAL/DIO/DIO_program.c \
+../MCAL/I2C/HMC_I2C_Master_C_file.c \
 ../MCAL/I2C/lcd_i2c_master.c \
 ../MCAL/I2C/MPU6050_I2C_Master.c \
 ../MCAL/UART/UART_Program.c
@@ -65,45 +68,53 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+HAL/HMC5883L/HMC588L.o \
 HAL/HX711/hx711.o \
 HAL/IR/IR.o \
 HAL/LCD/liquid_crystal.o \
 HAL/MPU6050/MPU6050.o \
 main.o \
 MCAL/DIO/DIO_program.o \
+MCAL/I2C/HMC_I2C_Master_C_file.o \
 MCAL/I2C/lcd_i2c_master.o \
 MCAL/I2C/MPU6050_I2C_Master.o \
 MCAL/UART/UART_Program.o
 
 OBJS_AS_ARGS +=  \
+HAL/HMC5883L/HMC588L.o \
 HAL/HX711/hx711.o \
 HAL/IR/IR.o \
 HAL/LCD/liquid_crystal.o \
 HAL/MPU6050/MPU6050.o \
 main.o \
 MCAL/DIO/DIO_program.o \
+MCAL/I2C/HMC_I2C_Master_C_file.o \
 MCAL/I2C/lcd_i2c_master.o \
 MCAL/I2C/MPU6050_I2C_Master.o \
 MCAL/UART/UART_Program.o
 
 C_DEPS +=  \
+HAL/HMC5883L/HMC588L.d \
 HAL/HX711/hx711.d \
 HAL/IR/IR.d \
 HAL/LCD/liquid_crystal.d \
 HAL/MPU6050/MPU6050.d \
 main.d \
 MCAL/DIO/DIO_program.d \
+MCAL/I2C/HMC_I2C_Master_C_file.d \
 MCAL/I2C/lcd_i2c_master.d \
 MCAL/I2C/MPU6050_I2C_Master.d \
 MCAL/UART/UART_Program.d
 
 C_DEPS_AS_ARGS +=  \
+HAL/HMC5883L/HMC588L.d \
 HAL/HX711/hx711.d \
 HAL/IR/IR.d \
 HAL/LCD/liquid_crystal.d \
 HAL/MPU6050/MPU6050.d \
 main.d \
 MCAL/DIO/DIO_program.d \
+MCAL/I2C/HMC_I2C_Master_C_file.d \
 MCAL/I2C/lcd_i2c_master.d \
 MCAL/I2C/MPU6050_I2C_Master.d \
 MCAL/UART/UART_Program.d
@@ -122,6 +133,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+HAL/HMC5883L/HMC588L.o: ../HAL/HMC5883L/HMC588L.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.36
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 HAL/HX711/hx711.o: ../HAL/HX711/hx711.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
@@ -158,6 +176,13 @@ HAL/MPU6050/MPU6050.o: ../HAL/MPU6050/MPU6050.c
 	
 
 MCAL/DIO/DIO_program.o: ../MCAL/DIO/DIO_program.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.36
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/I2C/HMC_I2C_Master_C_file.o: ../MCAL/I2C/HMC_I2C_Master_C_file.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

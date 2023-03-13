@@ -1,11 +1,10 @@
-main.d main.o: .././main.c .././Device_Config.h \
- .././MCAL/UART/UART_Interface.h .././MCAL/UART/../../LIB/STD_TYPES.h \
- .././MCAL/UART/../../LIB/BIT_MATH.h .././MCAL/UART/../../Device_Config.h \
- .././HAL/MPU6050/MPU6050.h .././HAL/IR/IR.h \
- .././HAL/IR/../../MCAL/DIO/DIO_interface.h \
- .././HAL/IR/../../MCAL/DIO/../../LIB/STD_TYPES.h \
- .././HAL/IR/../../MCAL/DIO/../../LIB/BIT_MATH.h \
- .././HAL/IR/../../MCAL/DIO/DIO_private.h .././HAL/HX711/hx711.h \
+HAL/HMC5883L/HMC588L.d HAL/HMC5883L/HMC588L.o: ../HAL/HMC5883L/HMC588L.c \
+ ../HAL/HMC5883L/../../lib/STD_TYPES.h \
+ ../HAL/HMC5883L/../../MCAL/UART/UART_Interface.h \
+ ../HAL/HMC5883L/../../MCAL/UART/../../LIB/STD_TYPES.h \
+ ../HAL/HMC5883L/../../MCAL/UART/../../LIB/BIT_MATH.h \
+ ../HAL/HMC5883L/../../MCAL/UART/../../Device_Config.h \
+ ../HAL/HMC5883L/../../MCAL/I2C/HMC_I2C_Master_H_file.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\sfr_defs.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\inttypes.h \
@@ -19,35 +18,22 @@ main.d main.o: .././main.c .././Device_Config.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\common.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h \
- .././HAL/HMC5883L/HMC588L.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\string.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h
+ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h \
+ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\string.h
 
-.././Device_Config.h:
+../HAL/HMC5883L/../../lib/STD_TYPES.h:
 
-.././MCAL/UART/UART_Interface.h:
+../HAL/HMC5883L/../../MCAL/UART/UART_Interface.h:
 
-.././MCAL/UART/../../LIB/STD_TYPES.h:
+../HAL/HMC5883L/../../MCAL/UART/../../LIB/STD_TYPES.h:
 
-.././MCAL/UART/../../LIB/BIT_MATH.h:
+../HAL/HMC5883L/../../MCAL/UART/../../LIB/BIT_MATH.h:
 
-.././MCAL/UART/../../Device_Config.h:
+../HAL/HMC5883L/../../MCAL/UART/../../Device_Config.h:
 
-.././HAL/MPU6050/MPU6050.h:
-
-.././HAL/IR/IR.h:
-
-.././HAL/IR/../../MCAL/DIO/DIO_interface.h:
-
-.././HAL/IR/../../MCAL/DIO/../../LIB/STD_TYPES.h:
-
-.././HAL/IR/../../MCAL/DIO/../../LIB/BIT_MATH.h:
-
-.././HAL/IR/../../MCAL/DIO/DIO_private.h:
-
-.././HAL/HX711/hx711.h:
+../HAL/HMC5883L/../../MCAL/I2C/HMC_I2C_Master_H_file.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h:
 
@@ -75,12 +61,10 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h:
 
-.././HAL/HMC5883L/HMC588L.h:
-
-c:\program\ files\microchip\xc8\v2.36\avr\avr\include\string.h:
-
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h:
+
+c:\program\ files\microchip\xc8\v2.36\avr\avr\include\string.h:

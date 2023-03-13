@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+HAL\HMC5883L\HMC588L.c
+
 HAL\HX711\hx711.c
 
 HAL\IR\IR.c
@@ -13,6 +15,8 @@ HAL\MPU6050\MPU6050.c
 main.c
 
 MCAL\DIO\DIO_program.c
+
+MCAL\I2C\HMC_I2C_Master_C_file.c
 
 MCAL\I2C\lcd_i2c_master.c
 

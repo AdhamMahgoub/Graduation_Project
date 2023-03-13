@@ -640,10 +640,10 @@ void MPU6050_Read_RealValue()
     1b3a:	43 e8       	ldi	r20, 0x83	; 131
     1b3c:	51 e4       	ldi	r21, 0x41	; 65
     1b3e:	0e 94 82 17 	call	0x2f04	; 0x2f04 <__divsf3>
-    1b42:	60 93 8e 00 	sts	0x008E, r22	; 0x80008e <Zg>
-    1b46:	70 93 8f 00 	sts	0x008F, r23	; 0x80008f <Zg+0x1>
-    1b4a:	80 93 90 00 	sts	0x0090, r24	; 0x800090 <Zg+0x2>
-    1b4e:	90 93 91 00 	sts	0x0091, r25	; 0x800091 <Zg+0x3>
+    1b42:	60 93 8e 00 	sts	0x008E, r22	; 0x80008e <_end>
+    1b46:	70 93 8f 00 	sts	0x008F, r23	; 0x80008f <_end+0x1>
+    1b4a:	80 93 90 00 	sts	0x0090, r24	; 0x800090 <_end+0x2>
+    1b4e:	90 93 91 00 	sts	0x0091, r25	; 0x800091 <_end+0x3>
 
 	t = (Temperature/340.00)+36.53;					/* Convert temperature in °/c using formula */
     1b52:	20 e0       	ldi	r18, 0x00	; 0
@@ -669,8 +669,8 @@ void MPU6050_Read_RealValue()
 Disassembly of section .text.main:
 
 00001274 <main>:
-4. HMC
-5. LCD		*/
+5. LCD
+*/
 
 
 int main(void)
@@ -833,10 +833,10 @@ int main(void)
     13b6:	cb 5b       	subi	r28, 0xBB	; 187
     13b8:	d0 40       	sbci	r29, 0x00	; 0
 		UART_MPU6050_Package.values[5] = Zg;
-    13ba:	80 91 8e 00 	lds	r24, 0x008E	; 0x80008e <Zg>
-    13be:	90 91 8f 00 	lds	r25, 0x008F	; 0x80008f <Zg+0x1>
-    13c2:	a0 91 90 00 	lds	r26, 0x0090	; 0x800090 <Zg+0x2>
-    13c6:	b0 91 91 00 	lds	r27, 0x0091	; 0x800091 <Zg+0x3>
+    13ba:	80 91 8e 00 	lds	r24, 0x008E	; 0x80008e <_end>
+    13be:	90 91 8f 00 	lds	r25, 0x008F	; 0x80008f <_end+0x1>
+    13c2:	a0 91 90 00 	lds	r26, 0x0090	; 0x800090 <_end+0x2>
+    13c6:	b0 91 91 00 	lds	r27, 0x0091	; 0x800091 <_end+0x3>
     13ca:	c1 54       	subi	r28, 0x41	; 65
     13cc:	df 4f       	sbci	r29, 0xFF	; 255
     13ce:	88 83       	st	Y, r24
@@ -980,7 +980,7 @@ void I2C_Init()												/* I2C initialize function */
 {
 	TWBR = BITRATE(TWSR = 0x00);							/* Get bit rate register value by formula */
     2ef4:	11 b8       	out	0x01, r1	; 1
-    2ef6:	80 e2       	ldi	r24, 0x20	; 32
+    2ef6:	8f ef       	ldi	r24, 0xFF	; 255
     2ef8:	80 b9       	out	0x00, r24	; 0
     2efa:	08 95       	ret
 

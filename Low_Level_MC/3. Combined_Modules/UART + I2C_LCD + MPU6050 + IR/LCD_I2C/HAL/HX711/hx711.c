@@ -1,6 +1,6 @@
 #include "hx711.h"
 
-#define F_CPU 8000000UL
+#include "../../Device_config.h"
 #include <stdio.h>
 #include <avr/io.h>
 #include <util/delay.h>

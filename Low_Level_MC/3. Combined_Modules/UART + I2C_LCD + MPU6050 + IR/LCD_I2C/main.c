@@ -10,11 +10,13 @@
 #include <util/delay.h>
 
 #define SELECTOR 1
-/*	1. MPU6050
+/*
+1. MPU6050
 2. HX711
 3. IR
 4. HMC
-5. LCD		*/
+5. LCD
+*/
 
 
 int main(void)
@@ -79,11 +81,11 @@ int main(void)
 		//		lq_clear(&device1);
 		#endif
 
-		#if SELECTOR == 4	//HMC
+		#if SELECTOR == 4		//HMC
 		
 		#endif
 
-		#if SELECTOR == 5 	//	LCD
+		#if SELECTOR == 5 		//	LCD
 
 		/*	///////////////////////////////////////////			LCD			*///////////////////////////////////////////
 		//	/*		LCD Initialization		*/

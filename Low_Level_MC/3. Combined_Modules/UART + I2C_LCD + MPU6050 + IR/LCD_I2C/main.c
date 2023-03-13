@@ -10,7 +10,7 @@
 #include <string.h>
 #include <util/delay.h>
 
-#define SELECTOR 1
+#define SELECTOR 3
 /*
 1. MPU6050
 2. HX711
@@ -77,12 +77,11 @@ int main(void)
 
 		#if SELECTOR == 3		//	IR
 		/*	///////////////////////////////////////////			IR			*///////////////////////////////////////////
-		//		if (IR_Triggered())
-		//			lq_print(&device1, "YES");
-		//		else
-		//			lq_print(&device1, "NO");
-		//
-		//		lq_clear(&device1);
+				if (IR_Triggered())
+					UART_puts("YES\n\r");
+				else
+					UART_puts("NO\n\r");
+		
 		#endif
 
 		#if SELECTOR == 4		//HMC

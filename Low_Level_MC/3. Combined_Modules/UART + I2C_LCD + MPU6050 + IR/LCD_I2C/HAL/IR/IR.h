@@ -7,7 +7,7 @@
 
 
 #define IR_Port PORTD
-#define IR_Pin 6
+#define IR_Pin 5
 
 int IR_Triggered(void);
 

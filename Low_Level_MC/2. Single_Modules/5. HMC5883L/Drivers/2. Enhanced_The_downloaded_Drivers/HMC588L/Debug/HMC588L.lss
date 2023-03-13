@@ -291,13 +291,13 @@ Disassembly of section .text.Magneto_init:
 #define QMC5883L_REG_DATA 0x00
 
 void Magneto_init() {
-	I2C_Start(QMC5883L_ADDR << 1);           // Start and write SLA+W
+	I2C_Start(QMC5883L_ADDR << 1);			// Start and write SLA+W
     2826:	8a e1       	ldi	r24, 0x1A	; 26
     2828:	0e 94 cc 12 	call	0x2598	; 0x2598 <I2C_Start>
-	I2C_Write(QMC5883L_REG_CONFIG);          // Write memory location address
+	I2C_Write(QMC5883L_REG_CONFIG);         // Write memory location address
     282c:	89 e0       	ldi	r24, 0x09	; 9
     282e:	0e 94 d5 13 	call	0x27aa	; 0x27aa <I2C_Write>
-	I2C_Write(0x1D);                        // Configure register A, set output data rate to 200Hz, set measurement range to 8G, set mode to continuous measurement
+	I2C_Write(0x1D);						// Configure register A, set output data rate to 200Hz, set measurement range to 8G, set mode to continuous measurement
     2832:	8d e1       	ldi	r24, 0x1D	; 29
     2834:	0e 94 d5 13 	call	0x27aa	; 0x27aa <I2C_Write>
 	I2C_Stop();                             // Stop I2C
@@ -370,7 +370,7 @@ int Magneto_GetHeading() {
 	
 	I2C_Stop();                             // Stop I2C
     15e0:	0e 94 a4 14 	call	0x2948	; 0x2948 <I2C_Stop>
-	Heading = atan2((double)y, (double)x) + PI; // Calculate heading
+	Heading = atan2((double)y, (double)x) + Declination; // Calculate heading
     15e4:	b7 01       	movw	r22, r14
     15e6:	ff 0c       	add	r15, r15
     15e8:	88 0b       	sbc	r24, r24
@@ -388,10 +388,10 @@ int Magneto_GetHeading() {
     1604:	a5 01       	movw	r20, r10
     1606:	94 01       	movw	r18, r8
     1608:	0e 94 75 09 	call	0x12ea	; 0x12ea <atan2f>
-    160c:	2b ed       	ldi	r18, 0xDB	; 219
-    160e:	3f e0       	ldi	r19, 0x0F	; 15
-    1610:	49 e4       	ldi	r20, 0x49	; 73
-    1612:	50 e4       	ldi	r21, 0x40	; 64
+    160c:	29 e3       	ldi	r18, 0x39	; 57
+    160e:	3a ef       	ldi	r19, 0xFA	; 250
+    1610:	4e e8       	ldi	r20, 0x8E	; 142
+    1612:	5d e3       	ldi	r21, 0x3D	; 61
     1614:	0e 94 82 14 	call	0x2904	; 0x2904 <__addsf3>
     1618:	6b 01       	movw	r12, r22
     161a:	7c 01       	movw	r14, r24

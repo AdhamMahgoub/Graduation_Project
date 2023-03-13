@@ -1,4 +1,5 @@
 #define PI 3.14159265359
+#define Declination 0.0698132
 
 #include "STD_TYPES.h"
 #include "UART_Interface.h"
@@ -10,9 +11,9 @@
 #define QMC5883L_REG_DATA 0x00
 
 void Magneto_init() {
-	I2C_Start(QMC5883L_ADDR << 1);           // Start and write SLA+W
-	I2C_Write(QMC5883L_REG_CONFIG);          // Write memory location address
-	I2C_Write(0x1D);                        // Configure register A, set output data rate to 200Hz, set measurement range to 8G, set mode to continuous measurement
+	I2C_Start(QMC5883L_ADDR << 1);			// Start and write SLA+W
+	I2C_Write(QMC5883L_REG_CONFIG);         // Write memory location address
+	I2C_Write(0x1D);						// Configure register A, set output data rate to 200Hz, set measurement range to 8G, set mode to continuous measurement
 	I2C_Stop();                             // Stop I2C
 }
 
@@ -32,7 +33,7 @@ int Magneto_GetHeading() {
 	
 	
 	I2C_Stop();                             // Stop I2C
-	Heading = atan2((double)y, (double)x) + PI; // Calculate heading
+	Heading = atan2((double)y, (double)x) + Declination; // Calculate heading
 	if (Heading > 2*PI)                      // Due to declination check for >360 degree
 	Heading = Heading - 2*PI;
 	if (Heading < 0)                         // Check for sign

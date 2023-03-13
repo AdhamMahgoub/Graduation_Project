@@ -145,22 +145,16 @@
     <Compile Include="MCAL\DIO\DIO_program.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\I2C\HMC_I2C_Master_C_file.c">
+    <Compile Include="MCAL\I2C\I2C_Master.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\I2C\HMC_I2C_Master_H_file.h">
+    <Compile Include="MCAL\I2C\I2C_Master.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\I2C\lcd_i2c_master.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\I2C\lcd_i2c_master.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="MCAL\I2C\MPU6050_I2C_Master.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="MCAL\I2C\MPU6050_I2C_Master.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\UART\UART_Interface.h">

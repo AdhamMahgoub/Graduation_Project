@@ -1,5 +1,5 @@
 
-#include "HMC_I2C_Master_H_file.h"								/* Include I2C header file */
+#include "I2C_Master.h"								/* Include I2C header file */
 
 void I2C_Init()												/* I2C initialize function */
 {
@@ -69,7 +69,6 @@ void I2C_Start_Wait(char slave_write_address)				/* I2C start wait function */
 		status = TWSR & 0xF8;								/* Read TWI status register with masking lower three bits */
 		if (status != 0x18 )								/* Check weather SLA+W transmitted & ack received or not? */
 		{
-			UART_send_byte('z');   //debugging
 			I2C_Stop();										/* If not then generate stop condition */
 			continue;										/* continue with start loop again */
 		}	

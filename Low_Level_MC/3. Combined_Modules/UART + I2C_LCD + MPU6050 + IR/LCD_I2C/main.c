@@ -10,7 +10,7 @@
 #include <string.h>
 #include <util/delay.h>
 
-#define SELECTOR 4
+#define SELECTOR 1
 /*
 1. MPU6050
 2. HX711
@@ -88,7 +88,7 @@ int main(void)
 		#if SELECTOR == 4		//HMC
 			   
 			   Heading = Magneto_GetHeading();
-			   UART_puts("Heading = ");	UART_send_float(Heading);
+			   UART_puts("\n\rHeading = ");	UART_send_float(Heading);
 		#endif
 
 		#if SELECTOR == 5 		//	LCD
@@ -102,7 +102,7 @@ int main(void)
 		//	lq_setCursor(&device1, 1, 0);					// moving cursor to the next line
 		#endif
 
-		_delay_ms(2000);
+		_delay_ms(500);
 	}
 
 	return 0;

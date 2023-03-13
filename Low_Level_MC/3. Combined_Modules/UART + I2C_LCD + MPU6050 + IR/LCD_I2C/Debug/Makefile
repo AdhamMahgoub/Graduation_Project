@@ -55,9 +55,8 @@ C_SRCS +=  \
 ../HAL/MPU6050/MPU6050.c \
 ../main.c \
 ../MCAL/DIO/DIO_program.c \
-../MCAL/I2C/HMC_I2C_Master_C_file.c \
+../MCAL/I2C/I2C_Master.c \
 ../MCAL/I2C/lcd_i2c_master.c \
-../MCAL/I2C/MPU6050_I2C_Master.c \
 ../MCAL/UART/UART_Program.c
 
 
@@ -75,9 +74,8 @@ HAL/LCD/liquid_crystal.o \
 HAL/MPU6050/MPU6050.o \
 main.o \
 MCAL/DIO/DIO_program.o \
-MCAL/I2C/HMC_I2C_Master_C_file.o \
+MCAL/I2C/I2C_Master.o \
 MCAL/I2C/lcd_i2c_master.o \
-MCAL/I2C/MPU6050_I2C_Master.o \
 MCAL/UART/UART_Program.o
 
 OBJS_AS_ARGS +=  \
@@ -88,9 +86,8 @@ HAL/LCD/liquid_crystal.o \
 HAL/MPU6050/MPU6050.o \
 main.o \
 MCAL/DIO/DIO_program.o \
-MCAL/I2C/HMC_I2C_Master_C_file.o \
+MCAL/I2C/I2C_Master.o \
 MCAL/I2C/lcd_i2c_master.o \
-MCAL/I2C/MPU6050_I2C_Master.o \
 MCAL/UART/UART_Program.o
 
 C_DEPS +=  \
@@ -101,9 +98,8 @@ HAL/LCD/liquid_crystal.d \
 HAL/MPU6050/MPU6050.d \
 main.d \
 MCAL/DIO/DIO_program.d \
-MCAL/I2C/HMC_I2C_Master_C_file.d \
+MCAL/I2C/I2C_Master.d \
 MCAL/I2C/lcd_i2c_master.d \
-MCAL/I2C/MPU6050_I2C_Master.d \
 MCAL/UART/UART_Program.d
 
 C_DEPS_AS_ARGS +=  \
@@ -114,9 +110,8 @@ HAL/LCD/liquid_crystal.d \
 HAL/MPU6050/MPU6050.d \
 main.d \
 MCAL/DIO/DIO_program.d \
-MCAL/I2C/HMC_I2C_Master_C_file.d \
+MCAL/I2C/I2C_Master.d \
 MCAL/I2C/lcd_i2c_master.d \
-MCAL/I2C/MPU6050_I2C_Master.d \
 MCAL/UART/UART_Program.d
 
 OUTPUT_FILE_PATH +=LCD_I2C.elf
@@ -182,7 +177,7 @@ MCAL/DIO/DIO_program.o: ../MCAL/DIO/DIO_program.c
 	@echo Finished building: $<
 	
 
-MCAL/I2C/HMC_I2C_Master_C_file.o: ../MCAL/I2C/HMC_I2C_Master_C_file.c
+MCAL/I2C/I2C_Master.o: ../MCAL/I2C/I2C_Master.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -190,13 +185,6 @@ MCAL/I2C/HMC_I2C_Master_C_file.o: ../MCAL/I2C/HMC_I2C_Master_C_file.c
 	
 
 MCAL/I2C/lcd_i2c_master.o: ../MCAL/I2C/lcd_i2c_master.c
-	@echo Building file: $<
-	@echo Invoking: XC8 C Compiler : 2.36
-	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-MCAL/I2C/MPU6050_I2C_Master.o: ../MCAL/I2C/MPU6050_I2C_Master.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

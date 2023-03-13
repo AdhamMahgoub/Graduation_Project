@@ -4,7 +4,7 @@ HAL/HMC5883L/HMC588L.d HAL/HMC5883L/HMC588L.o: ../HAL/HMC5883L/HMC588L.c \
  ../HAL/HMC5883L/../../MCAL/UART/../../LIB/STD_TYPES.h \
  ../HAL/HMC5883L/../../MCAL/UART/../../LIB/BIT_MATH.h \
  ../HAL/HMC5883L/../../MCAL/UART/../../Device_Config.h \
- ../HAL/HMC5883L/../../MCAL/I2C/HMC_I2C_Master_H_file.h \
+ ../HAL/HMC5883L/../../MCAL/I2C/I2C_Master.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\sfr_defs.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\inttypes.h \
@@ -33,7 +33,7 @@ HAL/HMC5883L/HMC588L.d HAL/HMC5883L/HMC588L.o: ../HAL/HMC5883L/HMC588L.c \
 
 ../HAL/HMC5883L/../../MCAL/UART/../../Device_Config.h:
 
-../HAL/HMC5883L/../../MCAL/I2C/HMC_I2C_Master_H_file.h:
+../HAL/HMC5883L/../../MCAL/I2C/I2C_Master.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h:
 

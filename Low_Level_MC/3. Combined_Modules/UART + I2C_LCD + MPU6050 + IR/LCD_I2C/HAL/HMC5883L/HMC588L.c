@@ -3,7 +3,7 @@
 
 #include "../../lib/STD_TYPES.h"
 #include "../../MCAL/UART/UART_Interface.h"
-#include "../../MCAL/I2C/HMC_I2C_Master_H_file.h"
+#include "../../MCAL/I2C/I2C_Master.h"
 #include <string.h>
 
 #define QMC5883L_ADDR 0x0D
@@ -40,33 +40,33 @@ int Magneto_GetHeading() {
 	Heading = Heading + 2*PI;
 	
 	
-	
+/*	
 	strcpy(string, "x = ");
 	UART_send_string(string);
 	UART_send_float((float)x);
 	strcpy(string, "\t");
 	UART_send_string(string);
-		
+	
 	strcpy(string, "y = ");
 	UART_send_string(string);
 	UART_send_float((float)y);
 	strcpy(string, "\t");
 	UART_send_string(string);
-		
+	
 	strcpy(string, "z = ");
 	UART_send_string(string);
 	UART_send_float((float)z);
 	strcpy(string, "\t");
 	UART_send_string(string);
-		
+	
 	strcpy(string, "Reading = ");
 	UART_send_string(string);
 	UART_send_float((float)(Heading * 180 / PI));
 
-		
+	
 	strcpy(string, "\n\r");
 	UART_send_string(string);
-	
+*/	
 	
 	
 	

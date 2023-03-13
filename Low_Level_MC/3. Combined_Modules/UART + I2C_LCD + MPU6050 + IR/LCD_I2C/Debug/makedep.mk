@@ -16,11 +16,9 @@ main.c
 
 MCAL\DIO\DIO_program.c
 
-MCAL\I2C\HMC_I2C_Master_C_file.c
+MCAL\I2C\I2C_Master.c
 
 MCAL\I2C\lcd_i2c_master.c
-
-MCAL\I2C\MPU6050_I2C_Master.c
 
 MCAL\UART\UART_Program.c
 

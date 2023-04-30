@@ -423,10 +423,10 @@ Disassembly of section .text.hx711_readwithtare:
     25ea:	0e 94 16 13 	call	0x262c	; 0x262c <hx711_readaverage>
     25ee:	4b 01       	movw	r8, r22
     25f0:	5c 01       	movw	r10, r24
-    25f2:	60 91 62 00 	lds	r22, 0x0062	; 0x800062 <hx711_offset>
-    25f6:	70 91 63 00 	lds	r23, 0x0063	; 0x800063 <hx711_offset+0x1>
-    25fa:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <hx711_offset+0x2>
-    25fe:	90 91 65 00 	lds	r25, 0x0065	; 0x800065 <hx711_offset+0x3>
+    25f2:	60 91 62 00 	lds	r22, 0x0062	; 0x800062 <_end>
+    25f6:	70 91 63 00 	lds	r23, 0x0063	; 0x800063 <_end+0x1>
+    25fa:	80 91 64 00 	lds	r24, 0x0064	; 0x800064 <_end+0x2>
+    25fe:	90 91 65 00 	lds	r25, 0x0065	; 0x800065 <_end+0x3>
     2602:	0e 94 ec 11 	call	0x23d8	; 0x23d8 <__floatsisf>
     2606:	6b 01       	movw	r12, r22
     2608:	7c 01       	movw	r14, r24
@@ -503,10 +503,10 @@ Disassembly of section .text.hx711_setoffset:
  */
 void hx711_setoffset(int32_t offset) {
 	hx711_offset = offset;
-    2aa2:	60 93 62 00 	sts	0x0062, r22	; 0x800062 <hx711_offset>
-    2aa6:	70 93 63 00 	sts	0x0063, r23	; 0x800063 <hx711_offset+0x1>
-    2aaa:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <hx711_offset+0x2>
-    2aae:	90 93 65 00 	sts	0x0065, r25	; 0x800065 <hx711_offset+0x3>
+    2aa2:	60 93 62 00 	sts	0x0062, r22	; 0x800062 <_end>
+    2aa6:	70 93 63 00 	sts	0x0063, r23	; 0x800063 <_end+0x1>
+    2aaa:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <_end+0x2>
+    2aae:	90 93 65 00 	sts	0x0065, r25	; 0x800065 <_end+0x3>
     2ab2:	08 95       	ret
 
 Disassembly of section .text.hx711_init:

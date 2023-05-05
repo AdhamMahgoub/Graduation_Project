@@ -3,19 +3,6 @@
 #ifndef HX711_H_
 #define HX711_H_
 
-
-//set ports and pins
-/*
-#define HX711_DTPORT PORTB
-#define HX711_DTDDR DDRB
-#define HX711_DTPIN PINB
-#define HX711_DTPINNUM PB0
-
-#define HX711_SCKPORT PORTB
-#define HX711_SCKDDR DDRB
-#define HX711_SCKPINNUM PB1
-*/
-
 #define HX711_DTPORT PORTA
 #define HX711_DTDDR DDRA
 #define HX711_DTPIN PINA
@@ -66,6 +53,6 @@ extern void hx711_powerup();
 extern void hx711_calibrate1setoffset();
 extern void hx711_calibrate2setscale(double weight);
 extern void hx711_init(uint8_t gain, double scale, int32_t offset);
-void HX711_main_function(void);		//	to do what was in the main.c 
+double HX711_main_function(void);		//	to do what was in the main.c 
 
 #endif

@@ -20,7 +20,18 @@
 int main(void) {
 
 	UART_init();
-	HX711_main_function();
+	double weight; 
+	
+	while (1)
+	{
+		weight = HX711_main_function();
+		
+		char printbuff[100];
+		snprintf(printbuff, sizeof(printbuff), "%.3lf", weight);
+		UART_send_string("Weight: "); UART_send_string(printbuff); UART_send_string("kg"); UART_send_string("\r\n");
+		UART_send_string("\r\n");
+		_delay_ms(100);
+	}
 
 
 }

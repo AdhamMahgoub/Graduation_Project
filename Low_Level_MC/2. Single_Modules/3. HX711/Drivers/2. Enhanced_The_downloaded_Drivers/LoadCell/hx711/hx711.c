@@ -5,25 +5,27 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <util/atomic.h>
+#include "hx711.h"		  // new
 #include "../UART_Interface.h"
 
-////////////////////////////////////////////////////////////////START of what was in main.c///////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//defines running modes							//	Those was in the main.c 
+
+/*		LOAD CELL CALIBRATION INSTRUCTIONS	
+		2 step calibration procedure
+		set the mode to calibration step 1
+		read the calibration offset leaving the load cell with no weight
+		set the offset to value read
+		put a know weight on the load cell and set calibrationweight value
+		run the calibration step 2 of 2
+		read the calibration scale
+		set the scale to value read				*/
+
+/*		Choose Running Mode		*/ 
 #define HX711_MODERUNNING 1
 #define HX711_MODECALIBRATION1OF2 2
 #define HX711_MODECALIBRATION2OF2 3
 #define HX711_MODECURRENT 1
 
-//2 step calibration procedure
-//set the mode to calibration step 1
-//read the calibration offset leaving the load cell with no weight
-//set the offset to value read
-//put a know weight on the load cell and set calibrationweight value
-//run the calibration stes 2 of 2
-//read the calibration scale
-//set the scale to value read
-
+/*		Start of Calibration					*/
 //set the gain
 int8_t gain = HX711_GAINCHANNELA128;
 
@@ -33,13 +35,11 @@ int32_t offset =  8392771;
 //set the scale
 double scale = -42954;
 
-
 #elif HX711_MODECURRENT == HX711_MODECALIBRATION1OF2
 //set the offset
 int32_t offset = HX711_OFFSETDEFAULT;
 //set the scale
 double scale = HX711_SCALEDEFAULT;
-
 
 #elif HX711_MODECURRENT == HX711_MODECALIBRATION2OF2
 //set the offset
@@ -49,65 +49,53 @@ double scale = HX711_SCALEDEFAULT;
 //set the calibration weight
 double calibrationweight = 0.310;
 #endif
+/*		End of Calibration					*/
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void HX711_main_function(void)		//	What was in the main.c 
+double HX711_main_function(void)		//	What was in the main.c 
 {
-		char printbuff[100];
+	 char printbuff[100];
+	 
+	//initialize hx711
+	hx711_init(gain, scale, offset);
 
-	
-		//init hx711
-		hx711_init(gain, scale, offset);
+	#if HX711_MODECURRENT == HX711_MODERUNNING
+	//get read
+	//int32_t read = hx711_read();
+	//get weight
+	double weight = hx711_getweight();
+	return weight; 	
+		
+	#elif HX711_MODECURRENT == HX711_MODECALIBRATION1OF2
+	for(;;) 
+	{
+		//set calibration offset
+		hx711_calibrate1setoffset();
+		int32_t calibrationoffset = hx711_getoffset();
+		snprintf(printbuff, sizeof(printbuff), "%ld", calibrationoffset);
+		UART_send_string("Calibration offset: "); UART_send_string(printbuff); UART_send_string("\r\n");
 
+		UART_send_string("\r\n");
 
-		#if HX711_MODECURRENT == HX711_MODERUNNING
-		for(;;) {
-			//get read
-			int32_t read = hx711_read();
-			snprintf(printbuff, sizeof(printbuff), "%ld", read);		//	Divided by 100 for easier comparison for the number in printf
-			UART_send_string("Read: "); UART_send_string(printbuff); UART_send_string("\r\n");
+		_delay_ms(500);
+	}
+	#elif HX711_MODECURRENT == HX711_MODECALIBRATION2OF2
+	for(;;) 
+	{
+		//calibrate
+		hx711_calibrate2setscale(calibrationweight);
 
-			
-			//get weight
-			double weight = hx711_getweight();
-			snprintf(printbuff, sizeof(printbuff), "%lf", weight);
-			UART_send_string("Weight: "); UART_send_string(printbuff); UART_send_string("kg"); UART_send_string("\r\n");
+		//get scale
+		double scale = hx711_getscale();
+		snprintf(printbuff, sizeof(printbuff), "%lf", scale);
+		UART_send_string("Calibration scale: "); UART_send_string(printbuff); UART_send_string("\r\n");
 
-			UART_send_string("\r\n");
-			
-			_delay_ms(100);
-			
-		}
-		#elif HX711_MODECURRENT == HX711_MODECALIBRATION1OF2
-		for(;;) {
-			//set calibration offset
-			hx711_calibrate1setoffset();
-			int32_t calibrationoffset = hx711_getoffset();
-			snprintf(printbuff, sizeof(printbuff), "%ld", calibrationoffset);
-			UART_send_string("Calibration offset: "); UART_send_string(printbuff); UART_send_string("\r\n");
+		UART_send_string("\r\n");
 
-			UART_send_string("\r\n");
-
-			_delay_ms(500);
-		}
-		#elif HX711_MODECURRENT == HX711_MODECALIBRATION2OF2
-		for(;;) {
-			//calibrate
-			hx711_calibrate2setscale(calibrationweight);
-
-			//get scale
-			double scale = hx711_getscale();
-			snprintf(printbuff, sizeof(printbuff), "%lf", scale);
-			UART_send_string("Calibration scale: "); UART_send_string(printbuff); UART_send_string("\r\n");
-
-			UART_send_string("\r\n");
-
-			_delay_ms(500);
-		}
-		#endif
+		_delay_ms(500);
+	}
+	#endif
 }		 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////Enf of what was in main.c/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 //actual gain
 static uint8_t hx711_gain = 0;

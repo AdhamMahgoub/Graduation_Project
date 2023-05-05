@@ -27,9 +27,7 @@ int main(void) {
 		weight = HX711_main_function();
 		
 		char printbuff[100];
-		snprintf(printbuff, sizeof(printbuff), "%.3lf", weight);
-		UART_send_string("Weight: "); UART_send_string(printbuff); UART_send_string("kg"); UART_send_string("\r\n");
-		UART_send_string("\r\n");
+		snprintf(printbuff, sizeof(printbuff), "%.3lf", weight); UART_send_string("Weight: "); UART_send_string(printbuff); UART_send_string("kg"); UART_send_string("\r\n");
 		_delay_ms(100);
 	}
 

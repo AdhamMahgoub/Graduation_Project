@@ -12,7 +12,7 @@ String message = "Initial message";
 //This Global Variable is updated inside the loop and is taken as argument when the request is called
 
 void setup(){
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.println();
   
   WiFi.softAP(ssid, password);

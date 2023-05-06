@@ -1,0 +1,1 @@
+to send data from ESP to Jetson Nano using http

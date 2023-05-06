@@ -19,19 +19,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   7 .debug_abbrev 00000997  00000000  00000000  00003d1e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000773  00000000  00000000  000046b5  2**0
+  8 .debug_line   0000077d  00000000  00000000  000046b5  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000290  00000000  00000000  00004e28  2**2
+  9 .debug_frame  00000290  00000000  00000000  00004e34  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000001dd  00000000  00000000  000050b8  2**0
+ 10 .debug_str    000001dd  00000000  00000000  000050c4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000006c0  00000000  00000000  00005295  2**0
+ 11 .debug_loc    000006c0  00000000  00000000  000052a1  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000e8  00000000  00000000  00005955  2**0
+ 12 .debug_ranges 000000e8  00000000  00000000  00005961  2**0
                   CONTENTS, READONLY, DEBUGGING
  13 .text         00000004  000022c4  000022c4  000023d8  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 14 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00005a40  2**2
+ 14 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00005a4c  2**2
                   CONTENTS, READONLY, DEBUGGING
  15 .text.hx711_read 0000006a  00001b8c  00001b8c  00001ca0  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
@@ -566,9 +566,9 @@ Disassembly of section .text.HX711_main_function:
 Disassembly of section .text.main:
 
 00001a88 <main>:
+#include "UART_Interface.h"
+
 #include "hx711/hx711.h"
-
-
 
 
 int main(void) {
@@ -594,7 +594,7 @@ int main(void) {
     1aa2:	0e 94 ba 0f 	call	0x1f74	; 0x1f74 <HX711_main_function>
 		
 		char printbuff[100];
-		snprintf(printbuff, sizeof(printbuff), "%.3lf", weight); UART_send_string("Weight: "); UART_send_string(printbuff); UART_send_string("kg"); UART_send_string("\r\n");
+		snprintf(printbuff, sizeof(printbuff), "%.3lf", weight); 
     1aa6:	9f 93       	push	r25
     1aa8:	8f 93       	push	r24
     1aaa:	7f 93       	push	r23
@@ -614,6 +614,7 @@ int main(void) {
     1ac6:	1f 93       	push	r17
     1ac8:	0f 93       	push	r16
     1aca:	0e 94 4b 10 	call	0x2096	; 0x2096 <_snprintf_eE>
+		UART_send_string("Weight: "); UART_send_string(printbuff); UART_send_string("kg"); UART_send_string("\r\n");
     1ace:	6c ed       	ldi	r22, 0xDC	; 220
     1ad0:	70 e0       	ldi	r23, 0x00	; 0
     1ad2:	80 e0       	ldi	r24, 0x00	; 0

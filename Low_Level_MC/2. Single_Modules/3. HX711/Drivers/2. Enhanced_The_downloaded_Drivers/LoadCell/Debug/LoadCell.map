@@ -990,12 +990,12 @@ END GROUP
  .debug_abbrev  0x000000000000073a      0x131 main.o
  .debug_abbrev  0x000000000000086b      0x12c UART_Program.o
 
-.debug_line     0x0000000000000000      0x773
+.debug_line     0x0000000000000000      0x77d
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x119 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
  .debug_line    0x0000000000000119      0x3ee hx711/hx711.o
- .debug_line    0x0000000000000507      0x157 main.o
- .debug_line    0x000000000000065e      0x115 UART_Program.o
+ .debug_line    0x0000000000000507      0x161 main.o
+ .debug_line    0x0000000000000668      0x115 UART_Program.o
 
 .debug_frame    0x0000000000000000      0x290
  *(.debug_frame)

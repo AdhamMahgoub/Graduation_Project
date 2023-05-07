@@ -1,5 +1,7 @@
 #include "UART_Private.h"
 #include "UART_Interface.h"
+#include <util/delay.h>
+
 
 #define F_CPU 8000000UL
 #define USART_BAUDRATE  2400

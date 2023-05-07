@@ -1,1 +1,0 @@
-This sends commands from Arduino IDE using UART to the ESP8266 then then ESP8266 sends this command to the Jetson Nano

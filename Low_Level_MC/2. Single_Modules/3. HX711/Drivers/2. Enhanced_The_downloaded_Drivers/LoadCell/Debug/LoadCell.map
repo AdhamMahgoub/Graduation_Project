@@ -976,12 +976,12 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x166b
+.debug_info     0x0000000000000000     0x1696
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
  .debug_info    0x00000000000004e6      0x8ec hx711/hx711.o
  .debug_info    0x0000000000000dd2      0x48e main.o
- .debug_info    0x0000000000001260      0x40b UART_Program.o
+ .debug_info    0x0000000000001260      0x436 UART_Program.o
 
 .debug_abbrev   0x0000000000000000      0x997
  *(.debug_abbrev)

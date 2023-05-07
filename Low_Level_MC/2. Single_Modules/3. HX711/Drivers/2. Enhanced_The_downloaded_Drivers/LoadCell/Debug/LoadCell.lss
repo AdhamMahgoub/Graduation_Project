@@ -15,23 +15,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 00000100  00000000  00000000  000025b3  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000166b  00000000  00000000  000026b3  2**0
+  6 .debug_info   00001696  00000000  00000000  000026b3  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000997  00000000  00000000  00003d1e  2**0
+  7 .debug_abbrev 00000997  00000000  00000000  00003d49  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   0000077d  00000000  00000000  000046b5  2**0
+  8 .debug_line   0000077d  00000000  00000000  000046e0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000290  00000000  00000000  00004e34  2**2
+  9 .debug_frame  00000290  00000000  00000000  00004e60  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000001dd  00000000  00000000  000050c4  2**0
+ 10 .debug_str    000001dd  00000000  00000000  000050f0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000006c0  00000000  00000000  000052a1  2**0
+ 11 .debug_loc    000006c0  00000000  00000000  000052cd  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000e8  00000000  00000000  00005961  2**0
+ 12 .debug_ranges 000000e8  00000000  00000000  0000598d  2**0
                   CONTENTS, READONLY, DEBUGGING
  13 .text         00000004  000022c4  000022c4  000023d8  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 14 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00005a4c  2**2
+ 14 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00005a78  2**2
                   CONTENTS, READONLY, DEBUGGING
  15 .text.hx711_read 0000006a  00001b8c  00001b8c  00001ca0  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
@@ -594,7 +594,7 @@ int main(void) {
     1aa2:	0e 94 ba 0f 	call	0x1f74	; 0x1f74 <HX711_main_function>
 		
 		char printbuff[100];
-		snprintf(printbuff, sizeof(printbuff), "%.3lf", weight); 
+		snprintf(printbuff, sizeof(printbuff), "%.3lf", weight);
     1aa6:	9f 93       	push	r25
     1aa8:	8f 93       	push	r24
     1aaa:	7f 93       	push	r23
@@ -636,9 +636,9 @@ int main(void) {
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-    1af4:	2f ef       	ldi	r18, 0xFF	; 255
-    1af6:	80 e7       	ldi	r24, 0x70	; 112
-    1af8:	92 e0       	ldi	r25, 0x02	; 2
+    1af4:	2f e7       	ldi	r18, 0x7F	; 127
+    1af6:	89 ea       	ldi	r24, 0xA9	; 169
+    1af8:	93 e0       	ldi	r25, 0x03	; 3
     1afa:	21 50       	subi	r18, 0x01	; 1
     1afc:	80 40       	sbci	r24, 0x00	; 0
     1afe:	90 40       	sbci	r25, 0x00	; 0

@@ -12,7 +12,7 @@ String message = "Initial message";
 //This Global Variable is updated inside the loop and is taken as argument when the request is called
 
 void setup(){
-  Serial.begin(9600);
+  Serial.begin(2400);
   Serial.println();
   
   WiFi.softAP(ssid, password);
@@ -30,8 +30,6 @@ void setup(){
 }
 
 void loop(){
-  //delay(5); // 5ms
-
   /*
   // Update the message with the current time
   unsigned long currentMillis = millis();
@@ -48,4 +46,5 @@ void loop(){
     {
         message = Serial.readString(); // this will be sent to the http when http request is sent 
     }
+
 }

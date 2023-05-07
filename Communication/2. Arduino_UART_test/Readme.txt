@@ -1,0 +1,1 @@
+this is used to test the UART data sent from the ATMEGA (before sending it to the ESP8266)

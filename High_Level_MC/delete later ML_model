@@ -4,6 +4,21 @@ https://drive.google.com/file/d/1X6XQV39YtZEeiPt9sEVmuvXn810ejopd/view
 import cv2
 
 Camera Feed
-sudo apt-get install gstreamer1.0-tools gstreamer1.0-plugins-bad gstreamer1.0-plugins-good
-gst-launch-1.0 v4l2src device=/dev/video0 ! videoconvert ! autovideosink
+import cv2
+
+def show_live_feed():
+    cap = cv2.VideoCapture(0)
+
+    while True:
+        ret, frame = cap.read()
+        cv2.imshow('Live Feed', frame)
+
+        if cv2.waitKey(1) == ord('q'):
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
+
+show_live_feed()
+
 

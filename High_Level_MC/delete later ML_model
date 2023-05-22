@@ -1,54 +1,41 @@
-https://drive.google.com/file/d/1X6XQV39YtZEeiPt9sEVmuvXn810ejopd/view
+Apologies for the confusion earlier. Here are the main steps from the tutorial in bullet points:
 
+1. Update and upgrade the system:
+   - `sudo apt update`
+   - `sudo apt upgrade`
 
+2. Install required dependencies:
+   - `sudo apt install git cmake libatlas-base-dev gfortran libhdf5-serial-dev hdf5-tools nano python3-pip`
 
+3. Install OpenCV:
+   - `sudo apt install python3-opencv`
 
+4. Install TensorFlow:
+   - `sudo pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v42 tensorflow-gpu==1.13.1+nv19.3`
 
+5. Install Keras:
+   - `sudo pip3 install keras`
 
-import subprocess
+6. Install other required Python packages:
+   - `sudo pip3 install numpy`
+   - `sudo pip3 install pillow`
+   - `sudo pip3 install h5py`
 
-def get_gpu_status():
-    try:
-        result = subprocess.run(['tegrastats'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        if result.returncode == 0:
-            return result.stdout
-        else:
-            print(f"Error running tegrastats: {result.stderr}")
-            return None
-    except FileNotFoundError:
-        print("tegrastats not found. Make sure it's installed and in your PATH.")
-        return None
+7. Clone the Darknet repository:
+   - `git clone https://github.com/AlexeyAB/darknet.git`
 
-gpu_status = get_gpu_status()
-if gpu_status:
-    print("GPU Status:")
-    print(gpu_status)
+8. Modify the Makefile in the Darknet directory:
+   - Set `GPU=1`, `CUDNN=1`, and `OPENCV=1`
+   - Save and exit the file
 
+9. Compile Darknet:
+   - `cd darknet`
+   - `make`
 
+10. Download the YOLOv3 weights:
+    - `wget https://pjreddie.com/media/files/yolov3.weights`
 
+11. Test YOLOv3 with an example image:
+    - `./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg`
 
-
-
-
-
-import cv2
-
-Camera Feed
-import cv2
-
-def show_live_feed():
-    cap = cv2.VideoCapture(0)
-
-    while True:
-        ret, frame = cap.read()
-        cv2.imshow('Live Feed', frame)
-
-        if cv2.waitKey(1) == ord('q'):
-            break
-
-    cap.release()
-    cv2.destroyAllWindows()
-
-show_live_feed()
-
-
+After completing these steps, you should have YOLOv3 running on your NVIDIA Jetson Nano with GPU support.

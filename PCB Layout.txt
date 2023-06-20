@@ -1,0 +1,55 @@
+Notch of ATMEGA on top (top to bottom)
+
+/*	TTL	*/
+NC
+RX ATMEGA
+TX ATMEGA
+GND 
+5v
+
+
+
+/*	Programmer	*/
+MOSI		Orange
+MISO 		Yellow
+SCK 		Green 
+RESET 		Blue
+5V 		Purple
+GND		Grey 
+
+ 
+
+/*	IR		*/
+GND 		GND
+OUTPUT C7	OUTPUT C4	
+5v		5V
+
+5v		5v
+OUTPUT C6	OUTPUT	C5
+GND		GND
+
+
+/*	HX711		*/
+sha7t ma7t 
+
+
+/*	HMC		*/
+NC
+SDA
+SCL
+GND
+5v
+
+
+/*	MPU6050		*/	// from top 
+NC
+NC
+NC
+NC
+SDA
+SCL
+GND
+5v
+
+
+

@@ -10,7 +10,7 @@
 #include <string.h>
 #include <util/delay.h>
 
-#define SELECTOR 2
+#define SELECTOR 3
 /*
 1. MPU6050
 2. HX711
@@ -113,6 +113,8 @@ int main(void)
 					UART_puts("YES\n\r");
 				else
 					UART_puts("NO\n\r");
+					
+				_delay_ms(1000);
 		
 		#endif
 

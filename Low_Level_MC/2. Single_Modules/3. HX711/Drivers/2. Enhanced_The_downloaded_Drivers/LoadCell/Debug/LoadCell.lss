@@ -286,7 +286,7 @@ Disassembly of section .text:
 Disassembly of section .text:
 
 000022c4 <__bad_interrupt>:
-    22c4:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+    22c4:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 Disassembly of section .text.hx711_read:
 
@@ -636,9 +636,9 @@ int main(void) {
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-    1af4:	2f e7       	ldi	r18, 0x7F	; 127
-    1af6:	89 ea       	ldi	r24, 0xA9	; 169
-    1af8:	93 e0       	ldi	r25, 0x03	; 3
+    1af4:	2f ef       	ldi	r18, 0xFF	; 255
+    1af6:	81 ee       	ldi	r24, 0xE1	; 225
+    1af8:	94 e0       	ldi	r25, 0x04	; 4
     1afa:	21 50       	subi	r18, 0x01	; 1
     1afc:	80 40       	sbci	r24, 0x00	; 0
     1afe:	90 40       	sbci	r25, 0x00	; 0
@@ -1345,8 +1345,8 @@ Disassembly of section .text.__vsnprintf:
     1862:	09 c0       	rjmp	.+18     	; 0x1876 <__vsnprintf+0x52>
     1864:	8f e4       	ldi	r24, 0x4F	; 79
     1866:	90 e0       	ldi	r25, 0x00	; 0
-    1868:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
-    186c:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+    1868:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <_edata+0x1>
+    186c:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <_edata>
     1870:	8f ef       	ldi	r24, 0xFF	; 255
     1872:	9f ef       	ldi	r25, 0xFF	; 255
     1874:	19 c0       	rjmp	.+50     	; 0x18a8 <__vsnprintf+0x84>
@@ -3521,8 +3521,8 @@ Disassembly of section .text.__printf_core:
  900:	4c f4       	brge	.+18     	; 0x914 <__stack+0xb5>
  902:	8f e4       	ldi	r24, 0x4F	; 79
  904:	90 e0       	ldi	r25, 0x00	; 0
- 906:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
- 90a:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 906:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <_edata+0x1>
+ 90a:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <_edata>
  90e:	8f ef       	ldi	r24, 0xFF	; 255
  910:	9f ef       	ldi	r25, 0xFF	; 255
  912:	03 c0       	rjmp	.+6      	; 0x91a <__stack+0xbb>

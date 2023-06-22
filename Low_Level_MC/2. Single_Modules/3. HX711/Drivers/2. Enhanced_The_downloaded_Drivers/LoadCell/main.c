@@ -27,7 +27,7 @@ int main(void) {
 		char printbuff[100];
 		snprintf(printbuff, sizeof(printbuff), "%.3lf", weight);
 		UART_send_string("Weight: "); UART_send_string(printbuff); UART_send_string("kg"); UART_send_string("\r\n");
-		_delay_ms(150);			// delay must be done >=150ms for the communication to occur
+		_delay_ms(200);			// delay must be done >=150ms for the communication to occur
 	}
 	
 	

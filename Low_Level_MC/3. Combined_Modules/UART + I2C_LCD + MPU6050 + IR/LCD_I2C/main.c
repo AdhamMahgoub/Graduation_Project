@@ -29,7 +29,7 @@ int main(void)
 	extern float Xg, Yg, Zg;												//	Real Values of MPU6050
 	extern float Acc_x,Acc_y,Acc_z,Temperature,Gyro_x,Gyro_y,Gyro_z;		//	Raw Values	
 
-
+	/*	HMC	*/
 	float Heading; 
 	Magneto_init();
 
@@ -104,6 +104,7 @@ int main(void)
 
 		#if SELECTOR == 2		//	HX711
 		/*	///////////////////////////////////////////			HX711			*///////////////////////////////////////////
+		
 		HX711_main_function();
 		#endif
 

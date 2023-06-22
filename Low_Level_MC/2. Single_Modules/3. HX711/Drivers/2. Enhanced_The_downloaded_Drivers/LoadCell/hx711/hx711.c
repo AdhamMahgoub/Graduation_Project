@@ -32,19 +32,19 @@ int8_t gain = HX711_GAINCHANNELA128;
 
 #if HX711_MODECURRENT == HX711_MODERUNNING
 //set the offset
-int32_t offset =   8396850;	
+int32_t offset =   8383855;	
 //set the scale
-double scale = -72364;
+double scale = -44075;
 
 #elif HX711_MODECURRENT == HX711_MODECALIBRATION1OF2
 //set the offset
-int32_t offset = 8396850;
+int32_t offset = 8383855;
 //set the scale
 double scale = HX711_SCALEDEFAULT;
 
 #elif HX711_MODECURRENT == HX711_MODECALIBRATION2OF2
 //set the offset
-int32_t offset =   8396850;
+int32_t offset =   8383855;
 //set the scale
 double scale = HX711_SCALEDEFAULT;
 //set the calibration weight

@@ -46,28 +46,28 @@ number_in_buffer = ''.join(filter(str.isdigit, buffer_received))
 if "-1" in buffer_received:
     buffer_received = ""
 
-if "weight" in buffer_received:
-    values[0] = number_in_buffer
-if "IR" in buffer_received:
-    values[1] = number_in_buffer
-if "Xa" in buffer_received:
-    values[2] = number_in_buffer
-if "Ya" in buffer_received:
-    values[3] = number_in_buffer
-if "Za" in buffer_received:
-    values[4] = number_in_buffer
-if "Xg" in buffer_received:
-    values[5] = number_in_buffer
-if "Yg" in buffer_received:
-    values[6] = number_in_buffer
-if "Zg" in buffer_received:
-    values[7] = number_in_buffer
-if "Heading" in buffer_received:
-    values[8] = number_in_buffer
-
 whole_text = whole_text_template.format(*values)
 
 print(whole_text) #print the string
 
-#while (1):
+while (1):
     #buffer_received = "10 kg"
+    #read the buffer_received from the user
+    buffer_received = input("Enter the buffer_received: ")
+
+    #if the buffer contains the break character (-1), clear the buffer
+    if "-1" in buffer_received:
+        buffer_received = ""
+    
+    # Update values based on the buffer keywords
+    buffer_keywords = ["weight", "IR", "Xa", "Ya", "Za", "Xg", "Yg", "Zg", "Heading"]
+    for keyword in buffer_keywords:
+        if keyword in buffer_received:
+            value = ''.join(filter(str.isdigit, buffer_received))
+            values[buffer_keywords.index(keyword)] = value
+            break  # No need to continue checking other keywords if a match is found
+    
+    # Format the whole_text with the updated values
+    whole_text = whole_text_template.format(*values)
+    # Print the updated string
+    print(whole_text)

@@ -3,7 +3,7 @@ import re #to be able to extract the numerical part
 #the values that will be put in the string
 values = [
     '10',       #weight 
-    'YES',      #IR
+    '1',        #IR         #Must be Number
     '0.5',      #Xa
     '0.1',      #Ya
     '0.8',      #Za
@@ -39,21 +39,47 @@ def display_gui():
     frame = ttk.Frame(root, style="Custom.TFrame")
     frame.pack(fill=tk.BOTH, expand=True)
 
-    # Read the variables from the text files
-    #product = product_file.read().strip()
-    #price = price_file.read().strip()
-    weight = values[0]
+    # Create the labels with the updated styles and initial values
+    weight_label = ttk.Label(frame, text="Weight: 0kg", style="Custom.TLabel")
+    ir_label = ttk.Label(frame, text="IR: N/A", style="Custom.TLabel")
+    xa_label = ttk.Label(frame, text="Xa: N/A", style="Custom.TLabel")
+    ya_label = ttk.Label(frame, text="Ya: N/A", style="Custom.TLabel")
+    za_label = ttk.Label(frame, text="Za: N/A", style="Custom.TLabel")
+    xg_label = ttk.Label(frame, text="Xg: N/A", style="Custom.TLabel")
+    yg_label = ttk.Label(frame, text="Yg: N/A", style="Custom.TLabel")
+    zg_label = ttk.Label(frame, text="Zg: N/A", style="Custom.TLabel")
+    heading_label = ttk.Label(frame, text="Heading: N/A degrees", style="Custom.TLabel")
 
-    # Create the labels with the updated styles and variables
-    title_label = ttk.Label(frame, text="Smart Retail System", style="Custom.TLabel")
-    #product_label = ttk.Label(frame, text=f"Product: {product}", style="Custom.TLabel")
-    #price_label = ttk.Label(frame, text=f"Total Price: ${price}", style="Custom.TLabel")
-    weight_label = ttk.Label(frame, text=f"Weight: {weight}kg", style="Custom.TLabel")
-
-    title_label.pack(side="top", pady=10)
-    #product_label.pack(side="top", anchor="w")
+    # Pack the labels
     weight_label.pack(anchor="w")
-    #price_label.pack(side="bottom", anchor="se")
+    ir_label.pack(anchor="w")
+    xa_label.pack(anchor="w")
+    ya_label.pack(anchor="w")
+    za_label.pack(anchor="w")
+    xg_label.pack(anchor="w")
+    yg_label.pack(anchor="w")
+    zg_label.pack(anchor="w")
+    heading_label.pack(anchor="w")
+
+    # Function to update the labels with new values
+    def update_data():
+        weight, ir, xa, ya, za, xg, yg, zg, heading = map(float, values)
+        weight_label.config(text=f"Weight: {weight}kg")
+        ir_label.config(text=f"IR: {ir}")
+        xa_label.config(text=f"Xa: {xa}")
+        ya_label.config(text=f"Ya: {ya}")
+        za_label.config(text=f"Za: {za}")
+        xg_label.config(text=f"Xg: {xg}")
+        yg_label.config(text=f"Yg: {yg}")
+        zg_label.config(text=f"Zg: {zg}")
+        heading_label.config(text=f"Heading: {heading} degrees")
+
+    # Example of how to call the function and update the labels
+    update_data()
+
+
+
+
 
 #this template to allow me to update the whole_text
 whole_text_template = '''weight = {} kg 

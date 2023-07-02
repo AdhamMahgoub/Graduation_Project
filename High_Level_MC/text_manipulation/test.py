@@ -33,7 +33,7 @@ Yg = {}
 Zg = {}
 Heading = {} degrees'''
 
-whole_text = whole_text.format(*values) #put the values in the string # Update Values
+whole_text = whole_text_template.format(*values)
 
 #buffer received string (from Wifi)
 buffer_received = "weight = 110kg"
@@ -65,7 +65,7 @@ if "Zg" in buffer_received:
 if "Heading" in buffer_received:
     values[8] = number_in_buffer
 
-whole_text = whole_text.format(*values) #put the values in the string # Update Values
+whole_text = whole_text_template.format(*values)
 
 print(whole_text) #print the string
 

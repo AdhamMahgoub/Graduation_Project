@@ -10,7 +10,7 @@
 #include <string.h>
 #include <util/delay.h>
 
-#define SELECTOR 4
+#define SELECTOR 3
 /*
 1. MPU6050
 2. HX711

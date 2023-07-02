@@ -8,7 +8,7 @@ const char* password = "123456789";
 AsyncWebServer server(80);
 
 // Define a global variable to store the message
-String message = "Initial message"; 
+String message = "Adham Mahgoub"; 
 //This Global Variable is updated inside the loop and is taken as argument when the request is called
 
 void setup(){
@@ -46,5 +46,7 @@ void loop(){
     {
         message = Serial.readString(); // this will be sent to the http when http request is sent 
     }
+
+    message = Serial.readString(); // this will be sent to the http when http request is sent //sooda
 
 }

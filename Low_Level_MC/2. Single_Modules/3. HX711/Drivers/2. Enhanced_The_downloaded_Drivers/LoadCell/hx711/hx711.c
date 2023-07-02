@@ -92,7 +92,7 @@ double HX711_main_function(void)		//	What was in the main.c
 
 		UART_send_string("\r\n");
 
-		_delay_ms(500);
+		_delay_ms(1000);
 	}
 	#endif
 }		 

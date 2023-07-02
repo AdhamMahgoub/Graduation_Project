@@ -3,7 +3,7 @@ import re
 #the values that will be put in the string
 values = [
     '10',       #weight 
-    'YES',    #IR
+    'YES',      #IR
     '0.5',      #Xa
     '0.1',      #Ya
     '0.8',      #Za
@@ -77,5 +77,5 @@ while (1):
 
 
     # Print the updated string
-    # Send the whole_text string to a .txt file
+    # Send the whole_text string to a .txt file to be read by the GUI
     print(whole_text)

@@ -152,4 +152,19 @@ while (1):
     print(whole_text)
 
 
+    ########################        HTTP        ########################
+    import requests
+    import time
+
+    url = "http://192.168.4.1/temperature"
+    response = requests.get(url)
+    buffer_received = response.txt
+
+    print(buffer_received)
+    print("Fetching content...")
+	#time.sleep(0.5)  # delay for 0.5 seconds
+    ########################        End of HTTP        ########################
+
+
+
 

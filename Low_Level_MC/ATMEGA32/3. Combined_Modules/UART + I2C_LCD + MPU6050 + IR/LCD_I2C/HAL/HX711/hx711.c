@@ -1,113 +1,102 @@
 #include "hx711.h"
 
-#include "../../Device_config.h"
+#define F_CPU 8000000UL
 #include <stdio.h>
 #include <avr/io.h>
 #include <util/delay.h>
 #include <util/atomic.h>
+#include "hx711.h"				// new
 #include "../../MCAL/UART/UART_Interface.h"
 
-////////////////////////////////////////////////////////////////START of what was in main.c///////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//defines running modes							//	Those was in the main.c 
+
+/*		LOAD CELL CALIBRATION INSTRUCTIONS	
+		2 step calibration procedure
+		set the mode to calibration step 1
+		read the calibration offset leaving the load cell with no weight
+		set the offset to value read
+		put a know weight on the load cell and set calibrationweight value
+		run the calibration step 2 of 2
+		read the calibration scale
+		set the scale to value read				*/
+
+/*		Choose Running Mode		*/ 
 #define HX711_MODERUNNING 1
 #define HX711_MODECALIBRATION1OF2 2
 #define HX711_MODECALIBRATION2OF2 3
+
 #define HX711_MODECURRENT 1
 
-//2 step calibration procedure
-//set the mode to calibration step 1
-//read the calibration offset leaving the load cell with no weight
-//set the offset to value read
-//put a know weight on the load cell and set calibrationweight value
-//run the calibration stes 2 of 2
-//read the calibration scale
-//set the scale to value read
-
+/*		Start of Calibration					*/
 //set the gain
-int8_t gain = HX711_GAINCHANNELA64; //HX711_GAINCHANNELA128;			//	When this is increased, sensitivity increases
+int8_t gain = HX711_GAINCHANNELA128;
 
 #if HX711_MODECURRENT == HX711_MODERUNNING
 //set the offset
-int32_t offset =  8371500;
+int32_t offset =   8383855;	
 //set the scale
-double scale = 227;
-
+double scale = -44075;
 
 #elif HX711_MODECURRENT == HX711_MODECALIBRATION1OF2
 //set the offset
-int32_t offset = HX711_OFFSETDEFAULT;
+int32_t offset = 8383855;
 //set the scale
 double scale = HX711_SCALEDEFAULT;
-
 
 #elif HX711_MODECURRENT == HX711_MODECALIBRATION2OF2
 //set the offset
-int32_t offset =  8371500;
+int32_t offset =   8383855;
 //set the scale
 double scale = HX711_SCALEDEFAULT;
 //set the calibration weight
-double calibrationweight = 60;
+double calibrationweight = 0.291;
 #endif
+/*		End of Calibration					*/
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void HX711_main_function(void)		//	What was in the main.c 
+double HX711_main_function(void)		//	What was in the main.c 
 {
-		char printbuff[100];
+	 char printbuff[100];
+	 
+	//initialize hx711
+	hx711_init(gain, scale, offset);
 
-	
-		//init hx711
-		hx711_init(gain, scale, offset);
+	#if HX711_MODECURRENT == HX711_MODERUNNING
+	//get read
+	//int32_t read = hx711_read();
+	//get weight
+	double weight = hx711_getweight();
+	return weight; 	
+		
+	#elif HX711_MODECURRENT == HX711_MODECALIBRATION1OF2
+	for(;;) 
+	{
+		//set calibration offset
+		hx711_calibrate1setoffset();
+		int32_t calibrationoffset = hx711_getoffset();
+		snprintf(printbuff, sizeof(printbuff), "%ld", calibrationoffset);
+		UART_send_string("Calibration offset: "); UART_send_string(printbuff); UART_send_string("\r\n");
 
+		UART_send_string("\r\n");
 
-		#if HX711_MODECURRENT == HX711_MODERUNNING
-		//for(;;) {		Removed the infinite loop 
-			//get read
-			int32_t read = hx711_read();
-			snprintf(printbuff, sizeof(printbuff), "%ld", read);		//	Divided by 100 for easier comparison for the number in printf
-			UART_puts("Read: "); UART_send_string(printbuff); UART_puts("\r\n");
+		_delay_ms(500);
+	}
+	#elif HX711_MODECURRENT == HX711_MODECALIBRATION2OF2
+	for(;;) 
+	{
+		//calibrate
+		hx711_calibrate2setscale(calibrationweight);
 
-			
-			//get weight
-			double weight = hx711_getweight();
-			snprintf(printbuff, sizeof(printbuff), "%lf", weight);
-			UART_puts("Weight: "); UART_send_string(printbuff); UART_puts("kg"); UART_puts("\r\n");
+		//get scale
+		double scale = hx711_getscale();
+		snprintf(printbuff, sizeof(printbuff), "%lf", scale);
+		UART_send_string("Calibration scale: "); UART_send_string(printbuff); UART_send_string("\r\n");
 
-			UART_puts("\r\n");
-			
-			_delay_ms(10);
-			
-		//}
-		#elif HX711_MODECURRENT == HX711_MODECALIBRATION1OF2
-		for(;;) { 
-			//set calibration offset
-			hx711_calibrate1setoffset();
-			int32_t calibrationoffset = hx711_getoffset();
-			snprintf(printbuff, sizeof(printbuff), "%ld", calibrationoffset);
-			UART_puts("Calibration offset: "); UART_send_string(printbuff); UART_puts("\r\n");
+		UART_send_string("\r\n");
 
-			UART_puts("\r\n");
-
-			_delay_ms(500);
-		}
-		#elif HX711_MODECURRENT == HX711_MODECALIBRATION2OF2
-		for(;;) { 
-			//calibrate
-			hx711_calibrate2setscale(calibrationweight);
-
-			//get scale
-			double scale = hx711_getscale();
-			snprintf(printbuff, sizeof(printbuff), "%lf", scale);
-			UART_puts("Calibration scale: "); UART_send_string(printbuff); UART_puts("\r\n");
-
-			UART_puts("\r\n");
-
-			_delay_ms(500);
-		}
-		#endif
+		_delay_ms(1000);
+	}
+	#endif
 }		 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////Enf of what was in main.c/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 //actual gain
 static uint8_t hx711_gain = 0;
@@ -135,27 +124,27 @@ int32_t hx711_read() {
 #endif
 	//read data with a 24 shift
 	for(i=0;i<24;i++) {
-		HX711_SCKPORT |= (1<<HX711_SCKPINNUM);			//	This sets the corresponding bit of the port to 1, which likely triggers a clock cycle in the external device connected to the port.
-		asm volatile("nop");							//	"nop" instruction is executed, likely to allow time for the external device to respond.
-		count=count<<1;
-		HX711_SCKPORT &= ~(1<<HX711_SCKPINNUM);			//	The value of HX711_SCKPORT is ANDed with the negation of (1<<HX711_SCKPINNUM). This clears the corresponding bit of the port to 0.
+		HX711_SCKPORT |= (1<<HX711_SCKPINNUM);
 		asm volatile("nop");
-		if(HX711_DTPIN & (1<<HX711_DTPINNUM))			//	The if statement checks if the HX711_DTPIN has a set bit at the HX711_DTPINNUM position. If true, count is incremented by 1.
+		count=count<<1;
+		HX711_SCKPORT &= ~(1<<HX711_SCKPINNUM);
+		asm volatile("nop");
+		if(HX711_DTPIN & (1<<HX711_DTPINNUM))
 			count++;
 	}
 	count ^= 0x800000;
 
-	//set the channel and the gain			
-	for (i=0; i<hx711_gain; i++) {						//	A loop is started where i is incremented from 0 to the value of hx711_gain.
-		HX711_SCKPORT |= (1<<HX711_SCKPINNUM);			//	value of HX711_SCKPORT is ORed with (1<<HX711_SCKPINNUM). This sets the corresponding bit of the port to 1, which likely triggers a clock cycle in the external device connected to the port.
+	//set the channel and the gain
+	for (i=0; i<hx711_gain; i++) {
+		HX711_SCKPORT |= (1<<HX711_SCKPINNUM);
 		asm volatile("nop");
-		HX711_SCKPORT &= ~(1<<HX711_SCKPINNUM);			//	The value of HX711_SCKPORT is ANDed with the negation of (1<<HX711_SCKPINNUM). This clears the corresponding bit of the port to 0. This likely marks the end of the clock cycle.
+		HX711_SCKPORT &= ~(1<<HX711_SCKPINNUM);
 	}
 #if HX711_ATOMICMODEENABLED == 1
 	}
 #endif
 
-	return count;	 //	Returns Count
+	return count;
 }
 
 /**
@@ -167,7 +156,7 @@ int32_t hx711_readaverage(uint8_t times) {
 	for (i=0; i<times; i++) {
 		sum += hx711_read();
 	}
-	return (int32_t)(sum/times);		//	Correspondes to (sum of counts returned/times) == average of count (what is returned from the read function)
+	return (int32_t)(sum/times);
 }
 
 /**
@@ -175,9 +164,9 @@ int32_t hx711_readaverage(uint8_t times) {
  */
 double hx711_readwithtare() {
 #if HX711_USEAVERAGEONREAD == 1
-	return (double)hx711_readaverage(HX711_READTIMES)-(double)hx711_offset;		//	The function returns the difference between the average hx711 output and the hx711_offset value.	 //	This is the Actual Reading
+	return (double)hx711_readaverage(HX711_READTIMES)-(double)hx711_offset;
 #else
-	return (double)hx711_read()-(double)hx711_offset;	//	This is the Actual Reading 
+	return (double)hx711_read()-(double)hx711_offset;
 #endif
 }
 
@@ -185,14 +174,13 @@ double hx711_readwithtare() {
  * get the weight
  */
 double hx711_getweight() {
-	return hx711_readwithtare()/hx711_scale;			//	in order to convert the raw reading value returned by hx711_read() into a weight measurement in a specific unit (e.g. grams, kilograms, pounds, etc.), we need to divide the raw reading value by the scale factor.
+	return hx711_readwithtare()/hx711_scale;
 }
 
 /**
  * set the gain
  */
 void hx711_setgain(uint16_t gain) {
-	//	The function then sets the hx711_gain variable according to the gain value. The gain values are predefined constants HX711_GAINCHANNELA128, HX711_GAINCHANNELA64, and HX711_GAINCHANNELB32.
 	if (gain == HX711_GAINCHANNELA128)
 		hx711_gain = 1;
 	else if (gain == HX711_GAINCHANNELA64)
@@ -210,8 +198,7 @@ void hx711_setgain(uint16_t gain) {
  * get the actual gain
  */
 uint16_t hx711_getgain() {
-	return hx711_gain;		//	The hx711_getgain() function returns the gain value, which is used to calculate the Weight value.
-							//	Scale is used in hx711_getweight()
+	return hx711_gain;
 }
 
 /**
@@ -290,7 +277,6 @@ void hx711_init(uint8_t gain, double scale, int32_t offset) {
 	//set sck as output
 	HX711_SCKDDR |= (1<<HX711_SCKPINNUM);
 	HX711_SCKPORT &= ~(1<<HX711_SCKPINNUM);
-	
 	//set dt as input
 	HX711_DTDDR &=~ (1<<HX711_DTPINNUM);
 

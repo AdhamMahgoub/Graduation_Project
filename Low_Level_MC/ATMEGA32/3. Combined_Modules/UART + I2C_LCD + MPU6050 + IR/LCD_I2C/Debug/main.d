@@ -1,8 +1,7 @@
 main.d main.o: .././main.c .././Device_Config.h \
  .././MCAL/UART/UART_Interface.h .././MCAL/UART/../../LIB/STD_TYPES.h \
- .././MCAL/UART/../../LIB/BIT_MATH.h .././MCAL/UART/../../Device_Config.h \
- .././HAL/MPU6050/MPU6050.h .././HAL/IR/IR.h \
- .././HAL/IR/../../MCAL/DIO/DIO_interface.h \
+ .././MCAL/UART/../../LIB/BIT_MATH.h .././HAL/MPU6050/MPU6050.h \
+ .././HAL/IR/IR.h .././HAL/IR/../../MCAL/DIO/DIO_interface.h \
  .././HAL/IR/../../MCAL/DIO/../../LIB/STD_TYPES.h \
  .././HAL/IR/../../MCAL/DIO/../../LIB/BIT_MATH.h \
  .././HAL/IR/../../MCAL/DIO/DIO_private.h .././HAL/HX711/hx711.h \
@@ -32,8 +31,6 @@ main.d main.o: .././main.c .././Device_Config.h \
 .././MCAL/UART/../../LIB/STD_TYPES.h:
 
 .././MCAL/UART/../../LIB/BIT_MATH.h:
-
-.././MCAL/UART/../../Device_Config.h:
 
 .././HAL/MPU6050/MPU6050.h:
 

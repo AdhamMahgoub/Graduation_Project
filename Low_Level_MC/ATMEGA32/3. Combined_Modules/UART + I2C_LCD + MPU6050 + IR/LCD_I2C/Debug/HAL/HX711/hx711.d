@@ -13,7 +13,6 @@ HAL/HX711/hx711.d HAL/HX711/hx711.o: ../HAL/HX711/hx711.c \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\common.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h \
- ../HAL/HX711/../../Device_config.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\stdio.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h \
@@ -22,8 +21,7 @@ HAL/HX711/hx711.d HAL/HX711/hx711.o: ../HAL/HX711/hx711.c \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\interrupt.h \
  ../HAL/HX711/../../MCAL/UART/UART_Interface.h \
  ../HAL/HX711/../../MCAL/UART/../../LIB/STD_TYPES.h \
- ../HAL/HX711/../../MCAL/UART/../../LIB/BIT_MATH.h \
- ../HAL/HX711/../../MCAL/UART/../../Device_Config.h
+ ../HAL/HX711/../../MCAL/UART/../../LIB/BIT_MATH.h
 
 ../HAL/HX711/hx711.h:
 
@@ -53,8 +51,6 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h:
 
-../HAL/HX711/../../Device_config.h:
-
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\stdio.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h:
@@ -72,5 +68,3 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\interrupt.h:
 ../HAL/HX711/../../MCAL/UART/../../LIB/STD_TYPES.h:
 
 ../HAL/HX711/../../MCAL/UART/../../LIB/BIT_MATH.h:
-
-../HAL/HX711/../../MCAL/UART/../../Device_Config.h:

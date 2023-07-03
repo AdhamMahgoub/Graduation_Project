@@ -1,7 +1,9 @@
 #include "UART_Private.h"
 #include "UART_Interface.h"
-#include <stdio.h>
+#include <util/delay.h>
 
+
+#define F_CPU 8000000UL
 #define USART_BAUDRATE  2400
 #define BAUD_PRESCALE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1)
 
@@ -31,22 +33,11 @@ void UART_send_byte(u8 Data)			//A function to Transmit Char (1 Byte)
 	UDR=Data;
 }
 
-void UART_send_string(char *arr)		//A function to Transmit String
-{
-	int i = 0;
-	while (arr[i] != '\0')
-	{
-		UART_send_byte(arr[i]);
-		i++;
-	}
-}
-
-void UART_puts(const char *s)
+void UART_send_string(const char *s)		//A function to Transmit String
 {
 	while (*s)
-		UART_send_byte(*s++);
+	UART_send_byte(*s++);
 }
-
 
 void UART_send_float(float x)			//A function to Transmit float 
 {
@@ -54,7 +45,6 @@ void UART_send_float(float x)			//A function to Transmit float
 	sprintf(arr, "%.3f", x);
 	UART_send_string(arr);
 }
-
 
 
 

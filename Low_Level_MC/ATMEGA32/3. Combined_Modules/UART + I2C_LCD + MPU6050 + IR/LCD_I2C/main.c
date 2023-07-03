@@ -10,13 +10,14 @@
 #include <string.h>
 #include <util/delay.h>
 
-#define SELECTOR 1
+#define SELECTOR 2
 /*
 1. MPU6050
-2. HX711
+2. HX711	// Not Calibrated (the version in the "single modules" is better)
 3. IR
 4. HMC
 5. LCD
+6. HX711 + IR + MPU6050 + HMC 	   --		Final Mode
 */
 
 
@@ -32,6 +33,9 @@ int main(void)
 	/*	HMC	*/
 	float Heading; 
 	Magneto_init();
+	
+	/*	HxX711	*/
+	double weight; 
 
 	while (1)
 	{
@@ -105,7 +109,12 @@ int main(void)
 		#if SELECTOR == 2		//	HX711
 		/*	///////////////////////////////////////////			HX711			*///////////////////////////////////////////
 		
-		HX711_main_function();
+		weight = HX711_main_function();
+		char printbuff[100];
+		snprintf(printbuff, sizeof(printbuff), "%.3lf", weight);
+		UART_send_string("Weight: "); UART_send_string(printbuff); UART_send_string("kg"); UART_send_string("\r\n");
+		_delay_ms(500);			// delay must be done >=150ms for the communication to occur
+		
 		#endif
 
 		#if SELECTOR == 3		//	IR
@@ -134,6 +143,10 @@ int main(void)
 		//	/*	Printing on LCD	*/
 		//	lq_print(&device1, "Hello");
 		//	lq_setCursor(&device1, 1, 0);					// moving cursor to the next line
+		#endif
+		
+		#if SELECTOR == 6		//	HX711 + IR + MPU6050 + HMC 
+		//
 		#endif
 
 		_delay_ms(500);

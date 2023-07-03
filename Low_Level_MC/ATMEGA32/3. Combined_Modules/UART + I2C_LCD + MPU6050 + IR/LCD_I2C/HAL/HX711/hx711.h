@@ -3,15 +3,14 @@
 #ifndef HX711_H_
 #define HX711_H_
 
+#define HX711_DTPORT PORTA
+#define HX711_DTDDR DDRA
+#define HX711_DTPIN PINA
+#define HX711_DTPINNUM PA0
 
-//set ports and pins
-#define HX711_DTPORT PORTB
-#define HX711_DTDDR DDRB
-#define HX711_DTPIN PINB
-#define HX711_DTPINNUM PB0
-#define HX711_SCKPORT PORTB
-#define HX711_SCKDDR DDRB
-#define HX711_SCKPINNUM PB1
+#define HX711_SCKPORT PORTA
+#define HX711_SCKDDR DDRA
+#define HX711_SCKPINNUM PA1
 
 //defines gain
 #define HX711_GAINCHANNELA128 1
@@ -23,16 +22,16 @@
 #define HX711_SCALEDEFAULT 10000
 
 //defines offset
-#define HX711_OFFSETDEFAULT 8000000
+#define HX711_OFFSETDEFAULT 80000
 
 //set how many time to read
-#define HX711_READTIMES 3 //10		
+#define HX711_READTIMES 10		
 
 //set if use average for read
 #define HX711_USEAVERAGEONREAD 1
 
 //calibration average times read
-#define HX711_CALIBRATIONREADTIMES 10
+#define HX711_CALIBRATIONREADTIMES 15  
 
 //enable the atomic mode on shift in
 #define HX711_ATOMICMODEENABLED 1
@@ -54,6 +53,6 @@ extern void hx711_powerup();
 extern void hx711_calibrate1setoffset();
 extern void hx711_calibrate2setscale(double weight);
 extern void hx711_init(uint8_t gain, double scale, int32_t offset);
-void HX711_main_function(void);		//	to do what was in the main.c 
+double HX711_main_function(void);		//	to do what was in the main.c 
 
 #endif

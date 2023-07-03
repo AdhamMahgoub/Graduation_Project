@@ -19,8 +19,7 @@ HAL/MPU6050/MPU6050.d HAL/MPU6050/MPU6050.o: ../HAL/MPU6050/MPU6050.c \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h \
  ../HAL/MPU6050/../../MCAL/UART/UART_Interface.h \
  ../HAL/MPU6050/../../MCAL/UART/../../LIB/STD_TYPES.h \
- ../HAL/MPU6050/../../MCAL/UART/../../LIB/BIT_MATH.h \
- ../HAL/MPU6050/../../MCAL/UART/../../Device_Config.h
+ ../HAL/MPU6050/../../MCAL/UART/../../LIB/BIT_MATH.h
 
 ../HAL/MPU6050/MPU6050_private.h:
 
@@ -65,5 +64,3 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h:
 ../HAL/MPU6050/../../MCAL/UART/../../LIB/STD_TYPES.h:
 
 ../HAL/MPU6050/../../MCAL/UART/../../LIB/BIT_MATH.h:
-
-../HAL/MPU6050/../../MCAL/UART/../../Device_Config.h:

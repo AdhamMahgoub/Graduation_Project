@@ -3,7 +3,6 @@
 
 #include "../../LIB/STD_TYPES.h"
 #include "../../LIB/BIT_MATH.h"
-#include "../../Device_Config.h"
 
 struct DataPackage
 {
@@ -18,8 +17,7 @@ struct DataPackage
 void UART_init(void);
 u8 UART_RecieveData(void);
 void UART_send_byte(u8 Data);
-void UART_send_string(char *arr);
-void UART_puts(const char *s);
+void UART_send_string(const char *arr);
 void UART_send_float(float x);
 
 

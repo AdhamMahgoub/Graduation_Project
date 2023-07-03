@@ -111,7 +111,7 @@ def update_gui():
     zg_label.config(text=f"Zg: {zg}")
     heading_label.config(text=f"Heading: {heading} degrees")
 
-    root.after(500, update_gui)  # Schedule the function to run again after 500ms
+    root.after(50, update_gui)  # Threading: Schedule the function to run again after 50ms
     
 
 # Example of how to call the function and update the labels
@@ -129,7 +129,6 @@ def fetch_data():
 
     print("\n\nbuffer received = ")
     print(buffer_received)
-    time.sleep(0.1)  # delay for 0.1 seconds
 
     #if the buffer contains the break character (-1), clear the buffer
     if "-1" in buffer_received:
@@ -152,8 +151,8 @@ def fetch_data():
     print ("\n\nwhole_text = ")
     print(whole_text)
 
-    # Call the fetch_data function again after 1 second using Timer
-    threading.Timer(1, fetch_data).start()
+    # Threading: Call the fetch_data function again after 0.5 second using Timer
+    threading.Timer(0.6, fetch_data).start()  
 
 
 

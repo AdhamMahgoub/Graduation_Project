@@ -125,14 +125,14 @@ update_data()
 while (1):
     #buffer_received = "10 kg"
     #read the buffer_received from the user
-    buffer_received = input("Enter the buffer_received: ")
+    #buffer_received = input("Enter the buffer_received: ") #received from http
 
     #if the buffer contains the break character (-1), clear the buffer
     if "-1" in buffer_received:
         buffer_received = ""
     
     # Update values based on the buffer keywords
-    buffer_keywords = ["weight", "IR", "Xa", "Ya", "Za", "Xg", "Yg", "Zg", "Heading"]
+    buffer_keywords = ["Weight", "IR", "Xa", "Ya", "Za", "Xg", "Yg", "Zg", "Heading"]
     for keyword in buffer_keywords:
         if keyword in buffer_received:
             #value = ''.join(filter(str.isdigit, buffer_received))
@@ -149,6 +149,7 @@ while (1):
     # Print the updated string
     # Send the whole_text string to a .txt file to be read by the GUI
     update_data()
+    print ("\n\nwhole_text = ")
     print(whole_text)
 
 
@@ -158,11 +159,11 @@ while (1):
 
     url = "http://192.168.4.1/temperature"
     response = requests.get(url)
-    buffer_received = response.txt
+    buffer_received = response.text
 
+    print("\n\nbuffer received = ")
     print(buffer_received)
-    print("Fetching content...")
-	#time.sleep(0.5)  # delay for 0.5 seconds
+    time.sleep(0.5)  # delay for 0.5 seconds
     ########################        End of HTTP        ########################
 
 

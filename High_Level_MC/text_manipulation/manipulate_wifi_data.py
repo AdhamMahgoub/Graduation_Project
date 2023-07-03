@@ -128,7 +128,7 @@ update_data()
 while (1):
     #buffer_received = "10 kg"
     #read the buffer_received from the user
-    buffer_received = input("Enter the buffer_received: ") #received from http (written below)
+    #buffer_received = input("Enter the buffer_received: ") #received from http (written below)
     time.sleep(0.5)  # delay for 0.5 seconds
 
     #if the buffer contains the break character (-1), clear the buffer

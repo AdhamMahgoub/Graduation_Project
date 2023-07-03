@@ -138,8 +138,8 @@ int main(void)
 		UART_send_string("1\n\r");
 		else
 		UART_send_string("0\n\r");
-		_delay_ms(100);
-		
+		//_delay_ms(100);
+				
 		/*	///////////////////////////////////////////			MPU6050			*///////////////////////////////////////////
 		MPU6050_Read_RealValue();		//	Keeps updating the Readings
 
@@ -151,14 +151,14 @@ int main(void)
 		UART_send_string("Xg = ");		UART_send_float(Xg);		UART_send_string("\n\r");
 		UART_send_string("Yg = ");		UART_send_float(Yg);		UART_send_string("\n\r");
 		UART_send_string("Zg = ");		UART_send_float(Zg);		UART_send_string("\n\r");
-		_delay_ms(100);
-
+		//_delay_ms(100);
+		
 		/*	///////////////////////////////////////////			HMC			*///////////////////////////////////////////
 //		Heading = Magneto_GetHeading();
 //		UART_send_string("\n\rHeading = ");	UART_send_float(Heading);
 //		_delay_ms(100);
 
-		_delay_ms(1000);
+		_delay_ms(500);
 
 		
 		#endif

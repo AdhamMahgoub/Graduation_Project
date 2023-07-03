@@ -46,13 +46,13 @@ int main(void)
 
 
 		/*		Sending over UART		*/
-		UART_send_string("Xa = ");		UART_send_float(Xa);		UART_send_string("\n");
-		UART_send_string("Ya = ");		UART_send_float(Ya);		UART_send_string("\n");
-		UART_send_string("Za = ");		UART_send_float(Za);		UART_send_string("\n");
+		UART_send_string("Xa = ");		UART_send_float(Xa);		UART_send_string("\n\r");
+		UART_send_string("Ya = ");		UART_send_float(Ya);		UART_send_string("\n\r");
+		UART_send_string("Za = ");		UART_send_float(Za);		UART_send_string("\n\r");
 		
-		UART_send_string("Xg = ");		UART_send_float(Xg);		UART_send_string("\n");
-		UART_send_string("Yg = ");		UART_send_float(Yg);		UART_send_string("\n");
-		UART_send_string("Zg = ");		UART_send_float(Zg);		UART_send_string("\n");
+		UART_send_string("Xg = ");		UART_send_float(Xg);		UART_send_string("\n\r");
+		UART_send_string("Yg = ");		UART_send_float(Yg);		UART_send_string("\n\r");
+		UART_send_string("Zg = ");		UART_send_float(Zg);		UART_send_string("\n\r");
 
 
 //		/*				CALIBRATION				*/

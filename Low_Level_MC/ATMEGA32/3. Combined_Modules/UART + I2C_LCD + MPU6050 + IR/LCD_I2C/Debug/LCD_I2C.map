@@ -1339,26 +1339,26 @@ LOAD data_init
  .bss.Xg        0x0000000000800096        0x4 HAL/MPU6050/MPU6050.o
                 0x0000000000800096                Xg
 
-.progmemx.data  0x00000000000000ae       0x26
+.progmemx.data  0x00000000000000ae       0x27
  .progmemx.data
-                0x00000000000000ae       0x26 main.o
+                0x00000000000000ae       0x27 main.o
 
 .progmemx.data.state_table
-                0x00000000000000d4       0x16
+                0x00000000000000d5       0x16
  .progmemx.data.state_table
-                0x00000000000000d4       0x16 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(__printf_core.o)
+                0x00000000000000d5       0x16 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(__printf_core.o)
 
-.progmemx.data  0x00000000000000ea       0x10
+.progmemx.data  0x00000000000000eb       0x10
  .progmemx.data
-                0x00000000000000ea       0x10 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(__fmt_fp.o)
+                0x00000000000000eb       0x10 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(__fmt_fp.o)
 
-.progmemx.data  0x00000000000000fa        0x6
+.progmemx.data  0x00000000000000fb        0x6
  .progmemx.data
-                0x00000000000000fa        0x6 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(__printf_core.o)
+                0x00000000000000fb        0x6 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(__printf_core.o)
 
-.progmemx.data  0x0000000000000100        0x5
+.progmemx.data  0x0000000000000101        0x5
  .progmemx.data
-                0x0000000000000100        0x5 MCAL/UART/UART_Program.o
+                0x0000000000000101        0x5 MCAL/UART/UART_Program.o
 
 .text.__printf_core
                 0x0000000000000106      0x822

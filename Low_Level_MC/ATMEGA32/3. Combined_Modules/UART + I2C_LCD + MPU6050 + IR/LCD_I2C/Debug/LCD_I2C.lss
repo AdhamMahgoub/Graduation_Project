@@ -3,197 +3,197 @@ LCD_I2C.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000000ae  00000000  00000000  000000b4  2**1
+  0 .text         000000ae  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00800060  0000275e  2**0
+  1 .data         00000000  00800060  00800060  0000273e  2**0
                   ALLOC, LOAD, DATA
-  2 .bss          0000002e  00800060  00800060  0000275e  2**0
+  2 .bss          0000002e  00800060  00800060  0000273e  2**0
                   ALLOC
-  3 .comment      0000002f  00000000  00000000  0000275e  2**0
+  3 .comment      0000002f  00000000  00000000  0000273e  2**0
                   CONTENTS, READONLY
-  4 .stack.descriptors.hdr 0000016c  00000000  00000000  0000278d  2**0
+  4 .stack.descriptors.hdr 0000016c  00000000  00000000  0000276d  2**0
                   CONTENTS, READONLY
-  5 .debug_aranges 00000118  00000000  00000000  000028f9  2**0
+  5 .debug_aranges 00000118  00000000  00000000  000028d9  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000208a  00000000  00000000  00002a11  2**0
+  6 .debug_info   0000208a  00000000  00000000  000029f1  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 000009be  00000000  00000000  00004a9b  2**0
+  7 .debug_abbrev 000009be  00000000  00000000  00004a7b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000a05  00000000  00000000  00005459  2**0
+  8 .debug_line   00000a05  00000000  00000000  00005439  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  0000020c  00000000  00000000  00005e60  2**2
+  9 .debug_frame  0000020c  00000000  00000000  00005e40  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000002c8  00000000  00000000  0000606c  2**0
+ 10 .debug_str    000002c8  00000000  00000000  0000604c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000413  00000000  00000000  00006334  2**0
+ 11 .debug_loc    00000413  00000000  00000000  00006314  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000c8  00000000  00000000  00006747  2**0
+ 12 .debug_ranges 000000c8  00000000  00000000  00006727  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .text         00000004  0000269c  0000269c  00002750  2**1
+ 13 .text         00000004  0000269c  0000269c  00002730  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 14 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00006810  2**2
+ 14 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000067f0  2**2
                   CONTENTS, READONLY, DEBUGGING
- 15 .text.Magneto_init 00000018  0000251a  0000251a  000025ce  2**1
+ 15 .text.Magneto_init 00000018  0000251a  0000251a  000025ae  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 16 .text.MPU6050_Init 00000086  00001f50  00001f50  00002004  2**1
+ 16 .text.MPU6050_Init 00000086  00001f50  00001f50  00001fe4  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 17 .text.MPU_Start_Loc 00000014  00002590  00002590  00002644  2**1
+ 17 .text.MPU_Start_Loc 00000014  00002590  00002590  00002624  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 18 .text.Read_RawValue 0000026a  00000fe2  00000fe2  00001096  2**1
+ 18 .text.Read_RawValue 0000026a  00000fe2  00000fe2  00001076  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 19 .text.MPU6050_Read_RealValue 00000146  000013be  000013be  00001472  2**1
+ 19 .text.MPU6050_Read_RealValue 00000146  000013be  000013be  00001452  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 20 .bss.Zg       00000004  0080008e  0080008e  0000275e  2**0
+ 20 .bss.Zg       00000004  0080008e  0080008e  0000273e  2**0
                   ALLOC
- 21 .bss.Yg       00000004  00800092  00800092  0000275e  2**0
+ 21 .bss.Yg       00000004  00800092  00800092  0000273e  2**0
                   ALLOC
- 22 .bss.Xg       00000004  00800096  00800096  0000275e  2**0
+ 22 .bss.Xg       00000004  00800096  00800096  0000273e  2**0
                   ALLOC
- 23 .progmemx.data 00000026  000000ae  000000ae  00000162  2**0
+ 23 .progmemx.data 00000027  000000ae  000000ae  00000142  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, PROGMEMX
- 24 .text.main    00000114  00001772  00001772  00001826  2**1
+ 24 .text.main    00000114  00001772  00001772  00001806  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 25 .text.I2C_Init 00000008  00002664  00002664  00002718  2**1
+ 25 .text.I2C_Init 00000008  00002664  00002664  000026f8  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 26 .text.I2C_Start 0000003a  0000228a  0000228a  0000233e  2**1
+ 26 .text.I2C_Start 0000003a  0000228a  0000228a  0000231e  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 27 .text.I2C_Repeated_Start 0000003a  000022c4  000022c4  00002378  2**1
+ 27 .text.I2C_Repeated_Start 0000003a  000022c4  000022c4  00002358  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 28 .text.I2C_Stop 0000000c  00002638  00002638  000026ec  2**1
+ 28 .text.I2C_Stop 0000000c  00002638  00002638  000026cc  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 29 .text.I2C_Start_Wait 00000034  0000236c  0000236c  00002420  2**1
+ 29 .text.I2C_Start_Wait 00000034  0000236c  0000236c  00002400  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 30 .text.I2C_Write 00000024  0000249e  0000249e  00002552  2**1
+ 30 .text.I2C_Write 00000024  0000249e  0000249e  00002532  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 31 .text.I2C_Read_Ack 0000000e  000025d6  000025d6  0000268a  2**1
+ 31 .text.I2C_Read_Ack 0000000e  000025d6  000025d6  0000266a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 32 .text.I2C_Read_Nack 0000000e  000025e4  000025e4  00002698  2**1
+ 32 .text.I2C_Read_Nack 0000000e  000025e4  000025e4  00002678  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 33 .text.UART_init 00000010  000025b6  000025b6  0000266a  2**1
+ 33 .text.UART_init 00000010  000025b6  000025b6  0000264a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 34 .text.UART_send_byte 00000008  0000266c  0000266c  00002720  2**1
+ 34 .text.UART_send_byte 00000008  0000266c  0000266c  00002700  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 35 .text.UART_send_string 0000002c  000023d0  000023d0  00002484  2**1
+ 35 .text.UART_send_string 0000002c  000023d0  000023d0  00002464  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 36 .progmemx.data 00000005  00000100  00000100  000001b4  2**0
+ 36 .progmemx.data 00000005  00000101  00000101  00000195  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, PROGMEMX
- 37 .text.UART_send_float 0000006c  00002050  00002050  00002104  2**1
+ 37 .text.UART_send_float 0000006c  00002050  00002050  000020e4  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 38 .text         0000000e  000025f2  000025f2  000026a6  2**1
+ 38 .text         0000000e  000025f2  000025f2  00002686  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 39 .text         000000ce  00001c1e  00001c1e  00001cd2  2**1
+ 39 .text         000000ce  00001c1e  00001c1e  00001cb2  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 40 .text         0000000a  00002650  00002650  00002704  2**1
+ 40 .text         0000000a  00002650  00002650  000026e4  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 41 .text         00000008  00002674  00002674  00002728  2**1
+ 41 .text         00000008  00002674  00002674  00002708  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 42 .text         000000de  00001994  00001994  00001a48  2**1
+ 42 .text         000000de  00001994  00001994  00001a28  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 43 .text         0000000e  00002600  00002600  000026b4  2**1
+ 43 .text         0000000e  00002600  00002600  00002694  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 44 .text         0000005e  00002124  00002124  000021d8  2**1
+ 44 .text         0000005e  00002124  00002124  000021b8  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 45 .text         0000007a  00001fd6  00001fd6  0000208a  2**1
+ 45 .text         0000007a  00001fd6  00001fd6  0000206a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 46 .text         00000048  00002182  00002182  00002236  2**1
+ 46 .text         00000048  00002182  00002182  00002216  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 47 .text         0000000c  00002644  00002644  000026f8  2**1
+ 47 .text         0000000c  00002644  00002644  000026d8  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 48 .text         00000006  00002684  00002684  00002738  2**1
+ 48 .text         00000006  00002684  00002684  00002718  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 49 .text         0000000e  0000260e  0000260e  000026c2  2**1
+ 49 .text         0000000e  0000260e  0000260e  000026a2  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 50 .text         0000000e  0000261c  0000261c  000026d0  2**1
+ 50 .text         0000000e  0000261c  0000261c  000026b0  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 51 .text         00000022  000024c2  000024c2  00002576  2**1
+ 51 .text         00000022  000024c2  000024c2  00002556  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 52 .text         00000044  000021ca  000021ca  0000227e  2**1
+ 52 .text         00000044  000021ca  000021ca  0000225e  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 53 .text         0000000e  0000262a  0000262a  000026de  2**1
+ 53 .text         0000000e  0000262a  0000262a  000026be  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 54 .text         0000000a  0000265a  0000265a  0000270e  2**1
+ 54 .text         0000000a  0000265a  0000265a  000026ee  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 55 .text         00000008  0000267c  0000267c  00002730  2**1
+ 55 .text         00000008  0000267c  0000267c  00002710  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 56 .text         000000d4  00001b4a  00001b4a  00001bfe  2**1
+ 56 .text         000000d4  00001b4a  00001b4a  00001bde  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 57 .text.libgcc.prologue 00000038  000022fe  000022fe  000023b2  2**1
+ 57 .text.libgcc.prologue 00000038  000022fe  000022fe  00002392  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 58 .text.libgcc.prologue 00000036  00002336  00002336  000023ea  2**1
+ 58 .text.libgcc.prologue 00000036  00002336  00002336  000023ca  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 59 .text.__dummy_fini 00000002  000026a4  000026a4  00002758  2**1
+ 59 .text.__dummy_fini 00000002  000026a4  000026a4  00002738  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 60 .text.__dummy_funcs_on_exit 00000002  000026a6  000026a6  0000275a  2**1
+ 60 .text.__dummy_funcs_on_exit 00000002  000026a6  000026a6  0000273a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 61 .text.__dummy_simulator_exit 00000002  000026a8  000026a8  0000275c  2**1
+ 61 .text.__dummy_simulator_exit 00000002  000026a8  000026a8  0000273c  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 62 .text.exit    00000016  0000257a  0000257a  0000262e  2**1
+ 62 .text.exit    00000016  0000257a  0000257a  0000260e  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 63 .text.__wrap_sprintf 00000026  00002478  00002478  0000252c  2**1
+ 63 .text.__wrap_sprintf 00000026  00002478  00002478  0000250c  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 64 .progmemx.data 00000010  000000ea  000000ea  0000019e  2**0
+ 64 .progmemx.data 00000010  000000eb  000000eb  0000017f  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, PROGMEMX
- 65 .text.__fmt_fp 000006ba  00000928  00000928  000009dc  2**1
+ 65 .text.__fmt_fp 000006ba  00000928  00000928  000009bc  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 66 .text.__out   00000068  000020bc  000020bc  00002170  2**1
+ 66 .text.__out   00000068  000020bc  000020bc  00002150  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 67 .text.__pad   0000010e  00001886  00001886  0000193a  2**1
+ 67 .text.__pad   0000010e  00001886  00001886  0000191a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 68 .text.__dummy_fmt3 00000006  0000268a  0000268a  0000273e  2**1
+ 68 .text.__dummy_fmt3 00000006  0000268a  0000268a  0000271e  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 69 .text.__dummy_fmt4 00000006  00002690  00002690  00002744  2**1
+ 69 .text.__dummy_fmt4 00000006  00002690  00002690  00002724  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 70 .text.__dummy_fmts 00000006  00002696  00002696  0000274a  2**1
+ 70 .text.__dummy_fmts 00000006  00002696  00002696  0000272a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 71 .text.__fmt_state 0000009e  00001d90  00001d90  00001e44  2**1
+ 71 .text.__fmt_state 0000009e  00001d90  00001d90  00001e24  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 72 .progmemx.data 00000006  000000fa  000000fa  000001ae  2**0
+ 72 .progmemx.data 00000006  000000fb  000000fb  0000018f  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, PROGMEMX
- 73 .text.__printf_core 00000822  00000106  00000106  000001ba  2**1
+ 73 .text.__printf_core 00000822  00000106  00000106  0000019a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 74 .progmemx.data.state_table 00000016  000000d4  000000d4  00000188  2**0
+ 74 .progmemx.data.state_table 00000016  000000d5  000000d5  00000169  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, PROGMEMX
- 75 .text.fputc   00000092  00001e2e  00001e2e  00001ee2  2**1
+ 75 .text.fputc   00000092  00001e2e  00001e2e  00001ec2  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 76 .text.__pop_float 00000040  0000220e  0000220e  000022c2  2**1
+ 76 .text.__pop_float 00000040  0000220e  0000220e  000022a2  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 77 .text.__pop_int 00000172  0000124c  0000124c  00001300  2**1
+ 77 .text.__pop_int 00000172  0000124c  0000124c  000012e0  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 78 .text.__pop_ptr 000000d8  00001a72  00001a72  00001b26  2**1
+ 78 .text.__pop_ptr 000000d8  00001a72  00001a72  00001b06  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 79 .text.atoi    00000090  00001ec0  00001ec0  00001f74  2**1
+ 79 .text.atoi    00000090  00001ec0  00001ec0  00001f54  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 80 .text.memset  00000012  000025a4  000025a4  00002658  2**1
+ 80 .text.memset  00000012  000025a4  000025a4  00002638  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 81 .text.strcpy  0000001c  000024e4  000024e4  00002598  2**1
+ 81 .text.strcpy  0000001c  000024e4  000024e4  00002578  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 82 .text.strlen  0000002c  000023fc  000023fc  000024b0  2**1
+ 82 .text.strlen  0000002c  000023fc  000023fc  00002490  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 83 .text.tolower 00000010  000025c6  000025c6  0000267a  2**1
+ 83 .text.tolower 00000010  000025c6  000025c6  0000265a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 84 .text._Exit   00000004  000026a0  000026a0  00002754  2**1
+ 84 .text._Exit   00000004  000026a0  000026a0  00002734  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 85 .text.__vsprintf 00000018  00002532  00002532  000025e6  2**1
+ 85 .text.__vsprintf 00000018  00002532  00002532  000025c6  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 86 .text.__vsnprintf 000000a4  00001cec  00001cec  00001da0  2**1
+ 86 .text.__vsnprintf 000000a4  00001cec  00001cec  00001d80  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 87 .text.__vfprintf 00000030  000023a0  000023a0  00002454  2**1
+ 87 .text.__vfprintf 00000030  000023a0  000023a0  00002434  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 88 .text.libgcc.div 00000028  00002428  00002428  000024dc  2**1
+ 88 .text.libgcc.div 00000028  00002428  00002428  000024bc  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 89 .text.libgcc  0000001a  00002500  00002500  000025b4  2**1
+ 89 .text.libgcc  0000001a  00002500  00002500  00002594  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 90 .text.libgcc  00000018  0000254a  0000254a  000025fe  2**1
+ 90 .text.libgcc  00000018  0000254a  0000254a  000025de  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 91 .text.libgcc.div 00000028  00002450  00002450  00002504  2**1
+ 91 .text.libgcc.div 00000028  00002450  00002450  000024e4  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 92 .text.floorf  00000132  00001640  00001640  000016f4  2**1
+ 92 .text.floorf  00000132  00001640  00001640  000016d4  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 93 .text.fmaf    0000013c  00001504  00001504  000015b8  2**1
+ 93 .text.fmaf    0000013c  00001504  00001504  00001598  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 94 .text.libgcc.builtins 0000003c  0000224e  0000224e  00002302  2**1
+ 94 .text.libgcc.builtins 0000003c  0000224e  0000224e  000022e2  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 95 .text.libgcc  00000018  00002562  00002562  00002616  2**1
+ 95 .text.libgcc  00000018  00002562  00002562  000025f6  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
 
 Disassembly of section .text:
@@ -794,7 +794,7 @@ int main(void)
 
 
 		/*		Sending over UART		*/
-		UART_send_string("Xa = ");		UART_send_float(Xa);		UART_send_string("\n");
+		UART_send_string("Xa = ");		UART_send_float(Xa);		UART_send_string("\n\r");
     1782:	6e ea       	ldi	r22, 0xAE	; 174
     1784:	70 e0       	ldi	r23, 0x00	; 0
     1786:	80 e0       	ldi	r24, 0x00	; 0
@@ -808,8 +808,8 @@ int main(void)
     17a2:	70 e0       	ldi	r23, 0x00	; 0
     17a4:	80 e0       	ldi	r24, 0x00	; 0
     17a6:	0e 94 e8 11 	call	0x23d0	; 0x23d0 <UART_send_string>
-		UART_send_string("Ya = ");		UART_send_float(Ya);		UART_send_string("\n");
-    17aa:	66 eb       	ldi	r22, 0xB6	; 182
+		UART_send_string("Ya = ");		UART_send_float(Ya);		UART_send_string("\n\r");
+    17aa:	67 eb       	ldi	r22, 0xB7	; 183
     17ac:	70 e0       	ldi	r23, 0x00	; 0
     17ae:	80 e0       	ldi	r24, 0x00	; 0
     17b0:	0e 94 e8 11 	call	0x23d0	; 0x23d0 <UART_send_string>
@@ -822,8 +822,8 @@ int main(void)
     17ca:	70 e0       	ldi	r23, 0x00	; 0
     17cc:	80 e0       	ldi	r24, 0x00	; 0
     17ce:	0e 94 e8 11 	call	0x23d0	; 0x23d0 <UART_send_string>
-		UART_send_string("Za = ");		UART_send_float(Za);		UART_send_string("\n");
-    17d2:	6c eb       	ldi	r22, 0xBC	; 188
+		UART_send_string("Za = ");		UART_send_float(Za);		UART_send_string("\n\r");
+    17d2:	6d eb       	ldi	r22, 0xBD	; 189
     17d4:	70 e0       	ldi	r23, 0x00	; 0
     17d6:	80 e0       	ldi	r24, 0x00	; 0
     17d8:	0e 94 e8 11 	call	0x23d0	; 0x23d0 <UART_send_string>
@@ -837,8 +837,8 @@ int main(void)
     17f4:	80 e0       	ldi	r24, 0x00	; 0
     17f6:	0e 94 e8 11 	call	0x23d0	; 0x23d0 <UART_send_string>
 		
-		UART_send_string("Xg = ");		UART_send_float(Xg);		UART_send_string("\n");
-    17fa:	62 ec       	ldi	r22, 0xC2	; 194
+		UART_send_string("Xg = ");		UART_send_float(Xg);		UART_send_string("\n\r");
+    17fa:	63 ec       	ldi	r22, 0xC3	; 195
     17fc:	70 e0       	ldi	r23, 0x00	; 0
     17fe:	80 e0       	ldi	r24, 0x00	; 0
     1800:	0e 94 e8 11 	call	0x23d0	; 0x23d0 <UART_send_string>
@@ -851,8 +851,8 @@ int main(void)
     181a:	70 e0       	ldi	r23, 0x00	; 0
     181c:	80 e0       	ldi	r24, 0x00	; 0
     181e:	0e 94 e8 11 	call	0x23d0	; 0x23d0 <UART_send_string>
-		UART_send_string("Yg = ");		UART_send_float(Yg);		UART_send_string("\n");
-    1822:	68 ec       	ldi	r22, 0xC8	; 200
+		UART_send_string("Yg = ");		UART_send_float(Yg);		UART_send_string("\n\r");
+    1822:	69 ec       	ldi	r22, 0xC9	; 201
     1824:	70 e0       	ldi	r23, 0x00	; 0
     1826:	80 e0       	ldi	r24, 0x00	; 0
     1828:	0e 94 e8 11 	call	0x23d0	; 0x23d0 <UART_send_string>
@@ -865,8 +865,8 @@ int main(void)
     1842:	70 e0       	ldi	r23, 0x00	; 0
     1844:	80 e0       	ldi	r24, 0x00	; 0
     1846:	0e 94 e8 11 	call	0x23d0	; 0x23d0 <UART_send_string>
-		UART_send_string("Zg = ");		UART_send_float(Zg);		UART_send_string("\n");
-    184a:	6e ec       	ldi	r22, 0xCE	; 206
+		UART_send_string("Zg = ");		UART_send_float(Zg);		UART_send_string("\n\r");
+    184a:	6f ec       	ldi	r22, 0xCF	; 207
     184c:	70 e0       	ldi	r23, 0x00	; 0
     184e:	80 e0       	ldi	r24, 0x00	; 0
     1850:	0e 94 e8 11 	call	0x23d0	; 0x23d0 <UART_send_string>
@@ -1136,7 +1136,7 @@ Disassembly of section .text.UART_send_float:
     207a:	8f 93       	push	r24
     207c:	7f 93       	push	r23
     207e:	6f 93       	push	r22
-    2080:	80 e0       	ldi	r24, 0x00	; 0
+    2080:	81 e0       	ldi	r24, 0x01	; 1
     2082:	91 e0       	ldi	r25, 0x01	; 1
     2084:	a0 e0       	ldi	r26, 0x00	; 0
     2086:	af 93       	push	r26
@@ -2005,15 +2005,15 @@ Disassembly of section .text.__fmt_fp:
  9ea:	2a 31       	cpi	r18, 0x1A	; 26
  9ec:	31 05       	cpc	r19, r1
  9ee:	20 f4       	brcc	.+8      	; 0x9f8 <__fmt_fp+0xd0>
- 9f0:	4a ee       	ldi	r20, 0xEA	; 234
+ 9f0:	4b ee       	ldi	r20, 0xEB	; 235
  9f2:	50 e0       	ldi	r21, 0x00	; 0
  9f4:	60 e0       	ldi	r22, 0x00	; 0
  9f6:	03 c0       	rjmp	.+6      	; 0x9fe <__fmt_fp+0xd6>
- 9f8:	4e ee       	ldi	r20, 0xEE	; 238
+ 9f8:	4f ee       	ldi	r20, 0xEF	; 239
  9fa:	50 e0       	ldi	r21, 0x00	; 0
  9fc:	60 e0       	ldi	r22, 0x00	; 0
  9fe:	0e 94 72 12 	call	0x24e4	; 0x24e4 <strcpy>
- a02:	6e ee       	ldi	r22, 0xEE	; 238
+ a02:	6f ee       	ldi	r22, 0xEF	; 239
  a04:	70 e0       	ldi	r23, 0x00	; 0
  a06:	80 e0       	ldi	r24, 0x00	; 0
  a08:	1e c0       	rjmp	.+60     	; 0xa46 <__fmt_fp+0x11e>
@@ -2035,15 +2035,15 @@ Disassembly of section .text.__fmt_fp:
  a28:	2a 31       	cpi	r18, 0x1A	; 26
  a2a:	31 05       	cpc	r19, r1
  a2c:	20 f4       	brcc	.+8      	; 0xa36 <__fmt_fp+0x10e>
- a2e:	42 ef       	ldi	r20, 0xF2	; 242
+ a2e:	43 ef       	ldi	r20, 0xF3	; 243
  a30:	50 e0       	ldi	r21, 0x00	; 0
  a32:	60 e0       	ldi	r22, 0x00	; 0
  a34:	03 c0       	rjmp	.+6      	; 0xa3c <__fmt_fp+0x114>
- a36:	46 ef       	ldi	r20, 0xF6	; 246
+ a36:	47 ef       	ldi	r20, 0xF7	; 247
  a38:	50 e0       	ldi	r21, 0x00	; 0
  a3a:	60 e0       	ldi	r22, 0x00	; 0
  a3c:	0e 94 72 12 	call	0x24e4	; 0x24e4 <strcpy>
- a40:	66 ef       	ldi	r22, 0xF6	; 246
+ a40:	67 ef       	ldi	r22, 0xF7	; 247
  a42:	70 e0       	ldi	r23, 0x00	; 0
  a44:	80 e0       	ldi	r24, 0x00	; 0
  a46:	0e 94 fe 11 	call	0x23fc	; 0x23fc <strlen>
@@ -2963,7 +2963,7 @@ Disassembly of section .text.__fmt_state:
     1da8:	ee 08       	sbc	r14, r14
     1daa:	6e 2d       	mov	r22, r14
     1dac:	a6 01       	movw	r20, r12
-    1dae:	4c 52       	subi	r20, 0x2C	; 44
+    1dae:	4b 52       	subi	r20, 0x2B	; 43
     1db0:	5f 4f       	sbci	r21, 0xFF	; 255
     1db2:	6f 4f       	sbci	r22, 0xFF	; 255
     1db4:	6a 01       	movw	r12, r20
@@ -2979,7 +2979,7 @@ Disassembly of section .text.__fmt_state:
     1dc8:	03 2e       	mov	r0, r19
     1dca:	00 0c       	add	r0, r0
     1dcc:	44 0b       	sbc	r20, r20
-    1dce:	2c 52       	subi	r18, 0x2C	; 44
+    1dce:	2b 52       	subi	r18, 0x2B	; 43
     1dd0:	3f 4f       	sbci	r19, 0xFF	; 255
     1dd2:	4f 4f       	sbci	r20, 0xFF	; 255
     1dd4:	f9 01       	movw	r30, r18
@@ -3002,7 +3002,7 @@ Disassembly of section .text.__fmt_state:
     1df6:	03 2e       	mov	r0, r19
     1df8:	00 0c       	add	r0, r0
     1dfa:	44 0b       	sbc	r20, r20
-    1dfc:	2c 52       	subi	r18, 0x2C	; 44
+    1dfc:	2b 52       	subi	r18, 0x2B	; 43
     1dfe:	3f 4f       	sbci	r19, 0xFF	; 255
     1e00:	4f 4f       	sbci	r20, 0xFF	; 255
     1e02:	f9 01       	movw	r30, r18
@@ -3776,7 +3776,7 @@ Disassembly of section .text.__printf_core:
  6f2:	c9 59       	subi	r28, 0x99	; 153
  6f4:	d0 40       	sbci	r29, 0x00	; 0
  6f6:	86 e0       	ldi	r24, 0x06	; 6
- 6f8:	2a ef       	ldi	r18, 0xFA	; 250
+ 6f8:	2b ef       	ldi	r18, 0xFB	; 251
  6fa:	30 e0       	ldi	r19, 0x00	; 0
  6fc:	40 e0       	ldi	r20, 0x00	; 0
  6fe:	f9 01       	movw	r30, r18

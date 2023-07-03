@@ -10,7 +10,7 @@
 #include <string.h>
 #include <util/delay.h>
 
-#define SELECTOR 2
+#define SELECTOR 1
 /*
 1. MPU6050
 2. HX711	// Not Calibrated (the version in the "single modules" is better)
@@ -43,27 +43,16 @@ int main(void)
 		#if SELECTOR == 1		//	MPU6050
 		/*	///////////////////////////////////////////			MPU6050			*///////////////////////////////////////////
 		MPU6050_Read_RealValue();		//	Keeps updating the Readings
-		/*		MPU6050	DataPackage	*/
-		struct DataPackage UART_MPU6050_Package;
+
+
+		/*		Sending over UART		*/
+		UART_send_string("Xa = ");		UART_send_float(Xa);		UART_send_string("\n");
+		UART_send_string("Ya = ");		UART_send_float(Ya);		UART_send_string("\n");
+		UART_send_string("Za = ");		UART_send_float(Za);		UART_send_string("\n");
 		
-		strcpy(UART_MPU6050_Package.labels[0], "Xa = ");
-		strcpy(UART_MPU6050_Package.labels[1], "Ya = ");
-		strcpy(UART_MPU6050_Package.labels[2], "Za = ");
-		strcpy(UART_MPU6050_Package.labels[3], "Xg = ");
-		strcpy(UART_MPU6050_Package.labels[4], "Yg = ");
-		strcpy(UART_MPU6050_Package.labels[5], "Zg = ");
-		strcpy(UART_MPU6050_Package.labels[6], "t = ");
-
-		UART_MPU6050_Package.values[0] = Xa;
-		UART_MPU6050_Package.values[1] = Ya;
-		UART_MPU6050_Package.values[2] = Za;
-		UART_MPU6050_Package.values[3] = Xg;
-		UART_MPU6050_Package.values[4] = Yg;
-		UART_MPU6050_Package.values[5] = Zg;
-		UART_MPU6050_Package.values[6] = t;
-
-		strcpy(UART_MPU6050_Package.formats[0], "\n\r");		//	Next line
-		strcpy(UART_MPU6050_Package.formats[1], "\n\n\n\r");	//	Next set
+		UART_send_string("Xg = ");		UART_send_float(Xg);		UART_send_string("\n");
+		UART_send_string("Yg = ");		UART_send_float(Yg);		UART_send_string("\n");
+		UART_send_string("Zg = ");		UART_send_float(Zg);		UART_send_string("\n");
 
 
 //		/*				CALIBRATION				*/
@@ -93,19 +82,27 @@ int main(void)
 
 
 
-		/*		Sending over UART		*/
-		int i;
-		for (i=0; i<7; i++)
-		{
-			if (i==0 || i==1 || i==2  || i==3 || i==4 || i==6)
-				continue;
-			UART_send_string(UART_MPU6050_Package.labels[i]);
-			UART_send_float(UART_MPU6050_Package.values[i]);
-			UART_send_string(UART_MPU6050_Package.formats[0]);
-		}
-		UART_send_string(UART_MPU6050_Package.formats[1]);	//MPU6050
-		#endif
 
+		#endif
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
 		#if SELECTOR == 2		//	HX711
 		/*	///////////////////////////////////////////			HX711			*///////////////////////////////////////////
 		
@@ -120,9 +117,9 @@ int main(void)
 		#if SELECTOR == 3		//	IR
 		/*	///////////////////////////////////////////			IR			*///////////////////////////////////////////
 				if (IR_Triggered())
-					UART_puts("YES\n\r");
+					UART_send_string("YES\n\r");
 				else
-					UART_puts("NO\n\r");
+					UART_send_string("NO\n\r");
 					
 				_delay_ms(1000);
 		
@@ -131,7 +128,7 @@ int main(void)
 		#if SELECTOR == 4		//HMC
 			   
 			   Heading = Magneto_GetHeading();
-			   UART_puts("\n\rHeading = ");	UART_send_float(Heading);
+			   UART_send_string("\n\rHeading = ");	UART_send_float(Heading);
 		#endif
 
 		#if SELECTOR == 5 		//	LCD

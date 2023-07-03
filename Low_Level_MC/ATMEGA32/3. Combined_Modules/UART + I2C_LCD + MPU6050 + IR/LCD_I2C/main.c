@@ -154,9 +154,9 @@ int main(void)
 		//_delay_ms(100);
 		
 		/*	///////////////////////////////////////////			HMC			*///////////////////////////////////////////
-		//		Heading = Magneto_GetHeading();
-		//		UART_send_string("\n\rHeading = ");	UART_send_float(Heading);
-		//		_delay_ms(100);
+				Heading = Magneto_GetHeading();
+				UART_send_string("\n\rHeading = ");	UART_send_float(Heading);
+				_delay_ms(100);
 
 		_delay_ms(500);
 

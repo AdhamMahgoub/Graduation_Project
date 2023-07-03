@@ -10,7 +10,7 @@
 #include <string.h>
 #include <util/delay.h>
 
-#define SELECTOR 1
+#define SELECTOR 2
 /*
 1. MPU6050
 2. HX711	// Not Calibrated (the version in the "single modules" is better)
@@ -84,25 +84,7 @@ int main(void)
 
 
 		#endif
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
+
 		#if SELECTOR == 2		//	HX711
 		/*	///////////////////////////////////////////			HX711			*///////////////////////////////////////////
 		
@@ -110,7 +92,7 @@ int main(void)
 		char printbuff[100];
 		snprintf(printbuff, sizeof(printbuff), "%.3lf", weight);
 		UART_send_string("Weight: "); UART_send_string(printbuff); UART_send_string("kg"); UART_send_string("\r\n");
-		_delay_ms(500);			// delay must be done >=150ms for the communication to occur
+		_delay_ms(200);			// delay must be done >=150ms for the communication to occur
 		
 		#endif
 

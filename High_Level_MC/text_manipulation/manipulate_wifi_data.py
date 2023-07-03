@@ -2,19 +2,19 @@ import re #to be able to extract the numerical part
 
 #the values that will be put in the string
 values = [
-    '10',       #weight 
-    '1',        #IR         #Must be Number
-    '0.5',      #Xa
-    '0.1',      #Ya
-    '0.8',      #Za
-    '0.3',      #Xg
-    '1.4',      #Yg
-    '2.5',      #Zg
-    '105'       #Heading
+    '0',       #weight 
+    '0',        #IR         #Must be Number
+    '0',      #Xa
+    '0',      #Ya
+    '0',      #Za
+    '0',      #Xg
+    '0',      #Yg
+    '0',      #Zg
+    '0'       #Heading
 ]
 
 #this template to allow me to update the whole_text
-whole_text_template = '''weight = {} kg 
+whole_text_template = '''Weight = {} kg 
 IR = {} 
 Xa = {}
 Ya = {}
@@ -50,10 +50,12 @@ if "-1" in buffer_received:
 
 whole_text = whole_text_template.format(*values)
 
+# Prinit initial text (all 0s)
+print ("\n\n Initial whole_text = ")
 print(whole_text) #print the string
 
 
-########################    GUI init   ########################
+########################    GUI     ########################
 import tkinter as tk
 from tkinter import ttk
 
@@ -125,7 +127,7 @@ update_data()
 while (1):
     #buffer_received = "10 kg"
     #read the buffer_received from the user
-    #buffer_received = input("Enter the buffer_received: ") #received from http
+    #buffer_received = input("Enter the buffer_received: ") #received from http (written below)
 
     #if the buffer contains the break character (-1), clear the buffer
     if "-1" in buffer_received:
@@ -145,7 +147,6 @@ while (1):
     # Format the whole_text with the updated values
     whole_text = whole_text_template.format(*values)
 
-
     # Print the updated string
     # Send the whole_text string to a .txt file to be read by the GUI
     update_data()
@@ -153,6 +154,8 @@ while (1):
     print(whole_text)
 
 
+
+'''
     ########################        HTTP        ########################
     import requests
     import time
@@ -165,7 +168,6 @@ while (1):
     print(buffer_received)
     time.sleep(0.5)  # delay for 0.5 seconds
     ########################        End of HTTP        ########################
-
-
+'''
 
 

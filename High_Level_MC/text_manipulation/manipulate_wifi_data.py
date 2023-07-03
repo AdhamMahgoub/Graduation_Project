@@ -1,16 +1,16 @@
-import re #to be able to extract the numerical part
+import re       #to be able to extract the numerical part
 
 #the values that will be put in the string
 values = [
-    '0',       #weight 
+    '0',        #weight 
     '0',        #IR         #Must be Number
-    '0',      #Xa
-    '0',      #Ya
-    '0',      #Za
-    '0',      #Xg
-    '0',      #Yg
-    '0',      #Zg
-    '0'       #Heading
+    '0',        #Xa
+    '0',        #Ya
+    '0',        #Za
+    '0',        #Xg
+    '0',        #Yg
+    '0',        #Zg
+    '0'         #Heading
 ]
 
 #this template to allow me to update the whole_text
@@ -24,7 +24,7 @@ Yg = {}
 Zg = {}
 Heading = {} degrees'''
 
-#the string that will be saved as a .txt
+#the final string that will be saved/printed
 whole_text = '''weight = {} kg 
 IR = {} 
 Xa = {}
@@ -35,22 +35,14 @@ Yg = {}
 Zg = {}
 Heading = {} degrees'''
 
-whole_text = whole_text_template.format(*values)
-
 #buffer received string (from Wifi)
-buffer_received = "weight = 110kg"
+#creating a buffer_received variable
+buffer_received = "N/A"
 
-#extract number from the buffer_received string
-number_in_buffer = ''.join(filter(str.isdigit, buffer_received))
-
-#if the buffer contains the break character, clear the buffer
-# -1 is the break character
-if "-1" in buffer_received:
-    buffer_received = ""
-
+# Format the whole_text with the updated values (1st time)
 whole_text = whole_text_template.format(*values)
 
-# Prinit initial text (all 0s)
+# Print initial text (all 0s)
 print ("\n\n Initial whole_text = ")
 print(whole_text) #print the string
 
@@ -106,7 +98,7 @@ zg_label.pack(anchor="w")
 heading_label.pack(anchor="w")
 
 # Function to update the labels with new values
-def update_data():
+def update_gui():
     weight, ir, xa, ya, za, xg, yg, zg, heading = map(float, values)
     weight_label.config(text=f"Weight: {weight}kg")
     ir_label.config(text=f"IR: {ir}")
@@ -119,43 +111,16 @@ def update_data():
     heading_label.config(text=f"Heading: {heading} degrees")
 
 # Example of how to call the function and update the labels
-update_data()
+update_gui()
 ########################    End of GUI  ########################
 
 
 
 while (1):
-    #buffer_received = "10 kg"
-    #read the buffer_received from the user
-    buffer_received = input("Enter the buffer_received: ") #received from http (written below)
+    #read the buffer_received from the user -- recplaced with http (written below)
+    buffer_received = input("Enter the buffer_received: ") 
 
-    #if the buffer contains the break character (-1), clear the buffer
-    if "-1" in buffer_received:
-        buffer_received = ""
-    
-    # Update values based on the buffer keywords
-    buffer_keywords = ["Weight", "IR", "Xa", "Ya", "Za", "Xg", "Yg", "Zg", "Heading"]
-    for keyword in buffer_keywords:
-        if keyword in buffer_received:
-            #value = ''.join(filter(str.isdigit, buffer_received))
-            #values[buffer_keywords.index(keyword)] = value
-            # Use regular expression to find numeric values (integers or floats)
-            value = re.search(r"[-+]?\d*\.\d+|\d+", buffer_received).group()
-            values[buffer_keywords.index(keyword)] = value
-            break  # No need to continue checking other keywords if a match is found
-    
-    # Format the whole_text with the updated values
-    whole_text = whole_text_template.format(*values)
-
-    # Print the updated string
-    # Send the whole_text string to a .txt file to be read by the GUI
-    update_data()
-    print ("\n\nwhole_text = ")
-    print(whole_text)
-
-
-
-'''
+    '''
     ########################        HTTP        ########################
     import requests
     import time
@@ -169,5 +134,31 @@ while (1):
     time.sleep(0.5)  # delay for 0.5 seconds
     ########################        End of HTTP        ########################
 '''
+
+
+
+    #if the buffer contains the break character (-1), clear the buffer
+    if "-1" in buffer_received:
+        buffer_received = ""
+    
+    # Update values based on the buffer keywords
+    buffer_keywords = ["Weight", "IR", "Xa", "Ya", "Za", "Xg", "Yg", "Zg", "Heading"]
+    for keyword in buffer_keywords:
+        if keyword in buffer_received:
+            # Use regular expression to find numeric values (integers or floats)
+            value = re.search(r"[-+]?\d*\.\d+|\d+", buffer_received).group()
+            values[buffer_keywords.index(keyword)] = value
+            break  # No need to continue checking other keywords if a match is found
+    
+    # Format the whole_text with the updated values
+    whole_text = whole_text_template.format(*values)
+
+    # Print the updated string
+    update_gui()
+    print ("\n\nwhole_text = ")
+    print(whole_text)
+
+
+
 
 

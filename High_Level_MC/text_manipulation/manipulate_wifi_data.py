@@ -1,4 +1,5 @@
 import re       #to be able to extract the numerical part
+import threading
 
 #the values that will be put in the string
 values = [
@@ -110,18 +111,15 @@ def update_gui():
     zg_label.config(text=f"Zg: {zg}")
     heading_label.config(text=f"Heading: {heading} degrees")
 
+    root.after(500, update_gui)  # Schedule the function to run again after 500ms
+    
+
 # Example of how to call the function and update the labels
 update_gui()
 ########################    End of GUI  ########################
 
-
-
-while (1):
-    #read the buffer_received from the user -- recplaced with http (written below)
-    buffer_received = input("Enter the buffer_received: ") 
-
-    '''
-    ########################        HTTP        ########################
+def fetch_data():
+    global buffer_received, whole_text
     import requests
     import time
 
@@ -131,11 +129,7 @@ while (1):
 
     print("\n\nbuffer received = ")
     print(buffer_received)
-    time.sleep(0.5)  # delay for 0.5 seconds
-    ########################        End of HTTP        ########################
-'''
-
-
+    time.sleep(0.1)  # delay for 0.1 seconds
 
     #if the buffer contains the break character (-1), clear the buffer
     if "-1" in buffer_received:
@@ -158,7 +152,25 @@ while (1):
     print ("\n\nwhole_text = ")
     print(whole_text)
 
+    # Call the fetch_data function again after 1 second using Timer
+    threading.Timer(1, fetch_data).start()
 
+
+
+
+# Instead of the while loop, start the HTTP request in a separate thread
+def http_thread():
+    fetch_data()
+
+# Start the HTTP thread
+http_thread = threading.Thread(target=http_thread)
+http_thread.daemon = True  # Allow the program to exit even if the thread is running
+http_thread.start()
+
+# Schedule the update_gui() function to be called from the main thread periodically
+root.after(50, update_gui) #50ms 
+
+root.mainloop()
 
 
 

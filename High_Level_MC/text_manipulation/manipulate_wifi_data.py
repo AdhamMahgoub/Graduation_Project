@@ -1,4 +1,5 @@
 import re #to be able to extract the numerical part
+import time
 
 #the values that will be put in the string
 values = [
@@ -127,7 +128,8 @@ update_data()
 while (1):
     #buffer_received = "10 kg"
     #read the buffer_received from the user
-    #buffer_received = input("Enter the buffer_received: ") #received from http (written below)
+    buffer_received = input("Enter the buffer_received: ") #received from http (written below)
+    time.sleep(0.5)  # delay for 0.5 seconds
 
     #if the buffer contains the break character (-1), clear the buffer
     if "-1" in buffer_received:
@@ -143,14 +145,14 @@ while (1):
             value = re.search(r"[-+]?\d*\.\d+|\d+", buffer_received).group()
             values[buffer_keywords.index(keyword)] = value
             break  # No need to continue checking other keywords if a match is found
-    
+
     # Format the whole_text with the updated values
     whole_text = whole_text_template.format(*values)
 
     # Print the updated string
     # Send the whole_text string to a .txt file to be read by the GUI
     update_data()
-    print ("\n\nwhole_text = ")
+    print("\n\nwhole_text = ")
     print(whole_text)
 
 

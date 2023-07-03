@@ -10,11 +10,11 @@
 #include <string.h>
 #include <util/delay.h>
 
-#define SELECTOR 3
+#define SELECTOR 6
 /*
-1. MPU6050
-2. HX711	// Not Calibrated (the version in the "single modules" is better)
-3. IR
+1. MPU6050		>> works
+2. HX711		>> works
+3. IR			>> works
 4. HMC
 5. LCD
 6. HX711 + IR + MPU6050 + HMC 	   --		Final Mode
@@ -98,12 +98,12 @@ int main(void)
 
 		#if SELECTOR == 3		//	IR
 		/*	///////////////////////////////////////////			IR			*///////////////////////////////////////////
-				if (IR_Triggered())
-					UART_send_string("1\n\r");
-				else
-					UART_send_string("0\n\r");
+		if (IR_Triggered())
+			UART_send_string("1\n\r");
+		else
+			UART_send_string("0\n\r");
 					
-				_delay_ms(1000);
+		_delay_ms(1000);
 		
 		#endif
 
@@ -125,10 +125,44 @@ int main(void)
 		#endif
 		
 		#if SELECTOR == 6		//	HX711 + IR + MPU6050 + HMC 
-		//
-		#endif
+		
+		/*	///////////////////////////////////////////			HX711			*///////////////////////////////////////////
+		weight = HX711_main_function();
+		char printbuff[100];
+		snprintf(printbuff, sizeof(printbuff), "%.3lf", weight);
+		UART_send_string("Weight: "); UART_send_string(printbuff); UART_send_string("kg"); UART_send_string("\r\n");
+		_delay_ms(200);			// delay must be done >=150ms for the communication to occur
+		
+		/*	///////////////////////////////////////////			IR			*///////////////////////////////////////////
+		if (IR_Triggered())
+		UART_send_string("1\n\r");
+		else
+		UART_send_string("0\n\r");
+		_delay_ms(100);
+		
+		/*	///////////////////////////////////////////			MPU6050			*///////////////////////////////////////////
+		MPU6050_Read_RealValue();		//	Keeps updating the Readings
 
-		_delay_ms(500);
+		/*		Sending over UART		*/
+		UART_send_string("Xa = ");		UART_send_float(Xa);		UART_send_string("\n\r");
+		UART_send_string("Ya = ");		UART_send_float(Ya);		UART_send_string("\n\r");
+		UART_send_string("Za = ");		UART_send_float(Za);		UART_send_string("\n\r");
+		
+		UART_send_string("Xg = ");		UART_send_float(Xg);		UART_send_string("\n\r");
+		UART_send_string("Yg = ");		UART_send_float(Yg);		UART_send_string("\n\r");
+		UART_send_string("Zg = ");		UART_send_float(Zg);		UART_send_string("\n\r");
+		_delay_ms(100);
+
+		/*	///////////////////////////////////////////			HMC			*///////////////////////////////////////////
+//		Heading = Magneto_GetHeading();
+//		UART_send_string("\n\rHeading = ");	UART_send_float(Heading);
+//		_delay_ms(100);
+
+		_delay_ms(1000);
+
+		
+		#endif
+		
 	}
 
 	return 0;

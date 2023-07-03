@@ -10,7 +10,7 @@
 #include <string.h>
 #include <util/delay.h>
 
-#define SELECTOR 2
+#define SELECTOR 3
 /*
 1. MPU6050
 2. HX711	// Not Calibrated (the version in the "single modules" is better)
@@ -99,9 +99,9 @@ int main(void)
 		#if SELECTOR == 3		//	IR
 		/*	///////////////////////////////////////////			IR			*///////////////////////////////////////////
 				if (IR_Triggered())
-					UART_send_string("YES\n\r");
+					UART_send_string("1\n\r");
 				else
-					UART_send_string("NO\n\r");
+					UART_send_string("0\n\r");
 					
 				_delay_ms(1000);
 		

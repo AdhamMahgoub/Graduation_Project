@@ -28,14 +28,14 @@ int main(void)
 	/*	MPU6050 Variables	*/
 	extern float Xa, Ya, Za, t;												//	Real Value of MPU6050
 	extern float Xg, Yg, Zg;												//	Real Values of MPU6050
-	extern float Acc_x,Acc_y,Acc_z,Temperature,Gyro_x,Gyro_y,Gyro_z;		//	Raw Values	
+	extern float Acc_x,Acc_y,Acc_z,Temperature,Gyro_x,Gyro_y,Gyro_z;		//	Raw Values
 
 	/*	HMC	*/
-	float Heading; 
+	float Heading;
 	Magneto_init();
 	
 	/*	HxX711	*/
-	double weight; 
+	double weight;
 
 	while (1)
 	{
@@ -55,30 +55,30 @@ int main(void)
 		UART_send_string("Zg = ");		UART_send_float(Zg);		UART_send_string("\n\r");
 
 
-//		/*				CALIBRATION				*/
-//		//	Calculate the Average for 100 readings for the raw values -- to calibrate
-//		int i;
-//		float sum[6] = {0};
-//		for (i=0; i<100; i++)
-//		{
-//			Read_RawValue();
-//			sum[0] += Acc_x;
-//			sum[1] += Acc_y;
-//			sum[2] += Acc_z;
-//			
-//			sum[3] += Gyro_x;
-//			sum[4] += Gyro_y;
-//			sum[5] += Gyro_z; 
-//		}
-//		//	printing the average		
-//		for (i=0; i<6; i++)
-//		{
-//			UART_send_float((float)i); UART_puts("== ");
-//			UART_send_float(sum[i]/100);
-//			UART_puts("average = \n\r");
-//		}
-//		UART_puts("average = \n\r");
-//		/*				End of CALIBRATION				*/
+		//		/*				CALIBRATION				*/
+		//		//	Calculate the Average for 100 readings for the raw values -- to calibrate
+		//		int i;
+		//		float sum[6] = {0};
+		//		for (i=0; i<100; i++)
+		//		{
+		//			Read_RawValue();
+		//			sum[0] += Acc_x;
+		//			sum[1] += Acc_y;
+		//			sum[2] += Acc_z;
+		//
+		//			sum[3] += Gyro_x;
+		//			sum[4] += Gyro_y;
+		//			sum[5] += Gyro_z;
+		//		}
+		//		//	printing the average
+		//		for (i=0; i<6; i++)
+		//		{
+		//			UART_send_float((float)i); UART_puts("== ");
+		//			UART_send_float(sum[i]/100);
+		//			UART_puts("average = \n\r");
+		//		}
+		//		UART_puts("average = \n\r");
+		//		/*				End of CALIBRATION				*/
 
 
 
@@ -99,18 +99,18 @@ int main(void)
 		#if SELECTOR == 3		//	IR
 		/*	///////////////////////////////////////////			IR			*///////////////////////////////////////////
 		if (IR_Triggered())
-			UART_send_string("1\n\r");
+		UART_send_string("1\n\r");
 		else
-			UART_send_string("0\n\r");
-					
+		UART_send_string("0\n\r");
+		
 		_delay_ms(1000);
 		
 		#endif
 
 		#if SELECTOR == 4		//HMC
-			   
-			   Heading = Magneto_GetHeading();
-			   UART_send_string("\n\rHeading = ");	UART_send_float(Heading);
+		
+		Heading = Magneto_GetHeading();
+		UART_send_string("\n\rHeading = ");	UART_send_float(Heading);
 		#endif
 
 		#if SELECTOR == 5 		//	LCD
@@ -124,7 +124,7 @@ int main(void)
 		//	lq_setCursor(&device1, 1, 0);					// moving cursor to the next line
 		#endif
 		
-		#if SELECTOR == 6		//	HX711 + IR + MPU6050 + HMC 
+		#if SELECTOR == 6		//	HX711 + IR + MPU6050 + HMC
 		
 		/*	///////////////////////////////////////////			HX711			*///////////////////////////////////////////
 		weight = HX711_main_function();
@@ -135,11 +135,11 @@ int main(void)
 		
 		/*	///////////////////////////////////////////			IR			*///////////////////////////////////////////
 		if (IR_Triggered())
-		UART_send_string("1\n\r");
+		UART_send_string("IR = 1\n\r");
 		else
-		UART_send_string("0\n\r");
+		UART_send_string("IR = 0\n\r");
 		//_delay_ms(100);
-				
+		
 		/*	///////////////////////////////////////////			MPU6050			*///////////////////////////////////////////
 		MPU6050_Read_RealValue();		//	Keeps updating the Readings
 
@@ -154,9 +154,9 @@ int main(void)
 		//_delay_ms(100);
 		
 		/*	///////////////////////////////////////////			HMC			*///////////////////////////////////////////
-//		Heading = Magneto_GetHeading();
-//		UART_send_string("\n\rHeading = ");	UART_send_float(Heading);
-//		_delay_ms(100);
+		//		Heading = Magneto_GetHeading();
+		//		UART_send_string("\n\rHeading = ");	UART_send_float(Heading);
+		//		_delay_ms(100);
 
 		_delay_ms(500);
 

@@ -130,10 +130,7 @@ def fetch_data():
     print("\n\nbuffer received = ")
     print(buffer_received)
 
-    #if the buffer contains the break character (-1), clear the buffer
-    if "-1" in buffer_received:
-        buffer_received = ""
-    
+    '''   
     # Update values based on the buffer keywords
     buffer_keywords = ["Weight", "IR", "Xa", "Ya", "Za", "Xg", "Yg", "Zg", "Heading"]
     for keyword in buffer_keywords:
@@ -142,7 +139,19 @@ def fetch_data():
             value = re.search(r"[-+]?\d*\.\d+|\d+", buffer_received).group()
             values[buffer_keywords.index(keyword)] = value
             break  # No need to continue checking other keywords if a match is found
+    '''
+
+    # Update values based on the buffer keywords
+    buffer_keywords = ["Weight", "IR", "Xa", "Ya", "Za", "Xg", "Yg", "Zg", "Heading"]
+    lines = buffer_received.splitlines()   
+    for line in lines:
+        for keyword in buffer_keywords:
+            if keyword in line:
+                # Use regular expression to find numeric values (integers or floats)
+                value = re.search(r"[-+]?\d*\.\d+|\d+", line).group()
+                values[buffer_keywords.index(keyword)] = value
     
+
     # Format the whole_text with the updated values
     whole_text = whole_text_template.format(*values)
 

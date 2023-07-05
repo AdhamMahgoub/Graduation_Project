@@ -145,6 +145,7 @@ def update_gui():
     weight, ir, xa, ya, za, xg, yg, zg, heading = map(float, values)
     weight_label.config(text=f"Weight: {weight}kg")
     ir_label.config(text=f"IR: {ir}")
+    acceleration_label.config(text="Acceleration: ")
     xa_label.config(text=f"Xa: {xa}")
     ya_label.config(text=f"Ya: {ya}")
     za_label.config(text=f"Za: {za}")
@@ -152,6 +153,7 @@ def update_gui():
     yg_label.config(text=f"Yg: {yg}")
     zg_label.config(text=f"Zg: {zg}")
     heading_label.config(text=f"Heading: {heading} degrees")
+    ML_label.config(text="Object Detection: ")
     product_label.config(text=f"Product: {product}")
     price_label.config(text=f"Price: {price}")
     

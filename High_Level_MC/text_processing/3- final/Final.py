@@ -123,9 +123,10 @@ def detect_videos():
             confidence = max_pair[1]
             result_string = f"Product: {product}\nConfidence: {confidence}"
             print(result_string)
+            file.write(str(result_string))
         
         
-        file.write(str(result))
+        #file.write(str(result))
         # Close the file    
         file.close()
         

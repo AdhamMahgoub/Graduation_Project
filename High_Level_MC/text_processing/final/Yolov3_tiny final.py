@@ -56,6 +56,84 @@ colors= np.random.uniform(0,255,size=(len(classes),3))
 # In[7]:
 
 
+def convert_id_to_name(class_id):
+    if class_id==0:
+        return 'Arla sour cream'
+    elif class_id==1:
+        return 'Arla ecological sour cream'
+    elif class_id==2:
+        return 'Arla sour milk'
+    elif class_id==3:
+        return 'Alpro blueberry soyghurt'
+    elif class_id==4:
+        return 'Alpro vanilla soyghurt'
+    elif class_id==5:
+        return 'Alpro fresh soymilk'
+    elif class_id==6:
+        return 'Arla mild vanilla yoghurt'
+    elif class_id==7:
+        return 'Arla natural mild low fat yoghurt'
+    elif class_id==8:
+        return 'Arla natural yoghurt'
+    elif class_id==9:
+        return 'Valio vanilla yoghurt'
+    elif class_id==10:
+        return 'Yoggi strawberry yoghurt'
+    elif class_id==11:
+        return 'Yoggi vanilla yoghurt'
+    elif class_id==12:
+        return 'Bravo-Apple-Juice'
+    elif class_id==13:
+        return 'Bravo-Orange-Juice'
+    elif class_id==14:
+        return 'God-Morgon-Apple-Juice'
+    elif class_id==15:
+        return 'God-Morgon-Orange-Juice'
+    elif class_id==16:
+        return 'God-Morgon-Orange-Red-Grapefruit-Juice'
+    elif class_id==17:
+        return 'God-Morgon-Red-Grapefruit-Juice'
+    elif class_id==18:
+        return 'Tropicana-Apple-Juice'
+    elif class_id==19:
+        return 'Tropicana-Golden-Grapefruit'
+    elif class_id==20:
+        return 'Tropicana-Juice-Smooth'
+    elif class_id==21:
+        return 'Tropicana-Mandarin-Morning'
+    elif class_id==22:
+        return 'Arla-Ecological-Medium-Fat-Milk'
+    elif class_id==23:
+        return 'Arla-Lactose-Medium-Fat-Milk'
+    elif class_id==24:
+        return 'Arla-Medium-Fat-Milk'
+    elif class_id==25:
+        return 'Arla-Standard-Milk'
+    elif class_id==26:
+        return 'Garant-Ecological-Medium-Fat-Milk'
+    elif class_id==27:
+        return 'Garant-Ecological-Standard-Milk'
+    elif class_id==28:
+        return 'Oatly-Oat-Milk'
+    elif class_id==29:
+        return 'Oatly-Natural-Oatghurt'
+    elif class_id==30:
+        return 'Red-Kideny-Beans'
+    elif class_id==31:
+        return 'White-Beans'
+    elif class_id==32:
+        return 'Green-Beans'
+    elif class_id==33:
+        return 'Cake'
+    elif class_id==34:
+        return 'Muffin'
+    elif class_id==35:
+        return 'Water'
+    elif class_id==36:
+        return 'Cocacola'
+    elif class_id==37:
+        return 'Pepsi'
+
 import time
 def detect_videos():
     #For videos
@@ -154,83 +232,7 @@ detect_videos()
 # In[11]:
 
 
-def convert_id_to_name(class_id):
-    if class_id==0:
-        return 'Arla sour cream'
-    elif class_id==1:
-        return 'Arla ecological sour cream'
-    elif class_id==2:
-        return 'Arla sour milk'
-    elif class_id==3:
-        return 'Alpro blueberry soyghurt'
-    elif class_id==4:
-        return 'Alpro vanilla soyghurt'
-    elif class_id==5:
-        return 'Alpro fresh soymilk'
-    elif class_id==6:
-        return 'Arla mild vanilla yoghurt'
-    elif class_id==7:
-        return 'Arla natural mild low fat yoghurt'
-    elif class_id==8:
-        return 'Arla natural yoghurt'
-    elif class_id==9:
-        return 'Valio vanilla yoghurt'
-    elif class_id==10:
-        return 'Yoggi strawberry yoghurt'
-    elif class_id==11:
-        return 'Yoggi vanilla yoghurt'
-    elif class_id==12:
-        return 'Bravo-Apple-Juice'
-    elif class_id==13:
-        return 'Bravo-Orange-Juice'
-    elif class_id==14:
-        return 'God-Morgon-Apple-Juice'
-    elif class_id==15:
-        return 'God-Morgon-Orange-Juice'
-    elif class_id==16:
-        return 'God-Morgon-Orange-Red-Grapefruit-Juice'
-    elif class_id==17:
-        return 'God-Morgon-Red-Grapefruit-Juice'
-    elif class_id==18:
-        return 'Tropicana-Apple-Juice'
-    elif class_id==19:
-        return 'Tropicana-Golden-Grapefruit'
-    elif class_id==20:
-        return 'Tropicana-Juice-Smooth'
-    elif class_id==21:
-        return 'Tropicana-Mandarin-Morning'
-    elif class_id==22:
-        return 'Arla-Ecological-Medium-Fat-Milk'
-    elif class_id==23:
-        return 'Arla-Lactose-Medium-Fat-Milk'
-    elif class_id==24:
-        return 'Arla-Medium-Fat-Milk'
-    elif class_id==25:
-        return 'Arla-Standard-Milk'
-    elif class_id==26:
-        return 'Garant-Ecological-Medium-Fat-Milk'
-    elif class_id==27:
-        return 'Garant-Ecological-Standard-Milk'
-    elif class_id==28:
-        return 'Oatly-Oat-Milk'
-    elif class_id==29:
-        return 'Oatly-Natural-Oatghurt'
-    elif class_id==30:
-        return 'Red-Kideny-Beans'
-    elif class_id==31:
-        return 'White-Beans'
-    elif class_id==32:
-        return 'Green-Beans'
-    elif class_id==33:
-        return 'Cake'
-    elif class_id==34:
-        return 'Muffin'
-    elif class_id==35:
-        return 'Water'
-    elif class_id==36:
-        return 'Cocacola'
-    elif class_id==37:
-        return 'Pepsi'
+
 
 
 # In[18]:

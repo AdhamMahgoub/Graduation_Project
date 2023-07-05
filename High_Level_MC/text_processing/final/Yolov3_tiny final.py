@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 
 # In[2]:
-
+max_pair = -1
 
 net=cv2.dnn.readNetFromDarknet("yolov3-tiny_custom.cfg","yolov3-tiny_custom_40000.weights")
 

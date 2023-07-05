@@ -70,6 +70,10 @@ style.configure(
     foreground="#333333",  # Set label text color
 )
 
+# Create a custom style for the label
+style = ttk.Style()
+style.configure("Custom.TLabe2", underline=True)
+
 # Create a frame using the custom style
 frame = ttk.Frame(root, style="Custom.TFrame")
 frame.pack(fill=tk.BOTH, expand=True)
@@ -79,12 +83,14 @@ title_label = ttk.Label(frame, text="Smart Retail System", style="Custom.TLabel"
 weight_label = ttk.Label(frame, text="Weight: 0kg", style="Custom.TLabel")
 ir_label = ttk.Label(frame, text="IR: N/A", style="Custom.TLabel")
 xa_label = ttk.Label(frame, text="Xa: N/A", style="Custom.TLabel")
+acceleration_label = ttk.Label(root, text="Acceleration:", style="Custom.TLabel")
 ya_label = ttk.Label(frame, text="Ya: N/A", style="Custom.TLabel")
 za_label = ttk.Label(frame, text="Za: N/A", style="Custom.TLabel")
 xg_label = ttk.Label(frame, text="Xg: N/A", style="Custom.TLabel")
 yg_label = ttk.Label(frame, text="Yg: N/A", style="Custom.TLabel")
 zg_label = ttk.Label(frame, text="Zg: N/A", style="Custom.TLabel")
 heading_label = ttk.Label(frame, text="Heading: N/A degrees", style="Custom.TLabel")
+ML_label = ttk.Label(root, text="Object Detection:", style="Custom.TLabel")
 product_label = ttk.Label(frame, text="Product: N/A", style="Custom.TLabel")
 price_label = ttk.Label(frame, text="Price: N/A", style="Custom.TLabel")
 
@@ -92,6 +98,7 @@ price_label = ttk.Label(frame, text="Price: N/A", style="Custom.TLabel")
 title_label.pack(side="top", pady=10)
 weight_label.pack(anchor="w")
 ir_label.pack(anchor="w")
+acceleration_label.pack(anchor="w")
 xa_label.pack(anchor="w")
 ya_label.pack(anchor="w")
 za_label.pack(anchor="w")
@@ -99,6 +106,7 @@ xg_label.pack(anchor="w")
 yg_label.pack(anchor="w")
 zg_label.pack(anchor="w")
 heading_label.pack(anchor="w")
+ML_label.pack(anchor="w")
 product_label.pack(anchor="w")
 price_label.pack(anchor="w")
 

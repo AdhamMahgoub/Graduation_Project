@@ -122,6 +122,24 @@ def detect_videos():
         cv2.imshow("Image",frame)
         key = cv2.waitKey(1) #wait 1ms the loop will start again and we will process the next frame
     
+        def save_to_text(textfile_path):
+            result = max_pair
+            # Open a file in write mode
+            file = open(textfile_path, "w")
+            # Convert each item to a string and write it to the file
+            #for item in pair:
+            item=convert_id_to_name(result[0])
+            confidence_score=result[1]
+            file.write(str(item) + "\t" + str(price(result[0])))
+            # Close the file    
+            file.close()
+
+
+        # In[23]:
+
+
+        save_to_text('Detection.txt')
+
         if key == 27: #esc key stops the process
             break;        
     cap.release()    
@@ -270,21 +288,5 @@ print("Pair with the maximum confidence score:", max_pair)
 # In[22]:
 
 
-def save_to_text(textfile_path):
-    result = max_pair
-    # Open a file in write mode
-    file = open(textfile_path, "w")
-    # Convert each item to a string and write it to the file
-    #for item in pair:
-    item=convert_id_to_name(result[0])
-    confidence_score=result[1]
-    file.write(str(item) + "\t" + str(price(result[0])))
-    # Close the file    
-    file.close()
 
-
-# In[23]:
-
-
-save_to_text('Detection.txt')
 

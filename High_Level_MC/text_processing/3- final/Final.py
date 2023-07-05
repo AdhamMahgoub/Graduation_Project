@@ -117,13 +117,8 @@ def detect_videos():
         #for item in pair:
         #item=convert_id_to_name(max_pair[0])
         #confidence_score=result[1]
-        product = result[0]
-        confidence = result[1]
 
-        result_string = f"Product: {product}\nConfidence: {confidence}"
-        file.write(str(result_string))
-        # Close the file    
-        file.close()
+        ############## Removed from here
         
         indexes = cv2.dnn.NMSBoxes(boxes,confidences,0.4,0.6)
         
@@ -144,8 +139,22 @@ def detect_videos():
         cv2.imshow("Image",frame)
         key = cv2.waitKey(1) #wait 1ms the loop will start again and we will process the next frame
     
+
+        ############## Added here
         if key == 27: #esc key stops the process
-            break;        
+            break;   
+
+        product = result[0]
+        confidence = result[1]
+
+        result_string = f"Product: {product}\nConfidence: {confidence}"
+        file.write(str(result_string))
+        # Close the file    
+        file.close()    
+
+
+
+
     cap.release()    
     cv2.destroyAllWindows() 
     return class_ids,confidences

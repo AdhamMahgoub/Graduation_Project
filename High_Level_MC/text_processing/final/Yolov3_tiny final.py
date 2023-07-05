@@ -133,12 +133,10 @@ def detect_videos():
             file.write(str(item) + "\t" + str(price(result[0])))
             # Close the file    
             file.close()
-
-
+            
         # In[23]:
-
-
         save_to_text('Detection.txt')
+
 
         if key == 27: #esc key stops the process
             break;        

@@ -218,7 +218,7 @@ http_thread.daemon = True  # Allow the program to exit even if the thread is run
 http_thread.start()
 
 # Schedule the update_gui() function to be called from the main thread periodically
-root.after(50, update_gui) #50ms 
+root.after(500, update_gui) #500ms 
 
 root.mainloop()
 

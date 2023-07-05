@@ -118,7 +118,7 @@ def update_gui():
             return None
 
     # Replace 'readme.txt' with the actual path to your file
-    file_name = 'habibas_output.txt'
+    file_name = 'Detection.txt'
     value = read_file_to_string(file_name)
 
     #if value is not None:

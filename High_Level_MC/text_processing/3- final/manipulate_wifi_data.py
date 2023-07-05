@@ -125,9 +125,10 @@ def update_gui():
     #    print("File content:")
     #    print(value)
 
-    split_strings = value.split("\n")    
-    product = split_strings[0]
-    price = split_strings[1]
+    if value != "":
+        split_strings = value.split("\n")    
+        product = split_strings[0]
+        price = split_strings[1]
     ########################    Habiba's  ########################
 
     weight, ir, xa, ya, za, xg, yg, zg, heading = map(float, values)

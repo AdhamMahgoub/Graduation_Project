@@ -204,12 +204,13 @@ def fetch_data():
     print ("\n\nwhole_text = ")
     print(whole_text)
 
-    # Threading: Call the fetch_data function again after 0.5 second using Timer
+    # Threading: Call the fetch_data function again after 0.6 second using Timer
     threading.Timer(0.6, fetch_data).start()  
 
 # Instead of the while loop, start the HTTP request in a separate thread
 def http_thread():
-    fetch_data()
+    while True: 
+        fetch_data()
 
 # Start the HTTP thread
 http_thread = threading.Thread(target=http_thread)

@@ -146,3 +146,4 @@ def detect_videos():
     cv2.destroyAllWindows() 
     return class_ids,confidences
 
+detect_videos()

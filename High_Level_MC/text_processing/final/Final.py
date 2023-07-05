@@ -50,9 +50,9 @@ outputlayers
 import time
 def detect_videos():
     #For videos
-    cap=cv2.VideoCapture('pepsi.webm')
+    #cap=cv2.VideoCapture('pepsi.webm')
     #For Webcam
-    #cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(0)
     font = cv2.FONT_HERSHEY_PLAIN
     starting_time= time.time()
     frame_id = 0

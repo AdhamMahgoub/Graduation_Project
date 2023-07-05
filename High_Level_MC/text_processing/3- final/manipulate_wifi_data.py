@@ -129,6 +129,9 @@ def update_gui():
         split_strings = value.split("\n")    
         product = split_strings[0]
         price = split_strings[1]
+    if value == "":
+        product = "NONE"
+        price = "0"
     ########################    Habiba's  ########################
 
     weight, ir, xa, ya, za, xg, yg, zg, heading = map(float, values)

@@ -83,7 +83,7 @@ title_label = ttk.Label(frame, text="Smart Retail System", style="Custom.TLabel"
 weight_label = ttk.Label(frame, text="Weight: 0kg", style="Custom.TLabel")
 ir_label = ttk.Label(frame, text="IR: N/A", style="Custom.TLabel")
 xa_label = ttk.Label(frame, text="Xa: N/A", style="Custom.TLabel")
-acceleration_label = ttk.Label(root, text="Acceleration:", style="Custom.TLabel")
+acceleration_label = ttk.Label(frame, text="Acceleration:", style="Custom.TLabel")
 ya_label = ttk.Label(frame, text="Ya: N/A", style="Custom.TLabel")
 za_label = ttk.Label(frame, text="Za: N/A", style="Custom.TLabel")
 xg_label = ttk.Label(frame, text="Xg: N/A", style="Custom.TLabel")

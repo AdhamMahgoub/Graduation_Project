@@ -121,7 +121,7 @@ def detect_videos():
         if max_pair is not None:
             product = classes[max_pair[0]]
             confidence = max_pair[1]
-            result_string = f"Product: {product}\nConfidence: {confidence}"
+            result_string = f"{product}\n{confidence}"
             print(result_string)
             file.write(str(result_string))
         

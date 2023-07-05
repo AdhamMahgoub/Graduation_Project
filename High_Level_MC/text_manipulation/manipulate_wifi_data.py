@@ -53,7 +53,7 @@ import tkinter as tk
 from tkinter import ttk
 
 root = tk.Tk()
-root.geometry("250x250")
+root.geometry("500x500")
 
 # Create a style object
 style = ttk.Style()
@@ -85,6 +85,8 @@ xg_label = ttk.Label(frame, text="Xg: N/A", style="Custom.TLabel")
 yg_label = ttk.Label(frame, text="Yg: N/A", style="Custom.TLabel")
 zg_label = ttk.Label(frame, text="Zg: N/A", style="Custom.TLabel")
 heading_label = ttk.Label(frame, text="Heading: N/A degrees", style="Custom.TLabel")
+product_label = ttk.Label(frame, text="Product: N/A", style="Custom.TLabel")
+price_label = ttk.Label(frame, text="Price: N/A", style="Custom.TLabel")
 
 # Pack the labels
 title_label.pack(side="top", pady=10)
@@ -97,9 +99,37 @@ xg_label.pack(anchor="w")
 yg_label.pack(anchor="w")
 zg_label.pack(anchor="w")
 heading_label.pack(anchor="w")
+product_label.pack(anchor="w")
+price_label.pack(anchor="w")
 
 # Function to update the labels with new values
 def update_gui():
+    ########################    Habiba's  ########################
+    def read_file_to_string(file_name):
+        try:
+            with open(file_name, 'r') as file:
+                value = file.read()
+                return value
+        except FileNotFoundError:
+            print(f"File '{file_name}' not found.")
+            return None
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return None
+
+    # Replace 'readme.txt' with the actual path to your file
+    file_name = 'habibas_output.txt'
+    value = read_file_to_string(file_name)
+
+    #if value is not None:
+    #    print("File content:")
+    #    print(value)
+
+    split_strings = value.split("\n")    
+    product = split_strings[0]
+    price = split_strings[1]
+    ########################    Habiba's  ########################
+
     weight, ir, xa, ya, za, xg, yg, zg, heading = map(float, values)
     weight_label.config(text=f"Weight: {weight}kg")
     ir_label.config(text=f"IR: {ir}")
@@ -110,13 +140,19 @@ def update_gui():
     yg_label.config(text=f"Yg: {yg}")
     zg_label.config(text=f"Zg: {zg}")
     heading_label.config(text=f"Heading: {heading} degrees")
+    product_label.config(text=f"Product: {product}")
+    price_label.config(text=f"Price: {price}")
+    
+
 
     root.after(50, update_gui)  # Threading: Schedule the function to run again after 50ms
     
-
 # Example of how to call the function and update the labels
 update_gui()
 ########################    End of GUI  ########################
+
+
+
 
 def fetch_data():
     global buffer_received, whole_text
@@ -130,17 +166,6 @@ def fetch_data():
     print("\n\nbuffer received = ")
     print(buffer_received)
 
-    '''   
-    # Update values based on the buffer keywords
-    buffer_keywords = ["Weight", "IR", "Xa", "Ya", "Za", "Xg", "Yg", "Zg", "Heading"]
-    for keyword in buffer_keywords:
-        if keyword in buffer_received:
-            # Use regular expression to find numeric values (integers or floats)
-            value = re.search(r"[-+]?\d*\.\d+|\d+", buffer_received).group()
-            values[buffer_keywords.index(keyword)] = value
-            break  # No need to continue checking other keywords if a match is found
-    '''
-
     # Update values based on the buffer keywords
     buffer_keywords = ["Weight", "IR", "Xa", "Ya", "Za", "Xg", "Yg", "Zg", "Heading"]
     lines = buffer_received.splitlines()   
@@ -151,7 +176,6 @@ def fetch_data():
                 value = re.search(r"[-+]?\d*\.\d+|\d+", line).group()
                 values[buffer_keywords.index(keyword)] = value
     
-
     # Format the whole_text with the updated values
     whole_text = whole_text_template.format(*values)
 
@@ -162,9 +186,6 @@ def fetch_data():
 
     # Threading: Call the fetch_data function again after 0.5 second using Timer
     threading.Timer(0.6, fetch_data).start()  
-
-
-
 
 # Instead of the while loop, start the HTTP request in a separate thread
 def http_thread():

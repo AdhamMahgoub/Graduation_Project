@@ -47,6 +47,12 @@ outputlayers
 # In[ ]:
 
 
+def price(class_id):
+    if class_id==36:
+        return '7$'
+    elif class_id==37:
+        return '10$'
+
 import time
 def detect_videos():
     #For videos
@@ -121,7 +127,7 @@ def detect_videos():
         if max_pair is not None:
             product = classes[max_pair[0]]
             confidence = max_pair[1]
-            result_string = f"{product}\n{confidence}"
+            result_string = f"{product}\n{price(max_pair[0])}"
             print(result_string)
             file.write(str(result_string))
         

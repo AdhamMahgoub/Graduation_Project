@@ -205,7 +205,7 @@ def fetch_data():
     print(whole_text)
 
     # Threading: Call the fetch_data function again after 0.5 second using Timer
-    threading.Timer(0.6, fetch_data).start()  
+    threading.Timer(1, fetch_data).start()  
 
 # Instead of the while loop, start the HTTP request in a separate thread
 def http_thread():
@@ -217,7 +217,7 @@ http_thread.daemon = True  # Allow the program to exit even if the thread is run
 http_thread.start()
 
 # Schedule the update_gui() function to be called from the main thread periodically
-root.after(50, update_gui) #50ms 
+root.after(1000, update_gui) #50ms 
 
 root.mainloop()
 

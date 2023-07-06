@@ -165,7 +165,7 @@ def update_gui():
     
 
 
-    root.after(50, update_gui)  # Threading: Schedule the function to run again after 50ms
+    #root.after(50, update_gui)  # Threading: Schedule the function to run again after 50ms
     
 # Example of how to call the function and update the labels
 update_gui()
